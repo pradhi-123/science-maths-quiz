@@ -348,7 +348,7 @@ export default function LandingPage({ navigateTo }) {
             }}
           >
             <Award size={64} color="#ffaa00" style={{ filter: 'drop-shadow(0 0 15px #ffaa00)', animation: 'spin-trophy 8s infinite linear' }} />
-            <h2 style={{ fontSize: '1.6rem', color: '#ffaa00', marginBottom: '8px' }}>Round 2: Thermodynamic Entropy</h2>
+            <h2 style={{ fontSize: '1.6rem', color: '#ffaa00', marginBottom: '8px' }}>Thermodynamic Entropy</h2>
             <span style={{ fontSize: '0.8rem', color: '#ffaa00', fontWeight: 800, letterSpacing: '6px', fontFamily: 'var(--font-hud)', textTransform: 'uppercase' }}>
               // ALL SECURE ARCHIVES DECRYPTED
             </span>
@@ -535,7 +535,7 @@ export default function LandingPage({ navigateTo }) {
                 </span>
               </div>
 
-              <h2 style={{ fontSize: '1.6rem', color: '#00d2ff', marginBottom: '8px' }}>Round 3: Cosmic Exploration</h2>
+              <h2 style={{ fontSize: '1.6rem', color: '#00d2ff', marginBottom: '8px' }}>{activeLoc.title}</h2>
               <h3 style={{ fontSize: '2.4rem', fontWeight: 900, marginBottom: '25px', color: '#FFD700', textTransform: 'uppercase', letterSpacing: '2px', textShadow: '2px 2px 0 #3a2a18, -2px -2px 0 #3a2a18, 2px -2px 0 #3a2a18, -2px 2px 0 #3a2a18, 0px 5px 15px rgba(0,0,0,0.6)' }}>
                 Round Decryption Clue:
               </h3>
