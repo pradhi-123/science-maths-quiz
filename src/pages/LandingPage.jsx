@@ -145,6 +145,22 @@ export default function LandingPage({ navigateTo }) {
   const [guessError, setGuessError] = useState(false);
   const [zoomTarget, setZoomTarget] = useState({ top: "50%", left: "50%" });
 
+  const cinematicBgs = [
+    '/images/backgrounds/rover_bg.png',
+    '/images/backgrounds/spaceship_bg.png',
+    '/images/backgrounds/temple_run_bg.png',
+    '/images/backgrounds/snow_space_bg.png'
+  ];
+
+  const [bgIndex, setBgIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBgIndex(prev => (prev + 1) % cinematicBgs.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen().catch((err) => {
@@ -1083,7 +1099,8 @@ export default function LandingPage({ navigateTo }) {
       style={{
         width: '100vw',
         height: '100vh',
-        background: "url('/images/ppt2022/image58.gif') no-repeat center center / 100% 100%",
+        background: `url('${cinematicBgs[bgIndex]}') no-repeat center center / cover`,
+        transition: 'background 1.5s ease-in-out',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
