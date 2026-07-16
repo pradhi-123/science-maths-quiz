@@ -604,7 +604,7 @@ export default function PresenterPage({ navigateTo }) {
           src={activeBGM}
           autoPlay 
           loop 
-          onCanPlay={(e) => { e.target.volume = 0.06; }}
+          onCanPlay={(e) => { e.target.volume = 0.4; }}
           onTimeUpdate={(e) => {
             if (activeBGM.includes('youth.mpeg') && e.target.currentTime >= 45) {
               e.target.currentTime = 0;
