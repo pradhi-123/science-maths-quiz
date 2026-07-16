@@ -70,53 +70,66 @@ const SCROLL_LOCATIONS = [
     mascot: "/images/mascots/space.png",
     mascotMsg: "Rangers! A hidden data scroll has drifted onto the roadway on the right side. Spot it to decrypt Sector 01!",
     scrollPos: { top: "78%", left: "88%" },
-    route: "presenter"
+    route: "presenter",
+    locationClue: "Where wheels halt and footsteps begin, under the grand canopy where the hosts welcome you in. Spot the main gateway!"
   },
   {
     round: 2,
     title: "BIOMETRIC EQUATIONS",
-    desc: "PPT Questions 1-6. Spot Scroll 02 in the canopy sports hall to boot Sector 2!",
+    desc: "General Science & Biology challenges. Spot Scroll 02 in the canopy corridors to boot Sector 2!",
     name: "Canopy Corridor",
     image: "/images/corridors/corridor.jpg",
     mascot: "/images/mascots/jungle.png",
     mascotMsg: "The second coordinates are drifting around the sports hall black screen area. Find it to decrypt Sector 02!",
     scrollPos: { top: "70%", left: "49%" },
-    route: "presenter"
+    route: "presenter",
+    locationClue: "A covered passageway between building wings, where the canopy shades the paths of rangers. Spot the canopy corridor!"
   },
   {
     round: 3,
     title: "GLACIAL MATRICES",
-    desc: "PPT Questions 7-12 (Picture Connect). Spot Scroll 03 in the dormitory to boot Sector 3!",
+    desc: "Connect the visual elements to reveal the scientific links. Spot Scroll 03 in the hostel dormitory to boot Sector 3!",
     name: "School Hostel",
     image: "/images/corridors/hostel.png",
     mascot: "/images/mascots/ice.png",
     mascotMsg: "Explorers! A cryptographic scroll has slipped onto the window sill of the bunk beds. Discover it for Sector 03!",
     scrollPos: { top: "62%", left: "26%" },
-    route: "presenter"
+    route: "presenter",
+    locationClue: "Where weary students rest their heads at night, dreaming of equations in the bunk beds. Spot the school hostel!"
   },
   {
     round: 4,
     title: "THERMODYNAMIC ENTROPY",
-    desc: "Entropy & Thermodynamic laws. Spot Scroll 04 in the lobby reception desks to boot Sector 4!",
+    desc: "Intense thermodynamic calculations and entropy challenges. Spot Scroll 04 in the office lobby to boot Sector 4!",
     name: "School Office",
     image: "/images/corridors/office.jpg",
     mascot: "/images/mascots/water.png",
     mascotMsg: "The fourth data scroll is lodged somewhere in the lobby reception desks. Find it to unlock training logs!",
     scrollPos: { top: "20%", left: "84%" },
-    route: "presenter"
+    route: "presenter",
+    locationClue: "The administrative heart, where files and ledgers stay, near the main reception desks. Spot the school office!"
   },
   {
     round: 5,
     title: "EXPERIMENTAL VECTOR FIELDS",
-    desc: "Live laboratory demonstrations. Spot Scroll 05 on the volleyball court to boot Stage Sector 5!",
+    desc: "Experimental vector fields and live physical demonstrations. Spot Scroll 05 on the volleyball court to boot Stage Sector 5!",
     name: "Volleyball Court",
     image: "/images/corridors/volleyball.jpg",
     mascot: "/images/mascots/sky.png",
     mascotMsg: "Rangers! The final scroll is floating in mid-air on the volleyball court. Secure it to lock in your score!",
     scrollPos: { top: "21%", left: "50.5%" },
-    route: "presenter"
+    route: "presenter",
+    locationClue: "Over the high net, the sphere flies back and forth on the sandy court facing north. Spot the volleyball court!"
   }
 ];
+
+const LOCATION_ANSWERS = {
+  1: ['entrance', 'school entrance', 'portico', 'gate', 'main gate', 'main entrance'],
+  2: ['corridor', 'canopy corridor', 'canopy', 'sports corridor', 'canopy corridors', 'sports hall corridor', 'sports hall'],
+  3: ['hostel', 'school hostel', 'dormitory', 'dorm', 'bunk beds', 'bunks'],
+  4: ['office', 'school office', 'lobby', 'reception', 'reception desk', 'receptions'],
+  5: ['volleyball court', 'volleyball', 'court', 'volleyball court facing north']
+};
 
 export default function LandingPage({ navigateTo }) {
   // Use sessionStorage to remember if the finalists intro has been seen in this tab session
@@ -127,7 +140,17 @@ export default function LandingPage({ navigateTo }) {
   const [activeScrollIdx, setActiveScrollIdx] = useState(0);
   const [scrollFound, setScrollFound] = useState(false);
   const [showUnlockModal, setShowUnlockModal] = useState(false);
+  const [isLocUnlocked, setIsLocUnlocked] = useState(false);
+  const [guessValue, setGuessValue] = useState('');
+  const [guessError, setGuessError] = useState(false);
   const [zoomTarget, setZoomTarget] = useState({ top: "50%", left: "50%" });
+
+  // Reset location unlock state whenever the active round / scroll changes
+  useEffect(() => {
+    setIsLocUnlocked(false);
+    setGuessValue('');
+    setGuessError(false);
+  }, [activeScrollIdx]);
 
   // Sync active scroll index based on completed rounds from localStorage (with real-time cross-tab sync)
   useEffect(() => {
@@ -163,6 +186,20 @@ export default function LandingPage({ navigateTo }) {
     }, 600);
   };
 
+  const handleCheckLocation = () => {
+    const cleanGuess = guessValue.trim().toLowerCase();
+    const validAnswers = LOCATION_ANSWERS[activeLoc.round] || [];
+    if (validAnswers.includes(cleanGuess)) {
+      playTransition();
+      setIsLocUnlocked(true);
+      setGuessError(false);
+      setGuessValue('');
+    } else {
+      playClick();
+      setGuessError(true);
+    }
+  };
+
   const handleBootRound = (loc) => {
     setShowUnlockModal(false);
     playTransition();
@@ -182,6 +219,9 @@ export default function LandingPage({ navigateTo }) {
     setActiveScrollIdx(0);
     setScrollFound(false);
     setShowUnlockModal(false);
+    setIsLocUnlocked(false);
+    setGuessValue('');
+    setGuessError(false);
   };
 
   const currentHouse = HOUSE_PLAYERS[selectedHouse];
@@ -380,18 +420,20 @@ export default function LandingPage({ navigateTo }) {
         style={{
           width: '100vw',
           height: '100vh',
-          background: `url('${activeLoc.image}') no-repeat center center / cover`,
+          background: isLocUnlocked 
+            ? `url('${activeLoc.image}') no-repeat center center / cover` 
+            : '#040509',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between',
+          justifyContent: isLocUnlocked ? 'space-between' : 'center',
+          alignItems: 'center',
           padding: '30px 40px',
           color: '#ffffff',
           overflow: 'hidden',
           position: 'relative',
-          transition: 'all 0.8s ease-in-out'
+          transition: 'background 0.8s ease-in-out'
         }}
       >
-        {/* Dark map vignette overlay */}
         <div 
           style={{ 
             position: 'absolute', 
@@ -400,10 +442,158 @@ export default function LandingPage({ navigateTo }) {
             width: '100%', 
             height: '100%', 
             zIndex: 1, 
-            background: 'radial-gradient(circle at center, rgba(4,5,9,0.1) 0%, rgba(4,5,9,0.7) 100%)',
+            background: isLocUnlocked 
+              ? 'radial-gradient(circle at center, rgba(4,5,9,0.1) 0%, rgba(4,5,9,0.7) 100%)'
+              : 'radial-gradient(circle at center, rgba(4,5,9,0.4) 0%, rgba(4,5,9,0.95) 100%)',
             pointerEvents: 'none'
           }} 
         />
+
+        {!isLocUnlocked ? (
+          /* CRUSHED CLUE PAPER LOCK SCREEN */
+          <div 
+            style={{
+              width: '460px',
+              minHeight: '365px',
+              background: 'linear-gradient(145deg, #f7f1db 0%, #e8dbb5 100%)',
+              border: '3px solid #8e7343',
+              borderRadius: '8px',
+              boxShadow: '0 25px 60px rgba(0,0,0,0.9), inset 0 0 45px rgba(139, 115, 68, 0.25)',
+              padding: '30px 40px',
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              color: '#2b2214',
+              transform: 'rotate(-1deg)',
+              animation: 'paper-unfold 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+              fontFamily: '"Courier New", Courier, monospace',
+              backgroundImage: 'repeating-linear-gradient(rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 24px, rgba(139, 115, 68, 0.15) 25px)',
+              lineHeight: '25px',
+              zIndex: 10
+            }}
+          >
+            {/* Crumpled paper texture overlay lines */}
+            <div 
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                pointerEvents: 'none',
+                opacity: 0.12,
+                background: 'repeating-linear-gradient(45deg, transparent, transparent 40px, #000 41px, transparent 42px), repeating-linear-gradient(-45deg, transparent, transparent 55px, #000 56px, transparent 57px)'
+              }}
+            />
+
+            {/* Wax seal watermark */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: '25px',
+                right: '25px',
+                border: '3px double #d32f2f',
+                borderRadius: '50%',
+                width: '72px',
+                height: '72px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transform: 'rotate(12deg)',
+                opacity: 0.68,
+                userSelect: 'none',
+                pointerEvents: 'none',
+                color: '#d32f2f',
+                fontFamily: 'var(--font-hud)',
+                fontSize: '0.62rem',
+                fontWeight: 'bold',
+                textAlign: 'center',
+                lineHeight: '1.2'
+              }}
+            >
+              ST. JUDE'S<br/>QUIZ
+            </div>
+
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', borderBottom: '2px solid rgba(142, 115, 67, 0.4)', paddingBottom: '8px' }}>
+                <span style={{ fontWeight: 'bold', fontSize: '0.85rem', color: '#7a5f2e', letterSpacing: '1px' }}>
+                  CLUE NOTE #{activeLoc.round}
+                </span>
+                <span style={{ fontSize: '0.72rem', color: 'rgba(0,0,0,0.5)' }}>
+                  [CLASSIFIED]
+                </span>
+              </div>
+
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 900, marginBottom: '15px', color: '#4a3717', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                Round Decryption Clue:
+              </h3>
+
+              <p style={{ fontSize: '0.95rem', fontWeight: 600, color: '#3d2e15', fontStyle: 'italic', marginBottom: '22px', textIndent: '20px', lineHeight: '22px' }}>
+                "{activeLoc.locationClue}"
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', zIndex: 20 }}>
+              <div style={{ display: 'flex', gap: '10px' }}>
+                <input
+                  type="text"
+                  placeholder="Identify location name..."
+                  value={guessValue}
+                  onChange={(e) => {
+                    setGuessValue(e.target.value);
+                    setGuessError(false);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') handleCheckLocation();
+                  }}
+                  style={{
+                    flex: 1,
+                    background: 'rgba(255, 255, 255, 0.88)',
+                    border: guessError ? '2.5px solid #d32f2f' : '2px solid #8e7343',
+                    color: '#2b2214',
+                    fontFamily: '"Courier New", Courier, monospace',
+                    fontSize: '0.9rem',
+                    fontWeight: 'bold',
+                    padding: '10px 14px',
+                    borderRadius: '4px',
+                    outline: 'none',
+                    boxShadow: guessError ? '0 0 10px rgba(211, 47, 47, 0.3)' : 'none',
+                    transition: 'all 0.2s'
+                  }}
+                />
+                <button
+                  onClick={handleCheckLocation}
+                  style={{
+                    background: '#8e7343',
+                    border: 'none',
+                    color: '#f5ecd6',
+                    fontFamily: 'var(--font-hud)',
+                    fontSize: '0.78rem',
+                    letterSpacing: '1.5px',
+                    padding: '10px 20px',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontWeight: 'bold',
+                    transition: 'all 0.2s'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.background = '#7a5f2e'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = '#8e7343'}
+                >
+                  DECRYPT
+                </button>
+              </div>
+              
+              {guessError && (
+                <span style={{ fontSize: '0.72rem', color: '#d32f2f', fontWeight: 'bold', textAlign: 'center', fontFamily: '"Courier New", Courier, monospace' }}>
+                  ❌ ACCESS DENIED: INVALID COORDINATES
+                </span>
+              )}
+            </div>
+          </div>
+        ) : (
+          /* NORMAL MAP HUD & SCROLL SPOTTING */
+          <>
 
         {/* Map Header HUD */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 10 }}>
@@ -554,6 +744,7 @@ export default function LandingPage({ navigateTo }) {
             })}
           </div>
         </div>
+      </>)}
 
         {/* DECIPHER ROUND DESCRIPTION MODAL (PS5 BOOT DECK OVERLAY) */}
         {showUnlockModal && (

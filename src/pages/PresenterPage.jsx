@@ -602,6 +602,98 @@ export default function PresenterPage({ navigateTo }) {
             100% { opacity: 1; transform: scale(1); }
           }
         `}</style>
+
+        {/* FLOATING PRESENTER CONTROLS FOR ROUND 5 (Always visible) */}
+        <div 
+          className="presenter-floating-safety-bar"
+          style={{
+            position: 'absolute',
+            bottom: '25px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: 100,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            background: 'rgba(10, 13, 22, 0.94)',
+            border: '1.5px solid rgba(0, 255, 209, 0.7)',
+            borderRadius: '24px',
+            padding: '8px 20px',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.8), 0 0 15px rgba(0, 255, 209, 0.15)',
+            backdropFilter: 'blur(12px)',
+            opacity: 0.9,
+            transition: 'all 0.3s ease',
+            pointerEvents: 'auto'
+          }}
+        >
+          {/* Exit/Home button */}
+          <button 
+            onClick={() => navigateTo('')}
+            title="Return to Main Menu (Escape)"
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: '#ff4444',
+              cursor: 'pointer',
+              padding: '4px',
+              display: 'flex',
+              alignItems: 'center',
+              transition: 'transform 0.2s'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          >
+            <Home size={16} />
+          </button>
+
+          <div style={{ width: '1px', height: '12px', background: 'rgba(255,255,255,0.15)' }} />
+
+          <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-hud)', color: 'rgba(255,255,255,0.55)', userSelect: 'none', letterSpacing: '1px' }}>
+            SECTOR 5 STAGE DOCK
+          </span>
+
+          <div style={{ width: '1px', height: '12px', background: 'rgba(255,255,255,0.15)' }} />
+
+          {/* Confetti Trigger */}
+          <button 
+            onClick={triggerManualConfetti}
+            title="Trigger Celebration Confetti"
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: 'var(--console-cyan)',
+              cursor: 'pointer',
+              padding: '4px',
+              display: 'flex',
+              alignItems: 'center',
+              transition: 'transform 0.2s'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          >
+            <Sparkles size={14} />
+          </button>
+
+          {/* Complete Round Trigger */}
+          <button 
+            onClick={handleCompleteRound}
+            title="Finish & Complete This Round"
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: 'var(--console-neon-purple)',
+              cursor: 'pointer',
+              padding: '4px',
+              display: 'flex',
+              alignItems: 'center',
+              transition: 'transform 0.2s'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          >
+            <Award size={15} />
+          </button>
+        </div>
       </div>
     );
   }
