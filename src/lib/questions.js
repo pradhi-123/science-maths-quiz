@@ -4,6 +4,7 @@ const DEFAULT_QUESTIONS = [
   // --- ROUND 1: REASONING ROUND (6 questions) ---
   {
     id: "r1-q1",
+    bg: "url('/images/ppt2022/image11.gif') no-repeat center center / cover",
     round: 1,
     text: "When exposed to air, why do most cookies turn soft and most cakes turn hard?",
     answer: "The exchange of water between the atmosphere and the food causes this effect. Cakes generally have a higher water content than cookies. When cakes are exposed to air, moisture from the cakes starts to evaporate, making them hard. Cookies have a lower water content, so they absorb moisture from the atmosphere, making them soft.",
@@ -16,6 +17,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r1-q2",
+    bg: "url('/images/ppt2022/image13.gif') no-repeat center center / cover",
     round: 1,
     text: "Why do ice cubes float in your glass of water when almost all other solid objects sink in their own liquid?",
     answer: "When water freezes into ice, its molecules lock into a rigid, spacious hexagonal structure. This makes ice about 9% less dense than liquid water, allowing it to float.",
@@ -28,6 +30,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r1-q3",
+    bg: "url('/images/ppt2022/image14.gif') no-repeat center center / cover",
     round: 1,
     text: "When you suspend a slinky and then release it, the bottom of the slinky appears to defy gravity.",
     answer: "The slinky contracts at the same rate as it is falling.",
@@ -40,6 +43,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r1-q4",
+    bg: "url('/images/ppt2022/image16.gif') no-repeat center center / cover",
     round: 1,
     text: "Why do silver ornaments become black over time?",
     answer: "Silver reacts with hydrogen sulphide in air to form black silver sulphide.",
@@ -52,6 +56,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r1-q5",
+    bg: "url('/images/ppt2022/image17.gif') no-repeat center center / cover",
     round: 1,
     text: "Why is iodine solution used on wounds?",
     answer: "It acts as an antiseptic by killing microorganisms.",
@@ -64,6 +69,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r1-q6",
+    bg: "url('/images/ppt2022/image18.gif') no-repeat center center / cover",
     round: 1,
     text: "Why do cold drink bottles fizz when opened?",
     answer: "Carbon dioxide escapes because the pressure suddenly decreases.",
@@ -78,6 +84,7 @@ const DEFAULT_QUESTIONS = [
   // --- ROUND 2: THERMODYNAMIC ENTROPY (6 questions) ---
   {
     id: "r2-q1",
+    bg: "url('/images/ppt2022/image19.gif') no-repeat center center / cover",
     round: 3,
     text: "Name the gas that was leaked in a factory near Chennai that took 20 lives recently?",
     answer: "Ammonia Gas (coolant system leak at seafood factory)",
@@ -91,6 +98,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r2-q2",
+    bg: "url('/images/ppt2022/image22.gif') no-repeat center center / cover",
     round: 3,
     text: "Name the chemical secreted in the brain that kindles the interest in human to learn more and also focus on new things.",
     answer: "Dopamine (associated with pleasure, focus, and drive)",
@@ -104,6 +112,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r2-q3",
+    bg: "url('/images/ppt2022/image23.gif') no-repeat center center / cover",
     round: 3,
     text: "What is the scientific reason behind designing the javelin with the sharp edge?",
     answer: "To minimize air resistance (aerodynamic streamlined design)",
@@ -116,6 +125,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r2-q4",
+    bg: "url('/images/ppt2022/image24.gif') no-repeat center center / cover",
     round: 3,
     text: "Name the chemical compound that is added along with petrol gas (LPG) to detect leakage?",
     answer: "Ethyl Mercaptan (Ethanethiol - has a strong odor)",
@@ -129,6 +139,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r2-q5",
+    bg: "url('/images/ppt2022/image3.gif') no-repeat center center / cover",
     round: 3,
     text: "QR codes are based on which branch of mathematics?",
     answer: "Matrix Theory / Linear Algebra (2D grid systems)",
@@ -142,6 +153,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r2-q6",
+    bg: "url('/images/ppt2022/image30.gif') no-repeat center center / cover",
     round: 3,
     text: "Without using a calculator, what is A² (where A = 111,111,111)?",
     answer: "12,345,678,987,654,321 (consecutive digit square pattern)",
@@ -157,6 +169,7 @@ const DEFAULT_QUESTIONS = [
   // --- ROUND 3: GLACIAL DECIPHERING (6 questions) ---
   {
     id: "r3-q1",
+    bg: "url('/images/ppt2022/image38.gif') no-repeat center center / cover",
     round: 4,
     text: "Ant bite: Name the type of reaction?",
     answer: "Neutralization Reaction (Formic acid neutralized by mild alkaline bases)",
@@ -169,6 +182,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r3-q2",
+    bg: "url('/images/ppt2022/image4.gif') no-repeat center center / cover",
     round: 4,
     text: "Name the branch of Mathematics representing these coordinate plots?",
     answer: "Coordinate Geometry (Analytic Geometry)",
@@ -181,6 +195,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r3-q3",
+    bg: "url('/images/ppt2022/image40.gif') no-repeat center center / cover",
     round: 4,
     text: "Name the Antibiotic discovered by Alexander Fleming?",
     answer: "Penicillin (extracted from Penicillium mould)",
@@ -193,6 +208,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r3-q4",
+    bg: "url('/images/ppt2022/image44.gif') no-repeat center center / cover",
     round: 4,
     text: "Who is this physicist known for electricity experiments?",
     answer: "Benjamin Franklin",
@@ -205,6 +221,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r3-q5",
+    bg: "url('/images/ppt2022/image49.gif') no-repeat center center / cover",
     round: 4,
     text: "Q = mCΔT represents which scientific quantity?",
     answer: "Specific Heat Capacity (of water)",
@@ -217,6 +234,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r3-q6",
+    bg: "url('/images/ppt2022/image5.gif') no-repeat center center / cover",
     round: 4,
     text: "Why does a diamond sparkle so brilliantly, and what optical phenomenon is responsible?",
     answer: "Total Internal Reflection (due to its high refractive index of 2.42)",
@@ -231,6 +249,7 @@ const DEFAULT_QUESTIONS = [
   // --- ROUND 2: ALGEBRAIC MATRICES (6 questions) ---
   {
     id: "r4-q1",
+    bg: "url('/images/ppt2022/image54.gif') no-repeat center center / cover",
     round: 2,
     text: "Find the value of: 999999² - (999998 × 1000000)",
     answer: "Let a = 999999\nThen 999998 = a - 1, 1000000 = a + 1\nSo, a² - (a - 1)(a + 1)\nUsing the identity (a-1)(a+1) = a² - 1\n= a² - (a² - 1)\n= 1",
@@ -243,6 +262,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r4-q2",
+    bg: "url('/images/ppt2022/image83.gif') no-repeat center center / cover",
     round: 2,
     text: "Find the value of: √(299² + 299 + 300)",
     answer: "Let a = 299\nThen √(a² + a + a + 1)\n= √(a² + 2a + 1)\n= √(a + 1)²\n= a + 1\n= 299 + 1 = 300",
@@ -255,6 +275,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r4-q3",
+    bg: "url('/images/ppt2022/image87.gif') no-repeat center center / cover",
     round: 2,
     text: "Find the value of: √(999² + 1998 + 1)",
     answer: "Let a = 999\nThen √(a² + 2a + 1)\n= √(a + 1)²\n= a + 1\n= 999 + 1 = 1000",
@@ -267,6 +288,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r4-q4",
+    bg: "url('/images/ppt2022/image88.gif') no-repeat center center / cover",
     round: 2,
     text: "Choose the right answer: 4¹⁰⁰ + 4¹⁰⁰.\n\n(a) 2²⁰⁰ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 (b) 2²⁰¹ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 (c) 4²⁰⁰ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 (d) 2¹⁰⁰",
     answer: "4¹⁰⁰ + 4¹⁰⁰\n= (2²)¹⁰⁰ + (2²)¹⁰⁰\n= 2²⁰⁰ + 2²⁰⁰\n= 2 × 2²⁰⁰\n= 2²⁰¹",
@@ -279,6 +301,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r4-q5",
+    bg: "url('/images/ppt2022/image90.jpeg') no-repeat center center / cover",
     round: 2,
     text: "If m³ = 27, and n³ = 36. Find m + n? (Note: 9 is not the answer)",
     answer: "m³ = 27, n³ = -36\nAnswer: -3",
@@ -291,6 +314,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r4-q6",
+    bg: "url('/images/ppt2022/image89.jpeg') no-repeat center center / cover",
     round: 2,
     text: "If y⁸ = (y - 1)⁸. Find y.",
     answer: "Since the powers are even, y = y - 1 => 0 = -1 (Not possible)\nNow consider: y = -(y - 1)\ny = -y + 1\n2y = 1\ny = 1/2",
@@ -305,6 +329,7 @@ const DEFAULT_QUESTIONS = [
   // --- ROUND 5: EXPERIMENTAL ROUND (4 questions) ---
   {
     id: "r5-q1",
+    bg: "url('/images/ppt2022/image86.png') no-repeat center center / cover",
     round: 5,
     text: "Activity 1: You are provided with 6-8 books, an A-4 sheet and a rectangular object. How will you balance a given object on an A-4 sheet placed between minimum 3 books each? Name the working principle?",
     answer: "Centre of gravity",
@@ -317,6 +342,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r5-q2",
+    bg: "url('/images/ppt2022/image85.png') no-repeat center center / cover",
     round: 5,
     text: "Activity 2: You are given 6-8 textbooks, placed on each other. Now you need to push the textbooks with your little finger? Hint: For additional support, you can use the materials given. Name the phenomenon?",
     answer: "Rolling Friction",
@@ -329,6 +355,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r5-q3",
+    bg: "url('/images/ppt2022/image84.png') no-repeat center center / cover",
     round: 5,
     text: "Activity 3: You are given INR 500 along with a pen. You must balance the pen on the currency note, then remove the note, without the pen fall. Name the phenomenon?",
     answer: "Kinetic Friction",
@@ -341,6 +368,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r5-q4",
+    bg: "url('/images/ppt2022/image81.png') no-repeat center center / cover",
     round: 5,
     text: "Activity 4 (Surprise Round In case of Tie): The coin is vertically balanced one after another in the presence of strong magnetic field? What is the principle behind it?",
     answer: "Properties of Para & Ferro magnetic substance",
@@ -354,7 +382,7 @@ const DEFAULT_QUESTIONS = [
 ];
 
 export function getSavedQuestions() {
-  const data = localStorage.getItem('school_quiz_questions_v9');
+  const data = localStorage.getItem('school_quiz_questions_v10');
   let savedList = [];
   if (data) {
     try {
@@ -380,16 +408,16 @@ export function getSavedQuestions() {
       }
       return defaultQ;
     });
-    localStorage.setItem('school_quiz_questions_v9', JSON.stringify(merged));
+    localStorage.setItem('school_quiz_questions_v10', JSON.stringify(merged));
     return merged;
   }
 
   // Initialize with seed
-  localStorage.setItem('school_quiz_questions_v9', JSON.stringify(DEFAULT_QUESTIONS));
+  localStorage.setItem('school_quiz_questions_v10', JSON.stringify(DEFAULT_QUESTIONS));
   return DEFAULT_QUESTIONS;
 }
 
 export function saveQuestions(list) {
-  localStorage.setItem('school_quiz_questions_v9', JSON.stringify(list));
+  localStorage.setItem('school_quiz_questions_v10', JSON.stringify(list));
 }
 export { DEFAULT_QUESTIONS };
