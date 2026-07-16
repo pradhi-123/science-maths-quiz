@@ -132,10 +132,10 @@ const LOCATION_ANSWERS = {
   5: ['volleyball court', 'volleyball', 'court', 'volleyball court facing north']
 };
 
-import roverBg from '../../public/images/backgrounds/rover_bg.png';
-import spaceshipBg from '../../public/images/backgrounds/spaceship_bg.png';
-import templeRunBg from '../../public/images/backgrounds/temple_run_bg.png';
-import snowSpaceBg from '../../public/images/backgrounds/snow_space_bg.png';
+import roverBg from '../assets/backgrounds/rover_bg.png';
+import spaceshipBg from '../assets/backgrounds/spaceship_bg.png';
+import templeRunBg from '../assets/backgrounds/temple_run_bg.png';
+import snowSpaceBg from '../assets/backgrounds/snow_space_bg.png';
 
 export default function LandingPage({ navigateTo }) {
   // Use sessionStorage to remember if the finalists intro has been seen in this tab session
