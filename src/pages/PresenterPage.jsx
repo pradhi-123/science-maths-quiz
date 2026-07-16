@@ -132,8 +132,8 @@ export default function PresenterPage({ navigateTo }) {
         return {
           mascot: "/images/mascots/jungle.png",
           background: "url('/images/ppt2022/image71.gif') no-repeat center center / cover",
-          zone: "THERMODYNAMIC ENTROPY",
-          title: "ROUND 02: thermodynamic entropy"
+          zone: "ALGEBRAIC MATRICES",
+          title: "ROUND 02: algebraic matrices"
         };
       case 3:
         return {

@@ -228,26 +228,26 @@ const DEFAULT_QUESTIONS = [
     cardGradient: "linear-gradient(135deg, rgba(255, 0, 85, 0.45) 0%, rgba(255, 170, 0, 0.45) 100%)"
   },
 
-  // --- ROUND 4: VISUAL INTEL (6 questions) ---
+  // --- ROUND 2: ALGEBRAIC MATRICES (6 questions) ---
   {
     id: "r4-q1",
-    round: 4,
-    text: "State the law of thermodynamics which defines the concept of entropy?",
-    answer: "The Second Law of Thermodynamics (entropy of isolated systems always increases)",
-    timeLimit: 15,
-    keywords: "thermodynamics, entropy, physics, laws",
-    image: "/images/image10.jpeg",
+    round: 2,
+    text: "Find the value of: 999999² - (999998 × 1000000)",
+    answer: "1",
+    timeLimit: 25,
+    keywords: "math, algebra, equation, square",
+    image: "",
     video: "/images/scientofabio/VAGZ2h7bpE8.mp4",
-    cardColor: "#bd00ff",
-    cardGradient: "linear-gradient(135deg, rgba(189, 0, 255, 0.45) 0%, rgba(255, 0, 128, 0.45) 100%)"
+    cardColor: "#00ff88",
+    cardGradient: "linear-gradient(135deg, rgba(0, 255, 136, 0.45) 0%, rgba(0, 136, 255, 0.45) 100%)"
   },
   {
     id: "r4-q2",
     round: 2,
-    text: "Thermodynamic Query 2? [Type your custom question here]",
-    answer: "Explanation detail. [Type your custom explanation here]",
-    timeLimit: 15,
-    keywords: "placeholder, thermodynamic",
+    text: "Find the value of: √(299² + 299 + 300)",
+    answer: "300",
+    timeLimit: 25,
+    keywords: "math, algebra, root, square",
     image: "",
     video: "/images/scientofabio/VAG-gzQe-A0.mp4",
     cardColor: "#ff0080",
@@ -256,10 +256,10 @@ const DEFAULT_QUESTIONS = [
   {
     id: "r4-q3",
     round: 2,
-    text: "Thermodynamic Query 3? [Type your custom question here]",
-    answer: "Explanation detail. [Type your custom explanation here]",
-    timeLimit: 15,
-    keywords: "placeholder, thermodynamic",
+    text: "Find the value of: √(999² + 1998 + 1)",
+    answer: "1000",
+    timeLimit: 25,
+    keywords: "math, algebra, root, equation",
     image: "",
     video: "/images/scientofabio/VAG8vFA2P5Y.mp4",
     cardColor: "#00ffd1",
@@ -268,10 +268,10 @@ const DEFAULT_QUESTIONS = [
   {
     id: "r4-q4",
     round: 2,
-    text: "Thermodynamic Query 4? [Type your custom question here]",
-    answer: "Explanation detail. [Type your custom explanation here]",
-    timeLimit: 15,
-    keywords: "placeholder, thermodynamic",
+    text: "Choose the right answer: 4¹⁰⁰ + 4¹⁰⁰",
+    answer: "2²⁰¹",
+    timeLimit: 25,
+    keywords: "math, algebra, exponents",
     image: "",
     video: "/images/scientofabio/VAHEeGSI_Ro.mp4",
     cardColor: "#ffaa00",
@@ -280,10 +280,10 @@ const DEFAULT_QUESTIONS = [
   {
     id: "r4-q5",
     round: 2,
-    text: "Thermodynamic Query 5? [Type your custom question here]",
-    answer: "Explanation detail. [Type your custom explanation here]",
-    timeLimit: 15,
-    keywords: "placeholder, thermodynamic",
+    text: "If m³ = 27, and n³ = -27. Find the value of n?",
+    answer: "-3",
+    timeLimit: 25,
+    keywords: "math, algebra, exponents, cube",
     image: "",
     video: "/images/scientofabio/VAG6sKffFvc.mp4",
     cardColor: "#00d2ff",
@@ -292,14 +292,14 @@ const DEFAULT_QUESTIONS = [
   {
     id: "r4-q6",
     round: 2,
-    text: "Thermodynamic Query 6? [Type your custom question here]",
-    answer: "Explanation detail. [Type your custom explanation here]",
-    timeLimit: 15,
-    keywords: "placeholder, thermodynamic",
+    text: "If y⁸ = (y - 1)⁸. Find y.",
+    answer: "1/2",
+    timeLimit: 25,
+    keywords: "math, algebra, exponents, equation",
     image: "",
     video: "/images/scientofabio/VAG_KGgqvV0.mp4",
-    cardColor: "#ff0055",
-    cardGradient: "linear-gradient(135deg, rgba(255, 0, 85, 0.45) 0%, rgba(255, 170, 0, 0.45) 100%)"
+    cardColor: "#00ff88",
+    cardGradient: "linear-gradient(135deg, rgba(0, 255, 136, 0.45) 0%, rgba(0, 136, 255, 0.45) 100%)"
   },
   
   // --- ROUND 5: EXPERIMENTAL ROUND (4 questions) ---
@@ -354,7 +354,7 @@ const DEFAULT_QUESTIONS = [
 ];
 
 export function getSavedQuestions() {
-  const data = localStorage.getItem('school_quiz_questions_v3');
+  const data = localStorage.getItem('school_quiz_questions_v4');
   let savedList = [];
   if (data) {
     try {
@@ -380,16 +380,16 @@ export function getSavedQuestions() {
       }
       return defaultQ;
     });
-    localStorage.setItem('school_quiz_questions_v3', JSON.stringify(merged));
+    localStorage.setItem('school_quiz_questions_v4', JSON.stringify(merged));
     return merged;
   }
 
   // Initialize with seed
-  localStorage.setItem('school_quiz_questions_v3', JSON.stringify(DEFAULT_QUESTIONS));
+  localStorage.setItem('school_quiz_questions_v4', JSON.stringify(DEFAULT_QUESTIONS));
   return DEFAULT_QUESTIONS;
 }
 
 export function saveQuestions(list) {
-  localStorage.setItem('school_quiz_questions_v3', JSON.stringify(list));
+  localStorage.setItem('school_quiz_questions_v4', JSON.stringify(list));
 }
 export { DEFAULT_QUESTIONS };

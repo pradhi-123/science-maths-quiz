@@ -75,8 +75,8 @@ const SCROLL_LOCATIONS = [
   },
   {
     round: 2,
-    title: "THERMODYNAMIC ENTROPY",
-    desc: "Intense thermodynamic calculations and entropy challenges. Spot Scroll 02 in the canopy corridors to boot Sector 2!",
+    title: "ALGEBRAIC MATRICES",
+    desc: "Advanced algebraic equations and matrix theory. Spot Scroll 02 in the canopy corridors to boot Sector 2!",
     name: "Canopy Corridor",
     image: "/images/corridors/corridor.jpg",
     mascot: "/images/mascots/jungle.png",
