@@ -818,33 +818,6 @@ export default function AdminPage({ navigateTo }) {
                 )}
               </div>
             </div>
-          ) : activeRound === 5 ? (
-            <div 
-              style={{ 
-                padding: '30px', 
-                textAlign: 'center', 
-                border: '1.5px dashed var(--console-cyan)', 
-                background: 'rgba(0, 255, 209, 0.05)', 
-                borderRadius: '6px',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '12px'
-              }}
-            >
-              <span style={{ fontSize: '0.8rem', color: 'var(--console-cyan)', fontWeight: 'bold', fontFamily: 'var(--font-hud)', letterSpacing: '2px' }}>
-                // EXPERIMENTAL VECTOR FIELDS ACTIVE
-              </span>
-              <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.65)', maxWidth: '500px', lineHeight: '1.4', margin: 0 }}>
-                Round 5 runs in live stage standby mode with no slide questions. Stage your live demonstrations now.
-              </p>
-              <div style={{ color: 'var(--console-amber)', fontSize: '0.72rem', fontWeight: 'bold', marginTop: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                Conclude Quiz Event:
-              </div>
-              <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.5)', margin: 0, maxWidth: '400px' }}>
-                When you are ready to end the quiz, click the orange <strong>"Complete Round"</strong> button in the celebrations card above to trigger the final gold victory ending screen!
-              </p>
-            </div>
           ) : (
             <div style={{ padding: '20px', textAlign: 'center', color: 'rgba(255,255,255,0.3)', fontSize: '0.8rem' }}>
               No questions found in this Round sector.

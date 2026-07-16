@@ -300,6 +300,56 @@ const DEFAULT_QUESTIONS = [
     video: "/images/scientofabio/VAG_KGgqvV0.mp4",
     cardColor: "#ff0055",
     cardGradient: "linear-gradient(135deg, rgba(255, 0, 85, 0.45) 0%, rgba(255, 170, 0, 0.45) 100%)"
+  },
+  
+  // --- ROUND 5: EXPERIMENTAL ROUND (4 questions) ---
+  {
+    id: "r5-q1",
+    round: 5,
+    text: "Activity 1: You are provided with 6-8 books, an A-4 sheet and a rectangular object. How will you balance a given object on an A-4 sheet placed between minimum 3 books each? Name the working principle?",
+    answer: "Centre of gravity",
+    timeLimit: 45,
+    keywords: "balance, books, principle, gravity",
+    image: "",
+    video: "/videos/bg1.mp4",
+    cardColor: "#00ffd1",
+    cardGradient: "linear-gradient(135deg, rgba(0, 255, 209, 0.45) 0%, rgba(0, 128, 255, 0.45) 100%)"
+  },
+  {
+    id: "r5-q2",
+    round: 5,
+    text: "Activity 2: You are given 6-8 textbooks, placed on each other. Now you need to push the textbooks with your little finger? Hint: For additional support, you can use the materials given. Name the phenomenon?",
+    answer: "Rolling Friction",
+    timeLimit: 45,
+    keywords: "push, textbooks, finger, phenomenon, friction",
+    image: "",
+    video: "/videos/bg2.mp4",
+    cardColor: "#ff0080",
+    cardGradient: "linear-gradient(135deg, rgba(255, 0, 128, 0.45) 0%, rgba(255, 170, 0, 0.45) 100%)"
+  },
+  {
+    id: "r5-q3",
+    round: 5,
+    text: "Activity 3: You are given INR 500 along with a pen. You must balance the pen on the currency note, then remove the note, without the pen fall. Name the phenomenon?",
+    answer: "Kinetic Friction",
+    timeLimit: 45,
+    keywords: "balance, pen, remove, note, friction",
+    image: "",
+    video: "/videos/bg3.mp4",
+    cardColor: "#ffaa00",
+    cardGradient: "linear-gradient(135deg, rgba(255, 170, 0, 0.45) 0%, rgba(255, 85, 0, 0.45) 100%)"
+  },
+  {
+    id: "r5-q4",
+    round: 5,
+    text: "Activity 4 (Surprise Round In case of Tie): The coin is vertically balanced one after another in the presence of strong magnetic field? What is the principle behind it?",
+    answer: "Properties of Para & Ferro magnetic substance",
+    timeLimit: 45,
+    keywords: "coin, balanced, magnetic, principle",
+    image: "",
+    video: "/videos/bg4.mp4",
+    cardColor: "#bd00ff",
+    cardGradient: "linear-gradient(135deg, rgba(189, 0, 255, 0.45) 0%, rgba(255, 0, 128, 0.45) 100%)"
   }
 ];
 

@@ -17,6 +17,7 @@ import {
 import ConsoleTimer from '../components/ConsoleTimer';
 import ConsoleBackground from '../components/ConsoleBackground';
 import { Play, Pause, RotateCcw, Eye, EyeOff, ChevronLeft, ChevronRight, Sparkles, Home, Award, Maximize2 } from 'lucide-react';
+import ExperimentRound from '../components/ExperimentRound';
 
 export default function PresenterPage({ navigateTo }) {
   const [allQuestions, setAllQuestions] = useState([]);
@@ -541,219 +542,20 @@ export default function PresenterPage({ navigateTo }) {
 
   if (activeRound === 5) {
     return (
-      <div 
-        style={{
-          width: '100vw',
-          height: '100vh',
-          background: "url('/images/ppt2022/image67.gif') no-repeat center center / cover",
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          color: '#ffffff',
-          overflow: 'hidden',
-          position: 'relative',
-          padding: '40px'
-        }}
-      >
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(5, 6, 11, 0.72)', zIndex: 1 }} />
-        
-        <ConsoleBackground questionText="experimental" keywords="vector fields" />
-
-        <div 
-          style={{
-            zIndex: 10,
-            textAlign: 'center',
-            background: 'rgba(10,13,22,0.85)',
-            border: '2px solid #00ffd1',
-            boxShadow: '0 0 40px rgba(0, 255, 209, 0.35)',
-            borderRadius: '12px',
-            padding: '50px 70px',
-            maxWidth: '800px',
-            backdropFilter: 'blur(10px)',
-            animation: 'panel-fade-in 0.8s ease-out'
-          }}
-        >
-          <span style={{ fontSize: '0.8rem', color: '#00ffd1', fontWeight: 800, letterSpacing: '6px', fontFamily: 'var(--font-hud)', textTransform: 'uppercase' }}>
-            // SECTOR 05: LAB STAGE ACTIVE
-          </span>
-          
-          <h1 
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: '3.2rem',
-              fontWeight: 900,
-              letterSpacing: '2px',
-              textTransform: 'uppercase',
-              margin: '15px 0 25px 0',
-              textShadow: '0 0 30px rgba(0, 255, 209, 0.45)',
-              background: 'linear-gradient(to bottom, #ffffff 50%, rgba(0, 255, 209, 0.8) 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
-            }}
-          >
-            EXPERIMENTAL VECTOR FIELDS
-          </h1>
-
-          <div style={{ height: '2px', background: 'rgba(255,255,255,0.1)', width: '100%', margin: '20px 0' }} />
-          
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '15px', fontFamily: 'var(--font-hud)', fontSize: '0.8rem' }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#00ffd1', boxShadow: '0 0 10px #00ffd1', display: 'inline-block', animation: 'blink-dot 0.8s infinite alternate' }} />
-            <span style={{ color: 'rgba(255,255,255,0.6)', letterSpacing: '3px' }}>
-              PROJECTION SYSTEM STATUS: STANDBY FOR DEMONSTRATIONS
-            </span>
-          </div>
-        </div>
-        <style>{`
-          @keyframes blink-dot {
-            from { opacity: 0.3; }
-            to { opacity: 1; }
-          }
-          @keyframes panel-fade-in {
-            0% { opacity: 0; transform: scale(0.95); }
-            100% { opacity: 1; transform: scale(1); }
-          }
-        `}</style>
-
-        {/* FLOATING PRESENTER CONTROLS FOR ROUND 5 (Always visible) */}
-        <div 
-          className="presenter-floating-safety-bar"
-          style={{
-            position: 'absolute',
-            bottom: '25px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            zIndex: 100,
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            background: 'rgba(10, 13, 22, 0.94)',
-            border: '1.5px solid rgba(0, 255, 209, 0.7)',
-            borderRadius: '24px',
-            padding: '8px 20px',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.8), 0 0 15px rgba(0, 255, 209, 0.15)',
-            backdropFilter: 'blur(12px)',
-            opacity: 0.9,
-            transition: 'all 0.3s ease',
-            pointerEvents: 'auto'
-          }}
-        >
-          {/* Exit/Home button */}
-          <button 
-            onClick={() => { playBackCancel(); navigateTo(''); }}
-            title="Return to Main Menu (Escape)"
-            style={{
-              background: 'transparent',
-              border: 'none',
-              color: '#ff4444',
-              cursor: 'pointer',
-              padding: '4px',
-              display: 'flex',
-              alignItems: 'center',
-              transition: 'transform 0.2s'
-            }}
-            onMouseEnter={(e) => {
-              playHoverTick();
-              e.currentTarget.style.transform = 'scale(1.2)';
-            }}
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-          >
-            <Home size={16} />
-          </button>
-
-          <div style={{ width: '1px', height: '12px', background: 'rgba(255,255,255,0.15)' }} />
-
-          <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-hud)', color: 'rgba(255,255,255,0.55)', userSelect: 'none', letterSpacing: '1px' }}>
-            SECTOR 5 STAGE DOCK
-          </span>
-
-          <div style={{ width: '1px', height: '12px', background: 'rgba(255,255,255,0.15)' }} />
-
-          {/* Confetti Trigger */}
-          <button 
-            onClick={triggerManualConfetti}
-            title="Trigger Celebration Confetti"
-            style={{
-              background: 'transparent',
-              border: 'none',
-              color: 'var(--console-cyan)',
-              cursor: 'pointer',
-              padding: '4px',
-              display: 'flex',
-              alignItems: 'center',
-              transition: 'transform 0.2s'
-            }}
-            onMouseEnter={(e) => {
-              playHoverTick();
-              e.currentTarget.style.transform = 'scale(1.2)';
-            }}
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-          >
-            <Sparkles size={14} />
-          </button>
-
-          {/* Complete Round Trigger */}
-          <button 
-            onClick={handleCompleteRound}
-            title="Finish & Complete This Round"
-            style={{
-              background: 'transparent',
-              border: 'none',
-              color: 'var(--console-neon-purple)',
-              cursor: 'pointer',
-              padding: '4px',
-              display: 'flex',
-              alignItems: 'center',
-              transition: 'transform 0.2s'
-            }}
-            onMouseEnter={(e) => {
-              playHoverTick();
-              e.currentTarget.style.transform = 'scale(1.2)';
-            }}
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-          >
-            <Award size={15} />
-          </button>
-        </div>
-
-        {/* Floating Fullscreen Toggle */}
-        <button
-          onClick={toggleFullscreen}
-          title="Toggle Fullscreen"
-          style={{
-            position: 'absolute',
-            top: '25px',
-            right: '25px',
-            zIndex: 9999,
-            background: 'rgba(10, 13, 22, 0.6)',
-            border: '1.5px solid rgba(255, 255, 255, 0.15)',
-            color: 'rgba(255,255,255,0.7)',
-            borderRadius: '50%',
-            width: '38px',
-            height: '38px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            boxShadow: '0 4px 15px rgba(0,0,0,0.5)',
-            transition: 'all 0.2s ease',
-            pointerEvents: 'auto'
-          }}
-          onMouseEnter={(e) => {
-            playHoverTick();
-            e.currentTarget.style.borderColor = 'var(--console-cyan)';
-            e.currentTarget.style.color = '#fff';
-            e.currentTarget.style.boxShadow = '0 0 10px var(--console-glow-cyan)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-            e.currentTarget.style.color = 'rgba(255,255,255,0.7)';
-            e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.5)';
-          }}
-        >
-          <Maximize2 size={16} />
-        </button>
-      </div>
+      <ExperimentRound
+        questions={questions}
+        currentIdx={currentIdx}
+        setCurrentIdx={setCurrentIdx}
+        isRevealed={isRevealed}
+        setIsRevealed={setIsRevealed}
+        timeLeft={timeLeft}
+        isTimerRunning={isTimerRunning}
+        setIsTimerRunning={setIsTimerRunning}
+        setTimeLeft={setTimeLeft}
+        triggerWipeTransition={triggerWipeTransition}
+        navigateTo={navigateTo}
+        toggleFullscreen={toggleFullscreen}
+      />
     );
   }
 
