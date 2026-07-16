@@ -26,7 +26,7 @@ export default function ExperimentRound({
   const bgmTracks = [
     '/images/ppt2022/media6.mp3',
     '/images/ppt2022/media4.mp3',
-    '/images/ppt2022/media5.mp3',
+    '/images/ppt2022/media7.mp3',
     '/images/ppt2022/media3.mp3'
   ];
   
