@@ -132,37 +132,37 @@ export default function PresenterPage({ navigateTo }) {
         return {
           mascot: "/images/mascots/jungle.png",
           background: "url('/images/ppt2022/image71.gif') no-repeat center center / cover",
-          zone: "BIOMETRIC EQUATIONS",
-          title: "ROUND 02: biometric equations"
+          zone: "THERMODYNAMIC ENTROPY",
+          title: "ROUND 02: thermodynamic entropy"
         };
       case 3:
         return {
           mascot: "/images/mascots/ice.png",
           background: "url('/images/ppt2022/image62.gif') no-repeat center center / cover",
-          zone: "GLACIAL MATRICES",
-          title: "ROUND 03: glacial matrices"
+          zone: "COSMIC EXPLORATION",
+          title: "ROUND 03: cosmic exploration"
         };
       case 4:
         return {
           mascot: "/images/mascots/water.png",
           background: "url('/images/ppt2022/image64.gif') no-repeat center center / cover",
-          zone: "THERMODYNAMIC ENTROPY",
-          title: "ROUND 04: thermodynamic entropy"
+          zone: "VISUAL INTEL",
+          title: "ROUND 04: visual intel"
         };
       case 5:
         return {
           mascot: "/images/mascots/sky.png",
           background: "url('/images/ppt2022/image67.gif') no-repeat center center / cover",
-          zone: "EXPERIMENTAL VECTOR FIELDS",
-          title: "ROUND 05: experimental vector fields"
+          zone: "EXPERIMENTAL ROUND",
+          title: "ROUND 05: experimental round"
         };
       case 1:
       default:
         return {
           mascot: "/images/mascots/space.png",
           background: "url('/images/ppt2022/image73.gif') no-repeat center center / cover",
-          zone: "QUANTUM SYLLOGISMS",
-          title: "ROUND 01: quantum syllogisms"
+          zone: "REASONING ROUND",
+          title: "ROUND 01: reasoning round"
         };
     }
   };
