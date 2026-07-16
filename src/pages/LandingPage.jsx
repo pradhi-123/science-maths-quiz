@@ -535,7 +535,6 @@ export default function LandingPage({ navigateTo }) {
                 </span>
               </div>
 
-              <h2 style={{ fontSize: '1.6rem', color: '#00d2ff', marginBottom: '8px' }}>{activeLoc.title}</h2>
               <h3 style={{ fontSize: '2.4rem', fontWeight: 900, marginBottom: '25px', color: '#FFD700', textTransform: 'uppercase', letterSpacing: '2px', textShadow: '2px 2px 0 #3a2a18, -2px -2px 0 #3a2a18, 2px -2px 0 #3a2a18, -2px 2px 0 #3a2a18, 0px 5px 15px rgba(0,0,0,0.6)' }}>
                 Round Decryption Clue:
               </h3>
