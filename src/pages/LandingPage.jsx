@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Monitor, Settings, Lock, Sparkles, User, Award, ShieldAlert, Cpu, Play, Scroll } from 'lucide-react';
-import { playClick, playTransition } from '../lib/audio';
+import { playClick, playTransition, playHoverTick, playUnlockPing, playBackCancel, playIncorrect } from '../lib/audio';
 import { subscribeToSyncEvents } from '../lib/sync';
 
 const HOUSE_PLAYERS = {
@@ -190,12 +190,12 @@ export default function LandingPage({ navigateTo }) {
     const cleanGuess = guessValue.trim().toLowerCase();
     const validAnswers = LOCATION_ANSWERS[activeLoc.round] || [];
     if (validAnswers.includes(cleanGuess)) {
-      playTransition();
+      playUnlockPing();
       setIsLocUnlocked(true);
       setGuessError(false);
       setGuessValue('');
     } else {
-      playClick();
+      playIncorrect();
       setGuessError(true);
     }
   };
@@ -214,7 +214,7 @@ export default function LandingPage({ navigateTo }) {
 
   // Reset scroll progress utility for Admin/Hosts
   const handleResetMapProgress = () => {
-    playClick();
+    playBackCancel();
     localStorage.removeItem('completed_rounds');
     setActiveScrollIdx(0);
     setScrollFound(false);
@@ -577,7 +577,10 @@ export default function LandingPage({ navigateTo }) {
                     fontWeight: 'bold',
                     transition: 'all 0.2s'
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.background = '#7a5f2e'}
+                  onMouseEnter={(e) => {
+                    playHoverTick();
+                    e.currentTarget.style.background = '#7a5f2e';
+                  }}
                   onMouseLeave={(e) => e.currentTarget.style.background = '#8e7343'}
                 >
                   DECRYPT
@@ -611,7 +614,7 @@ export default function LandingPage({ navigateTo }) {
           
           <div style={{ display: 'flex', gap: '15px' }}>
             <button 
-              onClick={() => { playClick(); setViewState('intro'); }} 
+              onClick={() => { playBackCancel(); setViewState('intro'); }} 
               style={{
                 background: 'rgba(255,255,255,0.06)',
                 border: '1.5px solid rgba(255,255,255,0.2)',
@@ -623,6 +626,7 @@ export default function LandingPage({ navigateTo }) {
                 borderRadius: '4px',
                 cursor: 'pointer'
               }}
+              onMouseEnter={playHoverTick}
             >
               VIEW FINALISTS SQUAD
             </button>
@@ -639,6 +643,7 @@ export default function LandingPage({ navigateTo }) {
                 borderRadius: '4px',
                 cursor: 'pointer'
               }}
+              onMouseEnter={playHoverTick}
             >
               RESET MAP
             </button>
@@ -1001,6 +1006,7 @@ export default function LandingPage({ navigateTo }) {
               gap: '10px'
             }}
             onMouseEnter={(e) => {
+              playHoverTick();
               e.currentTarget.style.transform = 'scale(1.05)';
               e.currentTarget.style.boxShadow = '0 0 35px var(--console-glow-cyan)';
             }}
@@ -1108,6 +1114,7 @@ export default function LandingPage({ navigateTo }) {
                   transition: 'all 0.3s ease'
                 }}
                 onMouseEnter={(e) => {
+                  playHoverTick();
                   if (!isSelected) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)';
                 }}
                 onMouseLeave={(e) => {
@@ -1285,6 +1292,7 @@ export default function LandingPage({ navigateTo }) {
             transition: 'all 0.3s ease'
           }}
           onMouseEnter={(e) => {
+            playHoverTick();
             e.currentTarget.style.transform = 'scale(1.05)';
             e.currentTarget.style.boxShadow = '0 0 50px rgba(0, 255, 209, 0.8)';
           }}

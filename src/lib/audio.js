@@ -309,3 +309,91 @@ export function playVictory() {
     console.warn('Victory failed:', e);
   }
 }
+
+/**
+ * Play a short, quiet, high-pass console click sound (PS5 hover tick style)
+ */
+export function playHoverTick() {
+  try {
+    const ctx = getAudioContext();
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(550, now);
+    
+    gain.gain.setValueAtTime(0.007, now); // quiet focus tick
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.015);
+    
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    
+    osc.start(now);
+    osc.stop(now + 0.015);
+  } catch (e) {
+    // Fail silently to avoid interrupting interactions
+  }
+}
+
+/**
+ * Play a sweeping, sci-fi unlock ping sound (PS5 unlock ping style)
+ */
+export function playUnlockPing() {
+  try {
+    const ctx = getAudioContext();
+    const now = ctx.currentTime;
+    
+    const playBellNote = (freq, delay) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, now + delay);
+      osc.frequency.exponentialRampToValueAtTime(freq * 1.4, now + delay + 0.25);
+      
+      gain.gain.setValueAtTime(0, now + delay);
+      gain.gain.linearRampToValueAtTime(0.07, now + delay + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.35);
+      
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      
+      osc.start(now + delay);
+      osc.stop(now + delay + 0.35);
+    };
+    
+    playBellNote(440, 0);
+    playBellNote(554.37, 0.05);
+    playBellNote(659.25, 0.10);
+  } catch (e) {
+    console.warn('Unlock ping failed:', e);
+  }
+}
+
+/**
+ * Play a quick sliding-down back/cancel dual tone (PS5 cancel UI style)
+ */
+export function playBackCancel() {
+  try {
+    const ctx = getAudioContext();
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(480, now);
+    osc.frequency.exponentialRampToValueAtTime(200, now + 0.18);
+    
+    gain.gain.setValueAtTime(0.045, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+    
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    
+    osc.start(now);
+    osc.stop(now + 0.18);
+  } catch (e) {
+    console.warn('Back cancel failed:', e);
+  }
+}

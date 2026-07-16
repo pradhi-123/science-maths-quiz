@@ -10,7 +10,9 @@ import {
   playTransition, 
   playVictory, 
   playAmbientHum, 
-  stopAmbientHum 
+  stopAmbientHum,
+  playHoverTick,
+  playBackCancel
 } from '../lib/audio';
 import ConsoleTimer from '../components/ConsoleTimer';
 import ConsoleBackground from '../components/ConsoleBackground';
@@ -628,7 +630,7 @@ export default function PresenterPage({ navigateTo }) {
         >
           {/* Exit/Home button */}
           <button 
-            onClick={() => navigateTo('')}
+            onClick={() => { playBackCancel(); navigateTo(''); }}
             title="Return to Main Menu (Escape)"
             style={{
               background: 'transparent',
@@ -640,7 +642,10 @@ export default function PresenterPage({ navigateTo }) {
               alignItems: 'center',
               transition: 'transform 0.2s'
             }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
+            onMouseEnter={(e) => {
+              playHoverTick();
+              e.currentTarget.style.transform = 'scale(1.2)';
+            }}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           >
             <Home size={16} />
@@ -668,7 +673,10 @@ export default function PresenterPage({ navigateTo }) {
               alignItems: 'center',
               transition: 'transform 0.2s'
             }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
+            onMouseEnter={(e) => {
+              playHoverTick();
+              e.currentTarget.style.transform = 'scale(1.2)';
+            }}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           >
             <Sparkles size={14} />
@@ -688,7 +696,10 @@ export default function PresenterPage({ navigateTo }) {
               alignItems: 'center',
               transition: 'transform 0.2s'
             }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
+            onMouseEnter={(e) => {
+              playHoverTick();
+              e.currentTarget.style.transform = 'scale(1.2)';
+            }}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           >
             <Award size={15} />
@@ -1390,7 +1401,7 @@ export default function PresenterPage({ navigateTo }) {
           >
             {/* Exit/Home button */}
             <button 
-              onClick={() => navigateTo('')}
+              onClick={() => { playBackCancel(); navigateTo(''); }}
               title="Return to Main Menu (Escape)"
               style={{
                 background: 'transparent',
@@ -1402,7 +1413,10 @@ export default function PresenterPage({ navigateTo }) {
                 alignItems: 'center',
                 transition: 'transform 0.2s'
               }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
+              onMouseEnter={(e) => {
+                playHoverTick();
+                e.currentTarget.style.transform = 'scale(1.2)';
+              }}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
             >
               <Home size={16} />
@@ -1425,6 +1439,7 @@ export default function PresenterPage({ navigateTo }) {
                 alignItems: 'center',
                 transition: 'color 0.2s'
               }}
+              onMouseEnter={playHoverTick}
             >
               <ChevronLeft size={16} />
             </button>
@@ -1448,6 +1463,7 @@ export default function PresenterPage({ navigateTo }) {
                 alignItems: 'center',
                 transition: 'color 0.2s'
               }}
+              onMouseEnter={playHoverTick}
             >
               <ChevronRight size={16} />
             </button>
@@ -1468,6 +1484,7 @@ export default function PresenterPage({ navigateTo }) {
                 alignItems: 'center',
                 transition: 'color 0.2s'
               }}
+              onMouseEnter={playHoverTick}
             >
               {isTimerRunning ? <Pause size={14} /> : <Play size={14} />}
             </button>
@@ -1489,6 +1506,7 @@ export default function PresenterPage({ navigateTo }) {
                 alignItems: 'center',
                 transition: 'color 0.2s'
               }}
+              onMouseEnter={playHoverTick}
             >
               <RotateCcw size={13} />
             </button>
@@ -1509,6 +1527,7 @@ export default function PresenterPage({ navigateTo }) {
                 alignItems: 'center',
                 transition: 'color 0.2s'
               }}
+              onMouseEnter={playHoverTick}
             >
               {isRevealed ? <EyeOff size={14} /> : <Eye size={14} />}
             </button>
@@ -1529,7 +1548,10 @@ export default function PresenterPage({ navigateTo }) {
                 alignItems: 'center',
                 transition: 'transform 0.2s'
               }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
+              onMouseEnter={(e) => {
+                playHoverTick();
+                e.currentTarget.style.transform = 'scale(1.2)';
+              }}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
             >
               <Sparkles size={14} />
@@ -1549,7 +1571,10 @@ export default function PresenterPage({ navigateTo }) {
                 alignItems: 'center',
                 transition: 'transform 0.2s'
               }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
+              onMouseEnter={(e) => {
+                playHoverTick();
+                e.currentTarget.style.transform = 'scale(1.2)';
+              }}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
             >
               <Award size={15} />
