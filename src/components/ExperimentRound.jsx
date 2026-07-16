@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Play, Pause, RotateCcw, Eye, EyeOff, ChevronLeft, ChevronRight, Home, Maximize2, Sparkles, Award } from 'lucide-react';
 import ConsoleTimer from './ConsoleTimer';
-import { playHoverTick, playBackCancel, playCorrect, playThrillingMusic, stopThrillingMusic } from '../lib/audio';
+import { playHoverTick, playBackCancel, playCorrect, playAmbientHum, stopAmbientHum } from '../lib/audio';
 
 export default function ExperimentRound({
   questions,
@@ -22,11 +22,11 @@ export default function ExperimentRound({
   const activeQuestion = questions[currentIdx];
   const videoRef = useRef(null);
 
-  // Trigger the custom intense background drone when the round starts!
+  // Trigger the smooth ambient drone when the round starts
   useEffect(() => {
-    playThrillingMusic();
+    playAmbientHum();
     return () => {
-      stopThrillingMusic();
+      stopAmbientHum();
     };
   }, []);
 
@@ -87,13 +87,14 @@ export default function ExperimentRound({
         backdropFilter: 'blur(15px)',
         border: `1.5px solid ${cardColor}66`,
         borderRadius: '35px',
-        boxShadow: `0 0 80px ${cardColor}22, inset 0 0 40px rgba(0,0,0,0.8)`
+        boxShadow: `0 0 80px ${cardColor}22, inset 0 0 40px rgba(0,0,0,0.8)`,
+        overflowY: 'auto'
       }}>
         
         <div style={{
           position: 'absolute', top: '-28px',
           padding: '14px 40px', background: 'rgba(5,6,11,0.95)', border: `2px solid ${cardColor}`,
-          borderRadius: '30px', color: cardColor, fontSize: '1.3rem',
+          borderRadius: '30px', color: cardColor, fontSize: 'clamp(0.8rem, 1.5vw, 1.3rem)',
           fontWeight: 900, textTransform: 'uppercase', letterSpacing: '8px',
           boxShadow: `0 0 35px ${cardColor}88`
         }}>
@@ -103,25 +104,25 @@ export default function ExperimentRound({
         {/* The Hologram Swap Logic */}
         {!isRevealed ? (
           <h1 style={{
-            fontSize: '3.4rem', fontWeight: 900, lineHeight: '1.4',
+            fontSize: 'clamp(1.5rem, 3.5vw, 3.2rem)', fontWeight: 900, lineHeight: '1.4',
             textShadow: `0 8px 40px rgba(0,0,0,1), 0 0 25px ${cardColor}77`,
             fontFamily: "'Cinzel', serif",
             animation: 'hologram-fade-in 1s ease-out',
-            maxWidth: '90%', margin: 0, padding: '30px',
+            maxWidth: '90%', margin: 'auto', padding: '40px 20px',
             wordWrap: 'break-word'
           }}>
             {activeQuestion.text}
           </h1>
         ) : (
-          <div style={{ animation: 'hologram-fade-in 0.8s ease-out', padding: '30px', maxWidth: '95%' }}>
+          <div style={{ animation: 'hologram-fade-in 0.8s ease-out', padding: '40px 20px', maxWidth: '95%', margin: 'auto' }}>
             <h2 style={{ 
-              fontSize: '1.6rem', color: '#bbb', marginBottom: '20px', 
+              fontSize: 'clamp(1rem, 1.5vw, 1.6rem)', color: '#bbb', marginBottom: '20px', 
               textTransform: 'uppercase', letterSpacing: '6px', fontFamily: 'var(--font-hud)' 
             }}>
               Verified Phenomenon
             </h2>
             <div style={{ 
-              fontSize: '4.5rem', color: cardColor, fontWeight: 900, 
+              fontSize: 'clamp(2rem, 4.5vw, 4.5rem)', color: cardColor, fontWeight: 900, 
               fontFamily: "'Cinzel', serif", 
               textShadow: `0 0 50px ${cardColor}aa, 0 10px 25px rgba(0,0,0,1)`,
               lineHeight: '1.2',
