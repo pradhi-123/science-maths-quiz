@@ -20,6 +20,12 @@ import { Play, Pause, RotateCcw, Eye, EyeOff, ChevronLeft, ChevronRight, Sparkle
 import ExperimentRound from '../components/ExperimentRound';
 
 export default function PresenterPage({ navigateTo }) {
+  const getTimeForQuestion = (q) => {
+    if (!q) return 60;
+    if (Number(q.round) === 5) return 120;
+    return Number(q.timeLimit) > 0 ? Number(q.timeLimit) : 60;
+  };
+
   const [allQuestions, setAllQuestions] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -216,9 +222,9 @@ export default function PresenterPage({ navigateTo }) {
     setQuestions(roundQ);
 
     if (roundQ[0]) {
-      const defaultTime = roundQ[0].round === 5 ? 120 : 60;
-      setTimeLeft(roundQ[0].timeLimit || defaultTime);
-      setMaxTime(roundQ[0].timeLimit || defaultTime);
+      
+      setTimeLeft(getTimeForQuestion(roundQ[0]));
+      setMaxTime(getTimeForQuestion(roundQ[0]));
     }
 
     playAmbientHum();
@@ -268,9 +274,8 @@ export default function PresenterPage({ navigateTo }) {
         case 'SYNC_QUESTIONS': {
           const activeQ = roundQuestions[currentIdxRef.current];
           if (activeQ) {
-            const defaultTime = activeQ.round === 5 ? 120 : 60;
-            setTimeLeft(activeQ.timeLimit || defaultTime);
-            setMaxTime(activeQ.timeLimit || defaultTime);
+            setTimeLeft(getTimeForQuestion(activeQ));
+            setMaxTime(getTimeForQuestion(activeQ));
           }
           updateProfileStats();
           break;
@@ -298,13 +303,13 @@ export default function PresenterPage({ navigateTo }) {
           setIsTimerRunning(false);
           if (payload && payload.timeLeft !== undefined) {
             setTimeLeft(payload.timeLeft);
-            setMaxTime(payload.maxTime || payload.timeLeft);
+            setMaxTime(payload.timeLeft);
           } else {
             const activeQReset = roundQuestions[currentIdxRef.current];
             if (activeQReset) {
-              const defaultTime = activeQReset.round === 5 ? 120 : 60;
-              setTimeLeft(activeQReset.timeLimit || defaultTime);
-              setMaxTime(activeQReset.timeLimit || defaultTime);
+              
+              setTimeLeft(getTimeForQuestion(activeQReset));
+              setMaxTime(getTimeForQuestion(activeQReset));
             }
           }
           break;
@@ -368,9 +373,8 @@ export default function PresenterPage({ navigateTo }) {
           setIsTimerRunning(false);
           const restartedFirstQ = roundQuestions[0];
           if (restartedFirstQ) {
-            const defaultTime = restartedFirstQ.round === 5 ? 120 : 60;
-            setTimeLeft(restartedFirstQ.timeLimit || defaultTime);
-            setMaxTime(restartedFirstQ.timeLimit || defaultTime);
+            setTimeLeft(getTimeForQuestion(restartedFirstQ));
+            setMaxTime(getTimeForQuestion(restartedFirstQ));
           }
           setShowBoot(true);
           setBootProgress(0);
@@ -423,8 +427,8 @@ export default function PresenterPage({ navigateTo }) {
           setCurrentIdx((currIdx) => {
             const q = currentQuestions[currIdx];
             if (q) {
-              const defaultTime = q.round === 5 ? 120 : 60;
-              setTimeLeft(q.timeLimit || defaultTime);
+              
+              setTimeLeft(getTimeForQuestion(q));
               setIsTimerRunning(false);
             }
             return currIdx;
@@ -479,9 +483,9 @@ export default function PresenterPage({ navigateTo }) {
       setIsRevealed(false);
       const q = activeList[newIdx];
       if (q) {
-        const defaultTime = q.round === 5 ? 120 : 60;
-        setTimeLeft(q.timeLimit || defaultTime);
-        setMaxTime(q.timeLimit || defaultTime);
+        
+        setTimeLeft(getTimeForQuestion(q));
+        setMaxTime(getTimeForQuestion(q));
       }
       setIsTimerRunning(false);
     }, 450);
@@ -1418,8 +1422,8 @@ export default function PresenterPage({ navigateTo }) {
             {/* Timer Reset */}
             <button 
               onClick={() => {
-                const defaultTime = activeQuestion.round === 5 ? 120 : 60;
-                setTimeLeft(activeQuestion.timeLimit || defaultTime);
+                
+                setTimeLeft(getTimeForQuestion(activeQuestion));
                 setIsTimerRunning(false);
               }}
               title="Reset Timer (R)"
