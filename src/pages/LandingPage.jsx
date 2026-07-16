@@ -64,7 +64,7 @@ const HOUSE_PLAYERS = {
 const SCROLL_LOCATIONS = [
   {
     round: 1,
-    title: "REASONING ROUND",
+    title: "QUANTUM DEDUCTION",
     desc: "Scientific Reasoning & logic gates. Spot Scroll 01 to decrypt Sector 1!",
     name: "School Entrance",
     image: "/images/corridors/entrance.jpg",
@@ -76,7 +76,7 @@ const SCROLL_LOCATIONS = [
   },
   {
     round: 2,
-    title: "ALGEBRAIC MATRICES",
+    title: "TESSERACT ALGEBRA",
     desc: "Advanced algebraic equations and matrix theory. Spot Scroll 02 in the canopy corridors to boot Sector 2!",
     name: "Canopy Corridor",
     image: "/images/corridors/corridor.jpg",
@@ -88,7 +88,7 @@ const SCROLL_LOCATIONS = [
   },
   {
     round: 3,
-    title: "COSMIC EXPLORATION",
+    title: "COSMIC TELEMETRY",
     desc: "Connect the visual elements to reveal the scientific links. Spot Scroll 03 in the hostel dormitory to boot Sector 3!",
     name: "School Hostel",
     image: "/images/corridors/hostel.png",
@@ -100,7 +100,7 @@ const SCROLL_LOCATIONS = [
   },
   {
     round: 4,
-    title: "VISUAL INTEL",
+    title: "HOLOGRAPHIC INTEL",
     desc: "General Science & Biology challenges. Spot Scroll 04 in the office lobby to boot Sector 4!",
     name: "School Office",
     image: "/images/corridors/office.jpg",
@@ -112,7 +112,7 @@ const SCROLL_LOCATIONS = [
   },
   {
     round: 5,
-    title: "EXPERIMENTAL ROUND",
+    title: "KINETIC PROTOCOLS",
     desc: "Experimental vector fields and live physical demonstrations. Spot Scroll 05 on the volleyball court to boot Stage Sector 5!",
     name: "Volleyball Court",
     image: "/images/corridors/volleyball.jpg",

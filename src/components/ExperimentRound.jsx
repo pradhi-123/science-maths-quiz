@@ -116,7 +116,7 @@ export default function ExperimentRound({
 
         {/* The Hologram Swap Logic */}
         {!isRevealed ? (
-          <h1 style={{
+          <div style={{
             fontSize: 'clamp(1.4rem, 2.5vw, 2.3rem)', fontWeight: 900, lineHeight: '1.5',
             textShadow: `0 8px 30px rgba(0,0,0,1), 0 0 20px ${cardColor}55`,
             fontFamily: "'Cinzel', serif",
@@ -124,8 +124,19 @@ export default function ExperimentRound({
             width: '85%', margin: '0 auto', padding: '10px',
             wordWrap: 'break-word'
           }}>
-            {activeQuestion.text}
-          </h1>
+            {activeQuestion.text.includes('Activity') ? (
+              <>
+                <div style={{ textAlign: 'left', marginBottom: '15px', color: cardColor }}>
+                  {activeQuestion.text.split(':')[0]}:
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  {activeQuestion.text.split(':').slice(1).join(':').trim()}
+                </div>
+              </>
+            ) : (
+              <h1 style={{ fontSize: 'inherit', margin: 0 }}>{activeQuestion.text}</h1>
+            )}
+          </div>
         ) : (
           <div style={{ animation: 'hologram-fade-in 0.8s ease-out', padding: '10px', width: '85%', margin: '0 auto' }}>
             <h2 style={{ 
