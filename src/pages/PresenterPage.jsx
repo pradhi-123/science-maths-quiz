@@ -1217,7 +1217,7 @@ export default function PresenterPage({ navigateTo }) {
 
             {/* Winding DNA Helix + Logging console (VIBRANT GLOW MATRIX CARD) */}
             <div 
-              className="console-panel"
+              className="console-panel presenter-helix-panel"
               style={{
                 padding: '12px 15px',
                 border: `1.5px solid ${activeQuestion.cardColor || 'rgba(189, 0, 255, 0.7)'}`,

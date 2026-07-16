@@ -1083,7 +1083,7 @@ export default function LandingPage({ navigateTo }) {
       {/* MAIN GAME INTRO DECKS */}
       <div style={{ display: 'grid', gridTemplateRows: 'auto 1fr', gap: '20px', flex: 1, margin: '20px 0', zIndex: 10 }}>
         {/* HOUSE SELECTION TABS (PS5 Game Carousel Tabs) */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '30px' }}>
+        <div className="house-selection-tabs" style={{ display: 'flex', justifyContent: 'center', gap: '30px' }}>
           {Object.keys(HOUSE_PLAYERS).map((key) => {
             const h = HOUSE_PLAYERS[key];
             const isSelected = selectedHouse === key;
