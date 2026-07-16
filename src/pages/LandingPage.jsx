@@ -71,7 +71,7 @@ const SCROLL_LOCATIONS = [
     mascotMsg: "Rangers! A hidden data scroll has drifted onto the roadway on the right side. Spot it to decrypt Sector 01!",
     scrollPos: { top: "78%", left: "88%" },
     route: "presenter",
-    locationClue: "Where wheels halt and footsteps begin, under the grand canopy where the hosts welcome you in. Spot the main gateway!"
+    locationClue: "Where wheels halt and footsteps begin, under the grand canopy where the hosts welcome you in."
   },
   {
     round: 2,
@@ -83,7 +83,7 @@ const SCROLL_LOCATIONS = [
     mascotMsg: "The second coordinates are drifting around the sports hall black screen area. Find it to decrypt Sector 02!",
     scrollPos: { top: "70%", left: "49%" },
     route: "presenter",
-    locationClue: "A covered passageway between building wings, where the canopy shades the paths of rangers. Spot the canopy corridor!"
+    locationClue: "The place where we gather for our daily morning assembly, under the high blue shade."
   },
   {
     round: 3,
@@ -95,7 +95,7 @@ const SCROLL_LOCATIONS = [
     mascotMsg: "Explorers! A cryptographic scroll has slipped onto the window sill of the bunk beds. Discover it for Sector 03!",
     scrollPos: { top: "62%", left: "26%" },
     route: "presenter",
-    locationClue: "Where weary students rest their heads at night, dreaming of equations in the bunk beds. Spot the school hostel!"
+    locationClue: "Where weary students rest their heads at night, dreaming of equations in the bunk beds."
   },
   {
     round: 4,
@@ -107,7 +107,7 @@ const SCROLL_LOCATIONS = [
     mascotMsg: "The fourth data scroll is lodged somewhere in the lobby reception desks. Find it to unlock training logs!",
     scrollPos: { top: "20%", left: "84%" },
     route: "presenter",
-    locationClue: "The administrative heart, where files and ledgers stay, near the main reception desks. Spot the school office!"
+    locationClue: "The administrative heart, where files and ledgers stay, near the main reception desks."
   },
   {
     round: 5,
@@ -119,7 +119,7 @@ const SCROLL_LOCATIONS = [
     mascotMsg: "Rangers! The final scroll is floating in mid-air on the volleyball court. Secure it to lock in your score!",
     scrollPos: { top: "21%", left: "50.5%" },
     route: "presenter",
-    locationClue: "Over the high net, the sphere flies back and forth on the sandy court facing north. Spot the volleyball court!"
+    locationClue: "Over the high net, the sphere flies back and forth on the sandy court facing north."
   }
 ];
 
