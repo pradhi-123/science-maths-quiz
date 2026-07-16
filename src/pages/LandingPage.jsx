@@ -539,7 +539,7 @@ export default function LandingPage({ navigateTo }) {
                 Round Decryption Clue:
               </h3>
 
-              <p style={{ fontSize: '1.25rem', fontWeight: 800, color: '#110c05', fontStyle: 'italic', marginBottom: '22px', textIndent: '20px', lineHeight: '28px' }}>
+              <p style={{ fontSize: '1.7rem', fontWeight: 900, color: '#8B0000', fontStyle: 'italic', marginBottom: '25px', textIndent: '20px', lineHeight: '34px', textShadow: '1px 1px 3px rgba(255, 255, 255, 0.9)' }}>
                 "{activeLoc.locationClue}"
               </p>
             </div>
