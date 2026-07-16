@@ -1265,7 +1265,7 @@ export default function PresenterPage({ navigateTo }) {
               QUESTION {currentIdx + 1} OF {questions.length}
             </span>
           </div>
-          {/* FLOATING PRESENTER CONTROLS (Low opacity, lights up fully on hover) */}
+          {/* FLOATING PRESENTER CONTROLS (Always visible, fits touch screens) */}
           <div 
             className="presenter-floating-safety-bar"
             style={{
@@ -1283,7 +1283,7 @@ export default function PresenterPage({ navigateTo }) {
               padding: '8px 20px',
               boxShadow: '0 8px 32px rgba(0,0,0,0.8), 0 0 15px rgba(0, 255, 209, 0.15)',
               backdropFilter: 'blur(12px)',
-              opacity: 0.15,
+              opacity: 0.9,
               transition: 'all 0.3s ease',
               pointerEvents: 'auto'
             }}
@@ -1292,7 +1292,7 @@ export default function PresenterPage({ navigateTo }) {
               e.currentTarget.style.boxShadow = `0 8px 32px rgba(0,0,0,0.95), 0 0 25px ${activeQuestion.cardColor || 'rgba(0, 210, 255, 0.4)'}`;
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.opacity = '0.15';
+              e.currentTarget.style.opacity = '0.9';
               e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.6), 0 0 15px rgba(0, 255, 209, 0.1)';
             }}
           >
