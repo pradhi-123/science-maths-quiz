@@ -953,49 +953,6 @@ export default function LandingPage({ navigateTo }) {
           }} 
         />
 
-        {/* Floating Background Images around the center panel */}
-        {cinematicBgs.map((bg, idx) => {
-          // Calculate random-looking but fixed positions around the center
-          const positions = [
-            { top: '15%', left: '10%' },
-            { top: '20%', right: '10%' },
-            { bottom: '15%', left: '15%' },
-            { bottom: '20%', right: '12%' }
-          ];
-          
-          return (
-            <motion.img
-              key={`float-${idx}`}
-              src={bg}
-              initial={{ opacity: 0, scale: 0.5, y: 50 }}
-              animate={{ 
-                opacity: 0.6, 
-                scale: 1, 
-                y: [0, -15, 0],
-                rotate: [0, idx % 2 === 0 ? 3 : -3, 0]
-              }}
-              transition={{
-                opacity: { duration: 1.5, delay: idx * 0.2 },
-                scale: { duration: 1.5, delay: idx * 0.2 },
-                y: { duration: 4, repeat: Infinity, ease: 'easeInOut', delay: idx * 0.5 },
-                rotate: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: idx * 0.5 }
-              }}
-              style={{
-                position: 'absolute',
-                ...positions[idx],
-                width: '280px',
-                height: '160px',
-                objectFit: 'cover',
-                borderRadius: '12px',
-                boxShadow: '0 10px 30px rgba(0, 255, 209, 0.25)',
-                border: '1.5px solid rgba(0, 255, 209, 0.2)',
-                zIndex: 5,
-                filter: 'blur(0.5px)'
-              }}
-            />
-          );
-        })}
-
         {/* Center Panel Container */}
         <div 
           style={{
