@@ -949,8 +949,9 @@ export default function LandingPage({ navigateTo }) {
             width: '100%', 
             height: '100%', 
             zIndex: 1, 
-            background: 'radial-gradient(circle, rgba(5,6,11,0.55) 0%, rgba(5,6,11,0.85) 100%)' 
+            background: 'rgba(5, 6, 11, 0.3)' 
           }} 
+
         />
 
         {/* Center Panel Container */}
