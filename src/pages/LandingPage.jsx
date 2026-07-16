@@ -63,7 +63,7 @@ const HOUSE_PLAYERS = {
 const SCROLL_LOCATIONS = [
   {
     round: 1,
-    title: "QUANTUM SYLLOGISMS",
+    title: "REASONING ROUND",
     desc: "Scientific Reasoning & logic gates. Spot Scroll 01 to decrypt Sector 1!",
     name: "School Entrance",
     image: "/images/corridors/entrance.jpg",
@@ -75,8 +75,8 @@ const SCROLL_LOCATIONS = [
   },
   {
     round: 2,
-    title: "BIOMETRIC EQUATIONS",
-    desc: "General Science & Biology challenges. Spot Scroll 02 in the canopy corridors to boot Sector 2!",
+    title: "THERMODYNAMIC ENTROPY",
+    desc: "Intense thermodynamic calculations and entropy challenges. Spot Scroll 02 in the canopy corridors to boot Sector 2!",
     name: "Canopy Corridor",
     image: "/images/corridors/corridor.jpg",
     mascot: "/images/mascots/jungle.png",
@@ -87,7 +87,7 @@ const SCROLL_LOCATIONS = [
   },
   {
     round: 3,
-    title: "GLACIAL MATRICES",
+    title: "COSMIC EXPLORATION",
     desc: "Connect the visual elements to reveal the scientific links. Spot Scroll 03 in the hostel dormitory to boot Sector 3!",
     name: "School Hostel",
     image: "/images/corridors/hostel.png",
@@ -99,8 +99,8 @@ const SCROLL_LOCATIONS = [
   },
   {
     round: 4,
-    title: "THERMODYNAMIC ENTROPY",
-    desc: "Intense thermodynamic calculations and entropy challenges. Spot Scroll 04 in the office lobby to boot Sector 4!",
+    title: "VISUAL INTEL",
+    desc: "General Science & Biology challenges. Spot Scroll 04 in the office lobby to boot Sector 4!",
     name: "School Office",
     image: "/images/corridors/office.jpg",
     mascot: "/images/mascots/water.png",
@@ -111,7 +111,7 @@ const SCROLL_LOCATIONS = [
   },
   {
     round: 5,
-    title: "EXPERIMENTAL VECTOR FIELDS",
+    title: "EXPERIMENTAL ROUND",
     desc: "Experimental vector fields and live physical demonstrations. Spot Scroll 05 on the volleyball court to boot Stage Sector 5!",
     name: "Volleyball Court",
     image: "/images/corridors/volleyball.jpg",
@@ -348,7 +348,7 @@ export default function LandingPage({ navigateTo }) {
             }}
           >
             <Award size={64} color="#ffaa00" style={{ filter: 'drop-shadow(0 0 15px #ffaa00)', animation: 'spin-trophy 8s infinite linear' }} />
-            
+            <h2 style={{ fontSize: '1.6rem', color: '#ffaa00', marginBottom: '8px' }}>Round 2: Thermodynamic Entropy</h2>
             <span style={{ fontSize: '0.8rem', color: '#ffaa00', fontWeight: 800, letterSpacing: '6px', fontFamily: 'var(--font-hud)', textTransform: 'uppercase' }}>
               // ALL SECURE ARCHIVES DECRYPTED
             </span>
@@ -535,6 +535,7 @@ export default function LandingPage({ navigateTo }) {
                 </span>
               </div>
 
+              <h2 style={{ fontSize: '1.6rem', color: '#00d2ff', marginBottom: '8px' }}>Round 3: Cosmic Exploration</h2>
               <h3 style={{ fontSize: '2.4rem', fontWeight: 900, marginBottom: '25px', color: '#FFD700', textTransform: 'uppercase', letterSpacing: '2px', textShadow: '2px 2px 0 #3a2a18, -2px -2px 0 #3a2a18, 2px -2px 0 #3a2a18, -2px 2px 0 #3a2a18, 0px 5px 15px rgba(0,0,0,0.6)' }}>
                 Round Decryption Clue:
               </h3>

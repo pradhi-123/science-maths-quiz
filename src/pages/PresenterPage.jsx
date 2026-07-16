@@ -832,17 +832,17 @@ export default function PresenterPage({ navigateTo }) {
                 className={`console-panel hud-cut-tr`}
                 style={{
                   width: '100%',
-                  minHeight: (activeRound === 1 || activeRound === 2) ? '380px' : '340px',
-                  padding: (activeRound === 1 || activeRound === 2) ? '55px 60px' : '40px 45px',
+                  minHeight: (activeRound === 1 || activeRound === 3) ? '380px' : '340px',
+                  padding: (activeRound === 1 || activeRound === 3) ? '55px 60px' : '40px 45px',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'center',
-                  background: (activeRound === 1 || activeRound === 2) 
+                  background: (activeRound === 1 || activeRound === 3) 
                     ? 'linear-gradient(135deg, rgba(0, 210, 255, 0.16) 0%, rgba(189, 0, 255, 0.16) 100%)' 
                     : (activeQuestion.cardGradient || 'linear-gradient(135deg, rgba(0, 210, 255, 0.35) 0%, rgba(189, 0, 255, 0.35) 100%)'),
-                  backdropFilter: (activeRound === 1 || activeRound === 2) ? 'blur(10px)' : 'blur(25px)',
+                  backdropFilter: (activeRound === 1 || activeRound === 3) ? 'blur(10px)' : 'blur(25px)',
                   border: `2.5px solid ${activeQuestion.cardColor || 'var(--console-electric-blue)'}`,
-                  boxShadow: (activeRound === 1 || activeRound === 2)
+                  boxShadow: (activeRound === 1 || activeRound === 3)
                     ? `0 0 35px ${activeQuestion.cardColor || 'rgba(0, 210, 255, 0.35)'}`
                     : `0 0 50px ${activeQuestion.cardColor || 'rgba(0, 210, 255, 0.55)'}`,
                   transition: 'all 0.6s ease-in-out'
@@ -851,7 +851,7 @@ export default function PresenterPage({ navigateTo }) {
                 <div 
                   style={{ 
                     display: 'flex',
-                    flexDirection: activeRound === 3 ? 'column' : 'row',
+                    flexDirection: activeRound === 4 ? 'column' : 'row',
                     gap: '30px', 
                     alignItems: 'stretch',
                     width: '100%'
@@ -866,8 +866,8 @@ export default function PresenterPage({ navigateTo }) {
                         border: isRevealed ? '2.5px solid rgba(0, 255, 209, 0.85)' : '2.5px solid rgba(0, 210, 255, 0.85)',
                         boxShadow: isRevealed ? '0 0 30px rgba(0, 255, 209, 0.45)' : '0 0 30px rgba(0, 210, 255, 0.45)',
                         overflow: 'hidden',
-                        height: activeRound === 3 ? '380px' : '260px',
-                        width: activeRound === 3 ? '100%' : '50%',
+                        height: activeRound === 4 ? '380px' : '260px',
+                        width: activeRound === 4 ? '100%' : '50%',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -942,9 +942,9 @@ export default function PresenterPage({ navigateTo }) {
                       display: 'flex', 
                       flexDirection: 'column', 
                       justifyContent: 'center',
-                      width: activeRound === 3 ? '100%' : '50%',
-                      textAlign: activeRound === 3 ? 'center' : 'left',
-                      marginTop: activeRound === 3 ? '15px' : '0'
+                      width: activeRound === 4 ? '100%' : '50%',
+                      textAlign: activeRound === 4 ? 'center' : 'left',
+                      marginTop: activeRound === 4 ? '15px' : '0'
                     }}
                   >
                     {!isRevealed ? (
@@ -965,7 +965,7 @@ export default function PresenterPage({ navigateTo }) {
                           QUERY_DECODE_0{currentIdx + 1}
                         </span>
                         
-                        {(activeRound === 1 || activeRound === 2) ? (
+                        {(activeRound === 1 || activeRound === 3) ? (
                           <motion.h2 
                             key={`q-r1-${activeQuestion.id}`}
                             initial={{ opacity: 0, y: 15, filter: 'blur(8px)', scale: 0.97 }}
@@ -1018,7 +1018,7 @@ export default function PresenterPage({ navigateTo }) {
                           ★ Decrypted Explanation Staged
                         </span>
 
-                        {(activeRound === 1 || activeRound === 2) ? (
+                        {(activeRound === 1 || activeRound === 3) ? (
                           <motion.h3 
                             key={`a-r1-${activeQuestion.id}`}
                             initial={{ opacity: 0, y: 15, filter: 'blur(8px)', scale: 0.97 }}
@@ -1096,7 +1096,7 @@ export default function PresenterPage({ navigateTo }) {
             >
               {/* Vertical DNA double-helix or sandglass timer for Round 1 & Round 2 */}
               <div style={{ display: 'flex', justifyContent: 'center' }}>
-                {(activeRound === 1 || activeRound === 2) ? (
+                {(activeRound === 1 || activeRound === 3) ? (
                   <svg width="80" height="135" viewBox="0 0 100 170" style={{ filter: 'drop-shadow(0 0 8px rgba(0, 255, 209, 0.5))' }}>
                     {/* Sandglass plates */}
                     <line x1="15" y1="15" x2="85" y2="15" stroke="var(--console-cyan)" strokeWidth="6" strokeLinecap="round" />

@@ -75,10 +75,10 @@ const DEFAULT_QUESTIONS = [
     cardGradient: "linear-gradient(135deg, rgba(255, 0, 85, 0.45) 0%, rgba(255, 170, 0, 0.45) 100%)"
   },
 
-  // --- ROUND 2: COSMIC EXPLORATION (6 questions) ---
+  // --- ROUND 2: THERMODYNAMIC ENTROPY (6 questions) ---
   {
     id: "r2-q1",
-    round: 2,
+    round: 3,
     text: "Name the gas that was leaked in a factory near Chennai that took 20 lives recently?",
     answer: "Ammonia Gas (coolant system leak at seafood factory)",
     timeLimit: 20,
@@ -91,7 +91,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r2-q2",
-    round: 2,
+    round: 3,
     text: "Name the chemical secreted in the brain that kindles the interest in human to learn more and also focus on new things.",
     answer: "Dopamine (associated with pleasure, focus, and drive)",
     timeLimit: 15,
@@ -104,7 +104,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r2-q3",
-    round: 2,
+    round: 3,
     text: "What is the scientific reason behind designing the javelin with the sharp edge?",
     answer: "To minimize air resistance (aerodynamic streamlined design)",
     timeLimit: 15,
@@ -116,7 +116,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r2-q4",
-    round: 2,
+    round: 3,
     text: "Name the chemical compound that is added along with petrol gas (LPG) to detect leakage?",
     answer: "Ethyl Mercaptan (Ethanethiol - has a strong odor)",
     timeLimit: 15,
@@ -129,7 +129,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r2-q5",
-    round: 2,
+    round: 3,
     text: "QR codes are based on which branch of mathematics?",
     answer: "Matrix Theory / Linear Algebra (2D grid systems)",
     timeLimit: 15,
@@ -142,7 +142,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r2-q6",
-    round: 2,
+    round: 3,
     text: "Without using a calculator, what is A² (where A = 111,111,111)?",
     answer: "12,345,678,987,654,321 (consecutive digit square pattern)",
     timeLimit: 25,
@@ -157,7 +157,7 @@ const DEFAULT_QUESTIONS = [
   // --- ROUND 3: GLACIAL DECIPHERING (6 questions) ---
   {
     id: "r3-q1",
-    round: 3,
+    round: 4,
     text: "Ant bite: Name the type of reaction?",
     answer: "Neutralization Reaction (Formic acid neutralized by mild alkaline bases)",
     timeLimit: 15,
@@ -169,7 +169,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r3-q2",
-    round: 3,
+    round: 4,
     text: "Name the branch of Mathematics representing these coordinate plots?",
     answer: "Coordinate Geometry (Analytic Geometry)",
     timeLimit: 15,
@@ -181,7 +181,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r3-q3",
-    round: 3,
+    round: 4,
     text: "Name the Antibiotic discovered by Alexander Fleming?",
     answer: "Penicillin (extracted from Penicillium mould)",
     timeLimit: 15,
@@ -193,7 +193,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r3-q4",
-    round: 3,
+    round: 4,
     text: "Who is this physicist known for electricity experiments?",
     answer: "Benjamin Franklin",
     timeLimit: 15,
@@ -205,7 +205,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r3-q5",
-    round: 3,
+    round: 4,
     text: "Q = mCΔT represents which scientific quantity?",
     answer: "Specific Heat Capacity (of water)",
     timeLimit: 15,
@@ -228,7 +228,7 @@ const DEFAULT_QUESTIONS = [
     cardGradient: "linear-gradient(135deg, rgba(255, 0, 85, 0.45) 0%, rgba(255, 170, 0, 0.45) 100%)"
   },
 
-  // --- ROUND 4: THERMODYNAMIC ENTROPY (6 questions) ---
+  // --- ROUND 4: VISUAL INTEL (6 questions) ---
   {
     id: "r4-q1",
     round: 4,
@@ -243,7 +243,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r4-q2",
-    round: 4,
+    round: 2,
     text: "Thermodynamic Query 2? [Type your custom question here]",
     answer: "Explanation detail. [Type your custom explanation here]",
     timeLimit: 15,
@@ -255,7 +255,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r4-q3",
-    round: 4,
+    round: 2,
     text: "Thermodynamic Query 3? [Type your custom question here]",
     answer: "Explanation detail. [Type your custom explanation here]",
     timeLimit: 15,
@@ -267,7 +267,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r4-q4",
-    round: 4,
+    round: 2,
     text: "Thermodynamic Query 4? [Type your custom question here]",
     answer: "Explanation detail. [Type your custom explanation here]",
     timeLimit: 15,
@@ -279,7 +279,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r4-q5",
-    round: 4,
+    round: 2,
     text: "Thermodynamic Query 5? [Type your custom question here]",
     answer: "Explanation detail. [Type your custom explanation here]",
     timeLimit: 15,
@@ -291,7 +291,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r4-q6",
-    round: 4,
+    round: 2,
     text: "Thermodynamic Query 6? [Type your custom question here]",
     answer: "Explanation detail. [Type your custom explanation here]",
     timeLimit: 15,
@@ -354,7 +354,7 @@ const DEFAULT_QUESTIONS = [
 ];
 
 export function getSavedQuestions() {
-  const data = localStorage.getItem('school_quiz_questions_v2');
+  const data = localStorage.getItem('school_quiz_questions_v3');
   let savedList = [];
   if (data) {
     try {
@@ -380,16 +380,16 @@ export function getSavedQuestions() {
       }
       return defaultQ;
     });
-    localStorage.setItem('school_quiz_questions_v2', JSON.stringify(merged));
+    localStorage.setItem('school_quiz_questions_v3', JSON.stringify(merged));
     return merged;
   }
 
   // Initialize with seed
-  localStorage.setItem('school_quiz_questions_v2', JSON.stringify(DEFAULT_QUESTIONS));
+  localStorage.setItem('school_quiz_questions_v3', JSON.stringify(DEFAULT_QUESTIONS));
   return DEFAULT_QUESTIONS;
 }
 
 export function saveQuestions(list) {
-  localStorage.setItem('school_quiz_questions_v2', JSON.stringify(list));
+  localStorage.setItem('school_quiz_questions_v3', JSON.stringify(list));
 }
 export { DEFAULT_QUESTIONS };
