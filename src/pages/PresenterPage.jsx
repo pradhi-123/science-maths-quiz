@@ -552,10 +552,10 @@ export default function PresenterPage({ navigateTo }) {
 
   const getBGM = () => {
     switch (activeRound) {
-      case 1: return "/images/backgrounds/dheema.mpeg";
-      case 2: return "/images/backgrounds/youth.mpeg";
-      case 3: return "/images/backgrounds/chellamagale.mpeg";
-      case 4: return "/images/backgrounds/withlove.mpeg";
+      case 1: return "/images/backgrounds/dheema.mp3";
+      case 2: return "/images/backgrounds/youth.mp3";
+      case 3: return "/images/backgrounds/chellamagale.mp3";
+      case 4: return "/images/backgrounds/withlove.mp3";
       default: return null;
     }
   };
@@ -606,7 +606,7 @@ export default function PresenterPage({ navigateTo }) {
           loop 
           onCanPlay={(e) => { e.target.volume = 0.4; }}
           onTimeUpdate={(e) => {
-            if (activeBGM.includes('youth.mpeg') && e.target.currentTime >= 45) {
+            if (activeBGM.includes('youth.mp3') && e.target.currentTime >= 45) {
               e.target.currentTime = 0;
             }
           }}
