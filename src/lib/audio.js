@@ -26,7 +26,7 @@ export function playAmbientHum() {
 
     const now = ctx.currentTime;
     ambientGain = ctx.createGain();
-    ambientGain.gain.setValueAtTime(0.012, now); // quiet background noise
+    ambientGain.gain.setValueAtTime(0.028, now); // slightly louder hum drone
 
     // 55 Hz sub-bass note (A1)
     ambientOsc1 = ctx.createOscillator();
@@ -90,7 +90,7 @@ export function playClick() {
     osc.frequency.setValueAtTime(1000, now);
     osc.frequency.exponentialRampToValueAtTime(150, now + 0.1);
     
-    gain.gain.setValueAtTime(0.05, now);
+    gain.gain.setValueAtTime(0.18, now); // Boosted from 0.05
     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
     
     osc.connect(gain);
@@ -119,7 +119,7 @@ export function playCorrect() {
       osc.frequency.setValueAtTime(freq, now + delay);
       
       gain.gain.setValueAtTime(0.0, now + delay);
-      gain.gain.linearRampToValueAtTime(0.06, now + delay + 0.03);
+      gain.gain.linearRampToValueAtTime(0.20, now + delay + 0.03); // Boosted from 0.06
       gain.gain.exponentialRampToValueAtTime(0.001, now + delay + duration);
       
       osc.connect(gain);
@@ -157,7 +157,7 @@ export function playIncorrect() {
     filter.type = 'lowpass';
     filter.frequency.setValueAtTime(200, now);
     
-    gain.gain.setValueAtTime(0.18, now);
+    gain.gain.setValueAtTime(0.38, now); // Boosted from 0.18
     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
     
     osc.connect(filter);
@@ -185,7 +185,7 @@ export function playTick(isFast = false) {
     osc.frequency.setValueAtTime(pitch, ctx.currentTime);
     
     const duration = isFast ? 0.035 : 0.02;
-    const vol = isFast ? 0.08 : 0.045;
+    const vol = isFast ? 0.18 : 0.12; // Boosted from 0.08 / 0.045
     
     gain.gain.setValueAtTime(vol, ctx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
@@ -217,7 +217,7 @@ export function playTimeout() {
     filter.type = 'lowpass';
     filter.frequency.setValueAtTime(180, ctx.currentTime);
     
-    gain.gain.setValueAtTime(0.2, ctx.currentTime);
+    gain.gain.setValueAtTime(0.42, ctx.currentTime); // Boosted from 0.2
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6);
     
     osc.connect(filter);
@@ -254,7 +254,7 @@ export function playTransition() {
     filter.Q.setValueAtTime(2.5, now);
     
     gain.gain.setValueAtTime(0.0, now);
-    gain.gain.linearRampToValueAtTime(0.12, now + duration * 0.2);
+    gain.gain.linearRampToValueAtTime(0.32, now + duration * 0.2); // Boosted from 0.12
     gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
     
     osc.connect(filter);
@@ -296,7 +296,7 @@ export function playVictory() {
       osc.frequency.setValueAtTime(note.f, now + note.d);
       
       gain.gain.setValueAtTime(0.0, now + note.d);
-      gain.gain.linearRampToValueAtTime(0.08, now + note.d + 0.03);
+      gain.gain.linearRampToValueAtTime(0.20, now + note.d + 0.03); // Boosted from 0.08
       gain.gain.exponentialRampToValueAtTime(0.001, now + note.d + note.l);
       
       osc.connect(gain);
@@ -323,7 +323,7 @@ export function playHoverTick() {
     osc.type = 'triangle';
     osc.frequency.setValueAtTime(550, now);
     
-    gain.gain.setValueAtTime(0.007, now); // quiet focus tick
+    gain.gain.setValueAtTime(0.055, now); // Boosted from 0.007 (over 7x louder for distinct hover feedback)
     gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.015);
     
     osc.connect(gain);
@@ -353,7 +353,7 @@ export function playUnlockPing() {
       osc.frequency.exponentialRampToValueAtTime(freq * 1.4, now + delay + 0.25);
       
       gain.gain.setValueAtTime(0, now + delay);
-      gain.gain.linearRampToValueAtTime(0.07, now + delay + 0.02);
+      gain.gain.linearRampToValueAtTime(0.22, now + delay + 0.02); // Boosted from 0.07
       gain.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.35);
       
       osc.connect(gain);
@@ -385,7 +385,7 @@ export function playBackCancel() {
     osc.frequency.setValueAtTime(480, now);
     osc.frequency.exponentialRampToValueAtTime(200, now + 0.18);
     
-    gain.gain.setValueAtTime(0.045, now);
+    gain.gain.setValueAtTime(0.18, now); // Boosted from 0.045
     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
     
     osc.connect(gain);
