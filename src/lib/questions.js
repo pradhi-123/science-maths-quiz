@@ -268,7 +268,7 @@ const DEFAULT_QUESTIONS = [
   {
     id: "r4-q4",
     round: 2,
-    text: "Choose the right answer: 4¹⁰⁰ + 4¹⁰⁰. \u00A0\u00A0\u00A0\u00A0 (a) 2²⁰⁰ \u00A0\u00A0\u00A0\u00A0 (b) 2²⁰¹ \u00A0\u00A0\u00A0\u00A0 (c) 4²⁰⁰ \u00A0\u00A0\u00A0\u00A0 (d) 2¹⁰⁰",
+    text: "Choose the right answer: 4¹⁰⁰ + 4¹⁰⁰.\n\n(a) 2²⁰⁰ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 (b) 2²⁰¹ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 (c) 4²⁰⁰ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 (d) 2¹⁰⁰",
     answer: "4¹⁰⁰ + 4¹⁰⁰\n= (2²)¹⁰⁰ + (2²)¹⁰⁰\n= 2²⁰⁰ + 2²⁰⁰\n= 2 × 2²⁰⁰\n= 2²⁰¹",
     timeLimit: 25,
     keywords: "math, algebra, exponents",
@@ -354,7 +354,7 @@ const DEFAULT_QUESTIONS = [
 ];
 
 export function getSavedQuestions() {
-  const data = localStorage.getItem('school_quiz_questions_v7');
+  const data = localStorage.getItem('school_quiz_questions_v8');
   let savedList = [];
   if (data) {
     try {
@@ -380,16 +380,16 @@ export function getSavedQuestions() {
       }
       return defaultQ;
     });
-    localStorage.setItem('school_quiz_questions_v7', JSON.stringify(merged));
+    localStorage.setItem('school_quiz_questions_v8', JSON.stringify(merged));
     return merged;
   }
 
   // Initialize with seed
-  localStorage.setItem('school_quiz_questions_v7', JSON.stringify(DEFAULT_QUESTIONS));
+  localStorage.setItem('school_quiz_questions_v8', JSON.stringify(DEFAULT_QUESTIONS));
   return DEFAULT_QUESTIONS;
 }
 
 export function saveQuestions(list) {
-  localStorage.setItem('school_quiz_questions_v7', JSON.stringify(list));
+  localStorage.setItem('school_quiz_questions_v8', JSON.stringify(list));
 }
 export { DEFAULT_QUESTIONS };

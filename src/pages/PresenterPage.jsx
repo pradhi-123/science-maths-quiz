@@ -972,8 +972,8 @@ export default function PresenterPage({ navigateTo }) {
                             animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
                             transition={{ duration: 0.65, ease: [0.25, 0.8, 0.25, 1] }}
                             style={{ 
-                              fontSize: activeRound === 2 ? '1.8rem' : ((activeQuestion.image || activeQuestion.images) ? '2.4rem' : '3.3rem'), 
-                              whiteSpace: activeRound === 2 ? 'nowrap' : 'normal',
+                              fontSize: activeRound === 2 ? '2.4rem' : ((activeQuestion.image || activeQuestion.images) ? '2.4rem' : '3.3rem'), 
+                              whiteSpace: activeRound === 2 ? 'pre' : 'normal',
                               fontWeight: 800, 
                               fontFamily: "'Outfit', sans-serif", 
                               color: '#ffffff', 
@@ -988,8 +988,8 @@ export default function PresenterPage({ navigateTo }) {
                           <h2 
                             className="digital-assemble"
                             style={{ 
-                              fontSize: activeRound === 2 ? '1.8rem' : ((activeQuestion.image || activeQuestion.images) ? '2.0rem' : '2.8rem'),
-                              whiteSpace: activeRound === 2 ? 'nowrap' : 'normal',
+                              fontSize: activeRound === 2 ? '2.4rem' : ((activeQuestion.image || activeQuestion.images) ? '2.0rem' : '2.8rem'),
+                              whiteSpace: activeRound === 2 ? 'pre' : 'normal',
                               fontWeight: 800, 
                               fontFamily: 'var(--font-display)', 
                               color: '#ffffff', 
