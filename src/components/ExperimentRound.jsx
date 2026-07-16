@@ -80,8 +80,8 @@ export default function ExperimentRound({
 
       {/* Main Content Area: Massive Glassmorphism Center */}
       <div style={{
-        position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-        width: '75%', maxHeight: '80vh',
+        position: 'absolute', top: '50%', left: '55%', transform: 'translate(-50%, -50%)',
+        width: '60%', maxHeight: '80vh',
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
         textAlign: 'center', zIndex: 10,
         background: 'rgba(0,0,0,0.5)',
