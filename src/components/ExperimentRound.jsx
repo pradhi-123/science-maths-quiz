@@ -25,9 +25,9 @@ export default function ExperimentRound({
   // The MP3 tracks from the original presentation
   const bgmTracks = [
     '/images/ppt2022/media6.mp3',
-    '/images/ppt2022/media4.mp3',
+    '/images/ppt2022/media3.mp3',
     '/images/ppt2022/media7.mp3',
-    '/images/ppt2022/media3.mp3'
+    '/images/ppt2022/media4.mp3'
   ];
   
   const currentBgm = bgmTracks[currentIdx % bgmTracks.length];
