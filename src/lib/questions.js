@@ -373,7 +373,7 @@ export function getSavedQuestions() {
           ...defaultQ,
           text: userQ.text || defaultQ.text,
           answer: userQ.answer || defaultQ.answer,
-          timeLimit: defaultQ.round === 1 ? 60 : (userQ.timeLimit !== undefined ? userQ.timeLimit : defaultQ.timeLimit),
+          timeLimit: defaultQ.round === 5 ? 120 : 60,
           keywords: userQ.keywords || defaultQ.keywords,
           image: userQ.image || defaultQ.image
         };

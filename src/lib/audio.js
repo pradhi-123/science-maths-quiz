@@ -246,7 +246,7 @@ export function playTick(isFast = false) {
     osc.frequency.setValueAtTime(pitch, ctx.currentTime);
     
     const duration = isFast ? 0.035 : 0.02;
-    const vol = isFast ? 0.18 : 0.12; // Boosted from 0.08 / 0.045
+    const vol = isFast ? 0.6 : 0.4; // Massively boosted volume for the ticker
     
     gain.gain.setValueAtTime(vol, ctx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
