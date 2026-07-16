@@ -463,8 +463,8 @@ export default function LandingPage({ navigateTo }) {
           /* CRUSHED CLUE PAPER LOCK SCREEN */
           <div 
             style={{
-              width: '460px',
-              minHeight: '365px',
+              width: '650px',
+              minHeight: '460px',
               background: 'linear-gradient(145deg, #f7f1db 0%, #e8dbb5 100%)',
               border: '3px solid #8e7343',
               borderRadius: '8px',
@@ -539,7 +539,7 @@ export default function LandingPage({ navigateTo }) {
                 Round Decryption Clue:
               </h3>
 
-              <p style={{ fontSize: '1.7rem', fontWeight: 900, color: '#8B0000', fontStyle: 'italic', marginBottom: '25px', textIndent: '20px', lineHeight: '34px', textShadow: '1px 1px 3px rgba(255, 255, 255, 0.9)' }}>
+              <p style={{ fontSize: '1.75rem', fontWeight: 900, color: '#FF0000', fontStyle: 'italic', marginBottom: '25px', textIndent: '20px', lineHeight: '36px', textShadow: '2px 2px 4px rgba(255, 255, 255, 1), 0px 0px 8px rgba(255,255,255,0.8)' }}>
                 "{activeLoc.locationClue}"
               </p>
             </div>
