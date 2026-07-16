@@ -1109,6 +1109,7 @@ export default function LandingPage({ navigateTo }) {
       style={{
         width: '100vw',
         height: '100vh',
+        position: 'relative',
         backgroundImage: `url(${cinematicBgs[bgIndex]})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -1120,6 +1121,14 @@ export default function LandingPage({ navigateTo }) {
         padding: '35px 50px',
         color: '#ffffff',
         overflow: 'hidden',
+      }}
+    >
+      <audio 
+        src="/images/backgrounds/player.mp3" 
+        autoPlay 
+        loop 
+        onCanPlay={(e) => { e.target.volume = 0.2; }} 
+      />
         position: 'relative'
       }}
     >
