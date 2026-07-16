@@ -22,13 +22,15 @@ export default function ExperimentRound({
   const activeQuestion = questions[currentIdx];
   const videoRef = useRef(null);
 
-  // Trigger the smooth ambient drone when the round starts
-  useEffect(() => {
-    playAmbientHum();
-    return () => {
-      stopAmbientHum();
-    };
-  }, []);
+  // The MP3 tracks from the original presentation
+  const bgmTracks = [
+    '/images/ppt2022/media3.mp3',
+    '/images/ppt2022/media4.mp3',
+    '/images/ppt2022/media5.mp3',
+    '/images/ppt2022/media6.mp3'
+  ];
+  
+  const currentBgm = bgmTracks[currentIdx % bgmTracks.length];
 
   useEffect(() => {
     if (videoRef.current && activeQuestion?.video) {
@@ -61,6 +63,15 @@ export default function ExperimentRound({
           filter: 'contrast(1.2) brightness(0.6)'
         }}
       />
+      
+      {/* Dynamic Thrilling Audio Track for this specific slide */}
+      <audio 
+        src={currentBgm} 
+        autoPlay 
+        loop 
+        style={{ display: 'none' }} 
+      />
+
       {/* Dark Cinematic Overlay & Grander HUD framing */}
       <div style={{
         position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
