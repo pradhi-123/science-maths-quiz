@@ -217,7 +217,7 @@ const DEFAULT_QUESTIONS = [
   },
   {
     id: "r3-q6",
-    round: 3,
+    round: 4,
     text: "Why does a diamond sparkle so brilliantly, and what optical phenomenon is responsible?",
     answer: "Total Internal Reflection (due to its high refractive index of 2.42)",
     timeLimit: 15,
@@ -354,7 +354,7 @@ const DEFAULT_QUESTIONS = [
 ];
 
 export function getSavedQuestions() {
-  const data = localStorage.getItem('school_quiz_questions_v8');
+  const data = localStorage.getItem('school_quiz_questions_v9');
   let savedList = [];
   if (data) {
     try {
@@ -380,16 +380,16 @@ export function getSavedQuestions() {
       }
       return defaultQ;
     });
-    localStorage.setItem('school_quiz_questions_v8', JSON.stringify(merged));
+    localStorage.setItem('school_quiz_questions_v9', JSON.stringify(merged));
     return merged;
   }
 
   // Initialize with seed
-  localStorage.setItem('school_quiz_questions_v8', JSON.stringify(DEFAULT_QUESTIONS));
+  localStorage.setItem('school_quiz_questions_v9', JSON.stringify(DEFAULT_QUESTIONS));
   return DEFAULT_QUESTIONS;
 }
 
 export function saveQuestions(list) {
-  localStorage.setItem('school_quiz_questions_v8', JSON.stringify(list));
+  localStorage.setItem('school_quiz_questions_v9', JSON.stringify(list));
 }
 export { DEFAULT_QUESTIONS };
