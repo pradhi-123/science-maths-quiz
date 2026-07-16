@@ -233,7 +233,7 @@ const DEFAULT_QUESTIONS = [
     id: "r4-q1",
     round: 2,
     text: "Find the value of: 999999² - (999998 × 1000000)",
-    answer: "1",
+    answer: "Let a = 999999\nThen 999998 = a - 1, 1000000 = a + 1\nSo, a² - (a - 1)(a + 1)\nUsing the identity (a-1)(a+1) = a² - 1\n= a² - (a² - 1)\n= 1",
     timeLimit: 25,
     keywords: "math, algebra, equation, square",
     image: "",
@@ -245,7 +245,7 @@ const DEFAULT_QUESTIONS = [
     id: "r4-q2",
     round: 2,
     text: "Find the value of: √(299² + 299 + 300)",
-    answer: "300",
+    answer: "Let a = 299\nThen √(a² + a + a + 1)\n= √(a² + 2a + 1)\n= √(a + 1)²\n= a + 1\n= 299 + 1 = 300",
     timeLimit: 25,
     keywords: "math, algebra, root, square",
     image: "",
@@ -257,7 +257,7 @@ const DEFAULT_QUESTIONS = [
     id: "r4-q3",
     round: 2,
     text: "Find the value of: √(999² + 1998 + 1)",
-    answer: "1000",
+    answer: "Let a = 999\nThen √(a² + 2a + 1)\n= √(a + 1)²\n= a + 1\n= 999 + 1 = 1000",
     timeLimit: 25,
     keywords: "math, algebra, root, equation",
     image: "",
@@ -269,7 +269,7 @@ const DEFAULT_QUESTIONS = [
     id: "r4-q4",
     round: 2,
     text: "Choose the right answer: 4¹⁰⁰ + 4¹⁰⁰",
-    answer: "2²⁰¹",
+    answer: "4¹⁰⁰ + 4¹⁰⁰\n= (2²)¹⁰⁰ + (2²)¹⁰⁰\n= 2²⁰⁰ + 2²⁰⁰\n= 2 × 2²⁰⁰\n= 2²⁰¹",
     timeLimit: 25,
     keywords: "math, algebra, exponents",
     image: "",
@@ -280,8 +280,8 @@ const DEFAULT_QUESTIONS = [
   {
     id: "r4-q5",
     round: 2,
-    text: "If m³ = 27, and n³ = -27. Find the value of n?",
-    answer: "-3",
+    text: "If m³ = 27, and n³ = -36. Find the value?",
+    answer: "m³ = 27, n³ = -36\nAnswer: -3",
     timeLimit: 25,
     keywords: "math, algebra, exponents, cube",
     image: "",
@@ -293,7 +293,7 @@ const DEFAULT_QUESTIONS = [
     id: "r4-q6",
     round: 2,
     text: "If y⁸ = (y - 1)⁸. Find y.",
-    answer: "1/2",
+    answer: "Since the powers are even, y = y - 1 => 0 = -1 (Not possible)\nNow consider: y = -(y - 1)\ny = -y + 1\n2y = 1\ny = 1/2",
     timeLimit: 25,
     keywords: "math, algebra, exponents, equation",
     image: "",
@@ -354,7 +354,7 @@ const DEFAULT_QUESTIONS = [
 ];
 
 export function getSavedQuestions() {
-  const data = localStorage.getItem('school_quiz_questions_v4');
+  const data = localStorage.getItem('school_quiz_questions_v5');
   let savedList = [];
   if (data) {
     try {
@@ -380,16 +380,16 @@ export function getSavedQuestions() {
       }
       return defaultQ;
     });
-    localStorage.setItem('school_quiz_questions_v4', JSON.stringify(merged));
+    localStorage.setItem('school_quiz_questions_v5', JSON.stringify(merged));
     return merged;
   }
 
   // Initialize with seed
-  localStorage.setItem('school_quiz_questions_v4', JSON.stringify(DEFAULT_QUESTIONS));
+  localStorage.setItem('school_quiz_questions_v5', JSON.stringify(DEFAULT_QUESTIONS));
   return DEFAULT_QUESTIONS;
 }
 
 export function saveQuestions(list) {
-  localStorage.setItem('school_quiz_questions_v4', JSON.stringify(list));
+  localStorage.setItem('school_quiz_questions_v5', JSON.stringify(list));
 }
 export { DEFAULT_QUESTIONS };

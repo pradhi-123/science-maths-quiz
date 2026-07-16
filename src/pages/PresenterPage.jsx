@@ -1030,6 +1030,7 @@ export default function PresenterPage({ navigateTo }) {
                               fontFamily: "'Outfit', sans-serif", 
                               color: 'var(--console-cyan)', 
                               lineHeight: '1.5',
+                              whiteSpace: 'pre-wrap',
                               textShadow: '0 2px 15px rgba(0,0,0,0.95), 0 0 10px rgba(0, 255, 209, 0.45)'
                             }}
                           >
@@ -1044,6 +1045,7 @@ export default function PresenterPage({ navigateTo }) {
                               fontFamily: 'var(--font-main)', 
                               color: 'var(--console-cyan)', 
                               lineHeight: '1.5',
+                              whiteSpace: 'pre-wrap',
                               textShadow: '0 2px 15px rgba(0,0,0,0.95), 0 0 10px rgba(0, 255, 209, 0.45)'
                             }}
                           >
