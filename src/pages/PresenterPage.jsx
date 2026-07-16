@@ -594,7 +594,7 @@ export default function PresenterPage({ navigateTo }) {
           src={activeBGM}
           autoPlay 
           loop 
-          onCanPlay={(e) => { e.target.volume = 0.06; }}
+          onCanPlay={(e) => { e.target.volume = 0.04; }}
           style={{ display: 'none' }}
         />
       )}
