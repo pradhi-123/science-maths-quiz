@@ -268,7 +268,7 @@ const DEFAULT_QUESTIONS = [
   {
     id: "r4-q4",
     round: 2,
-    text: "Choose the right answer: 4¹⁰⁰ + 4¹⁰⁰. Options: (a) 2²⁰⁰   (b) 2²⁰¹   (c) 4²⁰⁰   (d) 2¹⁰⁰",
+    text: "Choose the right answer: 4¹⁰⁰ + 4¹⁰⁰. \u00A0\u00A0\u00A0\u00A0 (a) 2²⁰⁰ \u00A0\u00A0\u00A0\u00A0 (b) 2²⁰¹ \u00A0\u00A0\u00A0\u00A0 (c) 4²⁰⁰ \u00A0\u00A0\u00A0\u00A0 (d) 2¹⁰⁰",
     answer: "4¹⁰⁰ + 4¹⁰⁰\n= (2²)¹⁰⁰ + (2²)¹⁰⁰\n= 2²⁰⁰ + 2²⁰⁰\n= 2 × 2²⁰⁰\n= 2²⁰¹",
     timeLimit: 25,
     keywords: "math, algebra, exponents",
@@ -280,7 +280,7 @@ const DEFAULT_QUESTIONS = [
   {
     id: "r4-q5",
     round: 2,
-    text: "If m³ = 27, and n³ = -36. Find m + n? (Note: 9 is not the answer)",
+    text: "If m³ = 27, and n³ = 36. Find m + n? (Note: 9 is not the answer)",
     answer: "m³ = 27, n³ = -36\nAnswer: -3",
     timeLimit: 25,
     keywords: "math, algebra, exponents, cube",
@@ -354,7 +354,7 @@ const DEFAULT_QUESTIONS = [
 ];
 
 export function getSavedQuestions() {
-  const data = localStorage.getItem('school_quiz_questions_v6');
+  const data = localStorage.getItem('school_quiz_questions_v7');
   let savedList = [];
   if (data) {
     try {
@@ -380,16 +380,16 @@ export function getSavedQuestions() {
       }
       return defaultQ;
     });
-    localStorage.setItem('school_quiz_questions_v6', JSON.stringify(merged));
+    localStorage.setItem('school_quiz_questions_v7', JSON.stringify(merged));
     return merged;
   }
 
   // Initialize with seed
-  localStorage.setItem('school_quiz_questions_v6', JSON.stringify(DEFAULT_QUESTIONS));
+  localStorage.setItem('school_quiz_questions_v7', JSON.stringify(DEFAULT_QUESTIONS));
   return DEFAULT_QUESTIONS;
 }
 
 export function saveQuestions(list) {
-  localStorage.setItem('school_quiz_questions_v6', JSON.stringify(list));
+  localStorage.setItem('school_quiz_questions_v7', JSON.stringify(list));
 }
 export { DEFAULT_QUESTIONS };
