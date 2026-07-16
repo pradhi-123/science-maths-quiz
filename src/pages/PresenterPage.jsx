@@ -540,6 +540,17 @@ export default function PresenterPage({ navigateTo }) {
   const activeQuestionBg = activeQuestion?.bg || roundConfig.background;
   const dnaNodes = Array.from({ length: 9 }).map((_, i) => i);
 
+  const getBGM = () => {
+    switch (activeRound) {
+      case 1: return "/images/backgrounds/dheema.mpeg";
+      case 2: return "/images/backgrounds/youth.mpeg";
+      case 3: return "/images/backgrounds/chellamagale.mpeg";
+      case 4: return "/images/backgrounds/withlove.mpeg";
+      default: return null;
+    }
+  };
+  const activeBGM = getBGM();
+
   if (activeRound === 5) {
     return (
       <ExperimentRound
@@ -577,6 +588,15 @@ export default function PresenterPage({ navigateTo }) {
         background: 'transparent'
       }}
     >
+      {activeBGM && (
+        <audio 
+          key={activeBGM}
+          src={activeBGM}
+          autoPlay 
+          loop 
+          style={{ display: 'none' }}
+        />
+      )}
       {/* Layer 1: Solid base matte backdrop */}
       <div 
         style={{
