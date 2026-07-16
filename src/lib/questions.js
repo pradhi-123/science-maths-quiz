@@ -19,7 +19,7 @@ const DEFAULT_QUESTIONS = [
     video: "/images/untitled_design/ppt/media/VAGGdp__oEU.mp4",
     round: 1,
     text: "Why do ice cubes float in your glass of water when almost all other solid objects sink in their own liquids?",
-    answer: "When water freezes into ice, its molecules lock into a rigid, spacious tetragonal structure. This makes ice about 9% less dense than liquid water, allowing it to float.",
+    answer: "When water freezes into ice, its molecules lock into a rigid, spacious tetrahedral structure. This makes ice about 9% less dense than liquid water, allowing it to float.",
     timeLimit: 60,
     keywords: "ice, float, water, structure",
     image: "/images/q2.png",
@@ -30,7 +30,7 @@ const DEFAULT_QUESTIONS = [
     id: "r1-q3",
     video: "/images/untitled_design/ppt/media/VAGOQE_gJrE.mp4",
     round: 1,
-    text: "When you slinky it will collapse onto the last ring and then it all  falls at the same time instead of falling as one unit.",
+    text: "When you drop a slinky it will collapse onto the last ring and then it all  falls at the same time instead of falling as one unit.",
     answer: "The slinky contracts at the same rate as it is falling.",
     timeLimit: 60,
     keywords: "slinky, spring, gravity",
@@ -119,7 +119,7 @@ const DEFAULT_QUESTIONS = [
     bg: "url('/images/sciencequiz2022_extract/ppt/media/image17.gif') no-repeat center center / 100% 100%",
     round: 3,
     text: "Name the chemical compound that is added along with petrol gas (LPG) to detect leakage?",
-    answer: "Ethyl Mercaptan (Ethanethiol - has a strong odor)",
+    answer: "Ethyl Mercaptan (Ethanethiol - has a strong odour)",
     timeLimit: 60,
     keywords: "chemical, petrol, lpg, mercaptan, detect",
     image: "/images/image6.jpeg",
@@ -354,7 +354,7 @@ const DEFAULT_QUESTIONS = [
 ];
 
 export function getSavedQuestions() {
-  const data = localStorage.getItem('school_quiz_questions_v22');
+  const data = localStorage.getItem('school_quiz_questions_v23');
   let savedList = [];
   if (data) {
     try {
@@ -380,16 +380,16 @@ export function getSavedQuestions() {
       }
       return defaultQ;
     });
-    localStorage.setItem('school_quiz_questions_v22', JSON.stringify(merged));
+    localStorage.setItem('school_quiz_questions_v23', JSON.stringify(merged));
     return merged;
   }
 
   // Initialize with seed
-  localStorage.setItem('school_quiz_questions_v22', JSON.stringify(DEFAULT_QUESTIONS));
+  localStorage.setItem('school_quiz_questions_v23', JSON.stringify(DEFAULT_QUESTIONS));
   return DEFAULT_QUESTIONS;
 }
 
 export function saveQuestions(list) {
-  localStorage.setItem('school_quiz_questions_v22', JSON.stringify(list));
+  localStorage.setItem('school_quiz_questions_v23', JSON.stringify(list));
 }
 export { DEFAULT_QUESTIONS };
