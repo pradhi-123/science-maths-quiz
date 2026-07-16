@@ -80,23 +80,26 @@ export default function ExperimentRound({
 
       {/* Main Content Area: Massive Glassmorphism Center */}
       <div style={{
-        position: 'absolute', top: '15%', left: '15%', right: '15%', bottom: '20%',
-        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+        position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+        width: '80%', maxHeight: '75vh',
+        display: 'flex', flexDirection: 'column', alignItems: 'center',
         textAlign: 'center', zIndex: 10,
-        background: 'rgba(0,0,0,0.4)',
+        background: 'rgba(0,0,0,0.5)',
         backdropFilter: 'blur(15px)',
         border: `1.5px solid ${cardColor}66`,
         borderRadius: '35px',
         boxShadow: `0 0 80px ${cardColor}22, inset 0 0 40px rgba(0,0,0,0.8)`,
-        overflowY: 'auto'
+        overflowY: 'auto',
+        padding: '50px 30px'
       }}>
         
         <div style={{
-          position: 'absolute', top: '-28px',
-          padding: '14px 40px', background: 'rgba(5,6,11,0.95)', border: `2px solid ${cardColor}`,
-          borderRadius: '30px', color: cardColor, fontSize: 'clamp(0.8rem, 1.5vw, 1.3rem)',
-          fontWeight: 900, textTransform: 'uppercase', letterSpacing: '8px',
-          boxShadow: `0 0 35px ${cardColor}88`
+          position: 'absolute', top: '0', left: '50%', transform: 'translate(-50%, -50%)',
+          padding: '10px 35px', background: 'rgba(5,6,11,0.95)', border: `2px solid ${cardColor}`,
+          borderRadius: '30px', color: cardColor, fontSize: 'clamp(0.8rem, 1.2vw, 1.2rem)',
+          fontWeight: 900, textTransform: 'uppercase', letterSpacing: '6px',
+          boxShadow: `0 0 35px ${cardColor}88`,
+          whiteSpace: 'nowrap'
         }}>
           // EXPERIMENTAL LAB {currentIdx + 1}
         </div>
@@ -104,28 +107,28 @@ export default function ExperimentRound({
         {/* The Hologram Swap Logic */}
         {!isRevealed ? (
           <h1 style={{
-            fontSize: 'clamp(1.5rem, 3.5vw, 3.2rem)', fontWeight: 900, lineHeight: '1.4',
-            textShadow: `0 8px 40px rgba(0,0,0,1), 0 0 25px ${cardColor}77`,
-            fontFamily: "'Cinzel', serif",
+            fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 600, lineHeight: '1.5',
+            textShadow: `0 8px 30px rgba(0,0,0,1), 0 0 20px ${cardColor}55`,
+            fontFamily: 'var(--font-display)',
             animation: 'hologram-fade-in 1s ease-out',
-            maxWidth: '90%', margin: 'auto', padding: '40px 20px',
+            width: '100%', margin: 'auto', padding: '10px',
             wordWrap: 'break-word'
           }}>
             {activeQuestion.text}
           </h1>
         ) : (
-          <div style={{ animation: 'hologram-fade-in 0.8s ease-out', padding: '40px 20px', maxWidth: '95%', margin: 'auto' }}>
+          <div style={{ animation: 'hologram-fade-in 0.8s ease-out', padding: '10px', width: '100%', margin: 'auto' }}>
             <h2 style={{ 
-              fontSize: 'clamp(1rem, 1.5vw, 1.6rem)', color: '#bbb', marginBottom: '20px', 
+              fontSize: 'clamp(1rem, 1.5vw, 1.6rem)', color: '#bbb', marginBottom: '15px', 
               textTransform: 'uppercase', letterSpacing: '6px', fontFamily: 'var(--font-hud)' 
             }}>
               Verified Phenomenon
             </h2>
             <div style={{ 
-              fontSize: 'clamp(2rem, 4.5vw, 4.5rem)', color: cardColor, fontWeight: 900, 
-              fontFamily: "'Cinzel', serif", 
-              textShadow: `0 0 50px ${cardColor}aa, 0 10px 25px rgba(0,0,0,1)`,
-              lineHeight: '1.2',
+              fontSize: 'clamp(2.2rem, 3.5vw, 3.8rem)', color: cardColor, fontWeight: 700, 
+              fontFamily: 'var(--font-display)', 
+              textShadow: `0 0 40px ${cardColor}88, 0 10px 20px rgba(0,0,0,1)`,
+              lineHeight: '1.35',
               wordWrap: 'break-word'
             }}>
               {activeQuestion.answer}
