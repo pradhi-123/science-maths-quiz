@@ -131,28 +131,28 @@ export default function PresenterPage({ navigateTo }) {
       case 2:
         return {
           mascot: "/images/mascots/jungle.png",
-          background: "url('/images/ppt2022/image71.gif') no-repeat center center / cover",
+          background: "url('/images/ppt2022/image71.gif') no-repeat center center / 100% 100%",
           zone: "ALGEBRAIC MATRICES",
           title: "ROUND 02: algebraic matrices"
         };
       case 3:
         return {
           mascot: "/images/mascots/ice.png",
-          background: "url('/images/ppt2022/image62.gif') no-repeat center center / cover",
+          background: "url('/images/ppt2022/image62.gif') no-repeat center center / 100% 100%",
           zone: "COSMIC EXPLORATION",
           title: "ROUND 03: cosmic exploration"
         };
       case 4:
         return {
           mascot: "/images/mascots/water.png",
-          background: "url('/images/ppt2022/image64.gif') no-repeat center center / cover",
+          background: "url('/images/ppt2022/image64.gif') no-repeat center center / 100% 100%",
           zone: "VISUAL INTEL",
           title: "ROUND 04: visual intel"
         };
       case 5:
         return {
           mascot: "/images/mascots/sky.png",
-          background: "url('/images/ppt2022/image67.gif') no-repeat center center / cover",
+          background: "url('/images/ppt2022/image67.gif') no-repeat center center / 100% 100%",
           zone: "EXPERIMENTAL ROUND",
           title: "ROUND 05: experimental round"
         };
@@ -160,7 +160,7 @@ export default function PresenterPage({ navigateTo }) {
       default:
         return {
           mascot: "/images/mascots/space.png",
-          background: "url('/images/ppt2022/image73.gif') no-repeat center center / cover",
+          background: "url('/images/ppt2022/image73.gif') no-repeat center center / 100% 100%",
           zone: "REASONING ROUND",
           title: "ROUND 01: reasoning round"
         };

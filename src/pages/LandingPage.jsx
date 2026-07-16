@@ -260,7 +260,7 @@ export default function LandingPage({ navigateTo }) {
             backgroundImage: `url('${activeLoc.image}')`,
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
+            backgroundSize: '100% 100%',
             transformOrigin: `${zoomTarget.left} ${zoomTarget.top}`,
             animation: 'ps5-boot-zoom 1.5s cubic-bezier(0.7, 0, 0.3, 1) forwards'
           }}
@@ -315,7 +315,7 @@ export default function LandingPage({ navigateTo }) {
           style={{
             width: '100vw',
             height: '100vh',
-            background: "url('/images/ppt2022/image67.gif') no-repeat center center / cover",
+            background: "url('/images/ppt2022/image67.gif') no-repeat center center / 100% 100%",
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
@@ -431,7 +431,7 @@ export default function LandingPage({ navigateTo }) {
           width: '100vw',
           height: '100vh',
           background: isLocUnlocked 
-            ? `url('${activeLoc.image}') no-repeat center center / cover` 
+            ? `url('${activeLoc.image}') no-repeat center center / 100% 100%` 
             : '#040509',
           display: 'flex',
           flexDirection: 'column',
@@ -913,7 +913,7 @@ export default function LandingPage({ navigateTo }) {
         style={{
           width: '100vw',
           height: '100vh',
-          background: "url('/images/ppt2022/image82.gif') no-repeat center center / cover",
+          background: "url('/images/ppt2022/image82.gif') no-repeat center center / 100% 100%",
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -1083,7 +1083,7 @@ export default function LandingPage({ navigateTo }) {
       style={{
         width: '100vw',
         height: '100vh',
-        background: "url('/images/ppt2022/image58.gif') no-repeat center center / cover",
+        background: "url('/images/ppt2022/image58.gif') no-repeat center center / 100% 100%",
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
