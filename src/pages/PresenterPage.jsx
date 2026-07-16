@@ -940,6 +940,7 @@ export default function PresenterPage({ navigateTo }) {
                                   width: `${95 / activeQuestion.images.length}%`, 
                                   height: '100%', 
                                   display: 'flex', 
+                                  flexDirection: 'column',
                                   alignItems: 'center', 
                                   justifyContent: 'center', 
                                   background: 'rgba(255, 255, 255, 0.03)',
@@ -952,8 +953,13 @@ export default function PresenterPage({ navigateTo }) {
                                 <img 
                                   src={imgSrc} 
                                   alt={`Clue ${i+1}`} 
-                                  style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '4px' }}
+                                  style={{ width: '100%', height: (activeQuestion.captions && activeQuestion.captions[i]) ? '85%' : '100%', objectFit: 'contain', borderRadius: '4px' }}
                                 />
+                                {activeQuestion.captions && activeQuestion.captions[i] && (
+                                  <div style={{ color: '#fff', fontSize: '1.4rem', fontWeight: 'bold', marginTop: '10px', textAlign: 'center', fontFamily: 'var(--font-hud)', textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>
+                                    {activeQuestion.captions[i]}
+                                  </div>
+                                )}
                               </div>
                             ))}
                           </motion.div>

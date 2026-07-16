@@ -159,7 +159,8 @@ const DEFAULT_QUESTIONS = [
     id: "r3-q1",
     video: "/images/scientofabio_extract/ppt/media/VAG6sBH98ZY.mp4",
     round: 4,
-    text: "Ant bite: Name the type of reaction?",
+    text: "Name the type of reaction?",
+    captions: ["", "Ant bite", ""],
     answer: "Neutralization Reaction (Formic acid neutralized by mild alkaline bases)",
     timeLimit: 60,
     keywords: "ant, bite, type, reaction, neutralization",
@@ -172,7 +173,7 @@ const DEFAULT_QUESTIONS = [
     video: "/images/scientofabio_extract/ppt/media/VAG9f9GjA-U.mp4",
     round: 4,
     text: "Name the branch of Mathematics representing these coordinate plots?",
-    answer: "Coordinate Geometry (Analytic Geometry)",
+    answer: "Coordinate Geometry (Analytical Geometry)",
     timeLimit: 60,
     keywords: "branch, mathematics, coordinate, geometry",
     images: ["/images/image16.png", "/images/image17.jpeg", "/images/image18.jpeg"],
@@ -183,7 +184,7 @@ const DEFAULT_QUESTIONS = [
     id: "r3-q3",
     video: "/images/scientofabio_extract/ppt/media/VAG5zwPs8_U.mp4",
     round: 4,
-    text: "Name the Antibiotic discovered by Alexander Fleming?",
+    text: "Name the drug discovered by Alexander Fleming?",
     answer: "Penicillin (extracted from Penicillium mould)",
     timeLimit: 60,
     keywords: "antibiotic, penicillin, fleming, medicine",
@@ -207,25 +208,13 @@ const DEFAULT_QUESTIONS = [
     id: "r3-q5",
     video: "/images/scientofabio_extract/ppt/media/VAGZ2h7bpE8.mp4",
     round: 4,
-    text: "Q = mCΔT represents which scientific quantity?",
+    text: "C is ___________?",
     answer: "Specific Heat Capacity (of water)",
     timeLimit: 60,
     keywords: "formula, temperature, capacity, specific heat",
     images: ["/images/image26.jpeg", "/images/image27.jpeg", "/images/image28.PNG"], // reuse
     cardColor: "#00d2ff",
     cardGradient: "linear-gradient(135deg, rgba(0, 210, 255, 0.45) 0%, rgba(189, 0, 255, 0.45) 100%)"
-  },
-  {
-    id: "r3-q6",
-    video: "/images/scientofabio_extract/ppt/media/VAHAp6EDcf4.mp4",
-    round: 4,
-    text: "Why does a diamond sparkle so brilliantly, and what optical phenomenon is responsible?",
-    answer: "Total Internal Reflection (due to its high refractive index of 2.42)",
-    timeLimit: 60,
-    keywords: "diamond, sparkle, reflection, physics, optics",
-    images: ["/images/ppt2022/image65.jpeg", "/images/ppt2022/image66.png"], // reuse
-    cardColor: "#ff0055",
-    cardGradient: "linear-gradient(135deg, rgba(255, 0, 85, 0.45) 0%, rgba(255, 170, 0, 0.45) 100%)"
   },
 
   // --- ROUND 2: ALGEBRAIC MATRICES (6 questions) ---
@@ -354,7 +343,7 @@ const DEFAULT_QUESTIONS = [
 ];
 
 export function getSavedQuestions() {
-  const data = localStorage.getItem('school_quiz_questions_v23');
+  const data = localStorage.getItem('school_quiz_questions_v24');
   let savedList = [];
   if (data) {
     try {
@@ -380,16 +369,16 @@ export function getSavedQuestions() {
       }
       return defaultQ;
     });
-    localStorage.setItem('school_quiz_questions_v23', JSON.stringify(merged));
+    localStorage.setItem('school_quiz_questions_v24', JSON.stringify(merged));
     return merged;
   }
 
   // Initialize with seed
-  localStorage.setItem('school_quiz_questions_v23', JSON.stringify(DEFAULT_QUESTIONS));
+  localStorage.setItem('school_quiz_questions_v24', JSON.stringify(DEFAULT_QUESTIONS));
   return DEFAULT_QUESTIONS;
 }
 
 export function saveQuestions(list) {
-  localStorage.setItem('school_quiz_questions_v23', JSON.stringify(list));
+  localStorage.setItem('school_quiz_questions_v24', JSON.stringify(list));
 }
 export { DEFAULT_QUESTIONS };
