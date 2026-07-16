@@ -963,9 +963,15 @@ export default function PresenterPage({ navigateTo }) {
                       display: 'flex', 
                       flexDirection: 'column', 
                       justifyContent: 'center',
-                      width: activeRound === 4 ? '100%' : '50%',
-                      textAlign: activeRound === 4 ? 'center' : 'left',
-                      marginTop: activeRound === 4 ? '15px' : '0'
+                      width: (activeRound === 4 || activeRound === 2) ? '100%' : '50%',
+                      textAlign: (activeRound === 4 || activeRound === 2) ? 'center' : 'left',
+                      marginTop: (activeRound === 4 || activeRound === 2) ? '15px' : '0',
+                      background: activeRound === 2 ? 'rgba(0, 255, 136, 0.08)' : 'transparent',
+                      padding: activeRound === 2 ? '50px' : '0',
+                      borderRadius: activeRound === 2 ? '25px' : '0',
+                      border: activeRound === 2 ? '2px solid rgba(0, 255, 136, 0.4)' : 'none',
+                      boxShadow: activeRound === 2 ? '0 0 80px rgba(0, 255, 136, 0.15), inset 0 0 40px rgba(0, 255, 136, 0.1)' : 'none',
+                      backdropFilter: activeRound === 2 ? 'blur(15px)' : 'none'
                     }}
                   >
                     {!isRevealed ? (
@@ -974,7 +980,7 @@ export default function PresenterPage({ navigateTo }) {
                           style={{ 
                             fontFamily: 'var(--font-hud)', 
                             fontSize: '0.7rem', 
-                            color: 'var(--console-cyan)', 
+                            color: activeRound === 2 ? '#00ff88' : 'var(--console-cyan)', 
                             fontWeight: 900, 
                             textTransform: 'uppercase', 
                             letterSpacing: '4px',
@@ -1029,7 +1035,7 @@ export default function PresenterPage({ navigateTo }) {
                           style={{ 
                             fontFamily: 'var(--font-hud)', 
                             fontSize: '0.7rem', 
-                            color: 'var(--console-cyan)', 
+                            color: activeRound === 2 ? '#00ff88' : 'var(--console-cyan)', 
                             fontWeight: 900, 
                             textTransform: 'uppercase', 
                             letterSpacing: '4px',
