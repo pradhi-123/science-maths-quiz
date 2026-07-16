@@ -1,0 +1,345 @@
+// Seed Questions database split across Round 1, Round 2, and Round 3.
+// Seeding exactly 6 questions per round with individual high-quality video loops and card colorways.
+const DEFAULT_QUESTIONS = [
+  // --- ROUND 1: REASONING ROUND (6 questions) ---
+  {
+    id: "r1-q1",
+    round: 1,
+    text: "Explain why cookies turn hard while cakes turn soft when they go stale?",
+    answer: "Cookies lose moisture to the atmosphere (drying out), while cakes absorb moisture from the air (hygroscopic sugar absorption).",
+    timeLimit: 60,
+    keywords: "cookies, cakes, stale, moisture, chemistry",
+    image: "/images/q1.png",
+    video: "/images/scientofabio/VAG1heupXPs.mp4",
+    cardColor: "#ff0080",
+    cardGradient: "linear-gradient(135deg, rgba(255, 0, 128, 0.45) 0%, rgba(255, 170, 0, 0.45) 100%)"
+  },
+  {
+    id: "r1-q2",
+    round: 1,
+    text: "Why does ice float on water, and what makes its crystal lattice structure unique?",
+    answer: "Water expands upon freezing. Its hydrogen bonds form a hexagonal crystalline lattice that is less dense than liquid water.",
+    timeLimit: 60,
+    keywords: "ice, float, water, crystal, lattice",
+    image: "/images/q2.png",
+    video: "/images/scientofabio/VAG-gzQe-A0.mp4",
+    cardColor: "#00ffd1",
+    cardGradient: "linear-gradient(135deg, rgba(0, 255, 209, 0.45) 0%, rgba(0, 128, 255, 0.45) 100%)"
+  },
+  {
+    id: "r1-q3",
+    round: 1,
+    text: "When you drop a stretched Slinky, why does the bottom remain stationary until the top reaches it?",
+    answer: "The upward tension of the spring exactly balances the downward force of gravity at the bottom, until the compression wave arrives.",
+    timeLimit: 60,
+    keywords: "slinky, spring, gravity, tension, physics",
+    image: "/images/q3.png",
+    video: "/images/scientofabio/VAHAp6EDcf4.mp4",
+    cardColor: "#bd00ff",
+    cardGradient: "linear-gradient(135deg, rgba(189, 0, 255, 0.45) 0%, rgba(255, 0, 128, 0.45) 100%)"
+  },
+  {
+    id: "r1-q4",
+    round: 1,
+    text: "Why do silver ornaments turn black over time, and what chemical compound is responsible?",
+    answer: "Silver reacts with hydrogen sulfide in the air to form a thin black layer of Silver Sulfide (Ag₂S) tarnish.",
+    timeLimit: 60,
+    keywords: "silver, ornaments, black, tarnish, sulfide",
+    image: "/images/q4.png",
+    video: "/images/scientofabio/VAG4tOv2XR0.mp4",
+    cardColor: "#ffaa00",
+    cardGradient: "linear-gradient(135deg, rgba(255, 170, 0, 0.45) 0%, rgba(255, 85, 0, 0.45) 100%)"
+  },
+  {
+    id: "r1-q5",
+    round: 1,
+    text: "How does iodine act as an antiseptic on wounds, and what reaction does it trigger?",
+    answer: "Iodine penetrates cell walls of pathogens, oxidizing essential proteins and lipids, causing rapid cellular disinfection.",
+    timeLimit: 60,
+    keywords: "iodine, wound, antiseptic, oxidation, cell",
+    image: "/images/q5.png",
+    video: "/images/scientofabio/VAHAPrqMi5o.mp4",
+    cardColor: "#00d2ff",
+    cardGradient: "linear-gradient(135deg, rgba(0, 210, 255, 0.45) 0%, rgba(189, 0, 255, 0.45) 100%)"
+  },
+  {
+    id: "r1-q6",
+    round: 1,
+    text: "Why does a soda bottle fizz violently when opened, and how is it related to pressure?",
+    answer: "Carbon dioxide solubility drops as pressure is released (Henry's Law), causing dissolved gas to rapidly escape as bubbles.",
+    timeLimit: 60,
+    keywords: "soda, fizz, pressure, solubility, carbon dioxide",
+    image: "/images/q6.png",
+    video: "/images/scientofabio/VAGZ2h7bpE8.mp4",
+    cardColor: "#ff0055",
+    cardGradient: "linear-gradient(135deg, rgba(255, 0, 85, 0.45) 0%, rgba(255, 170, 0, 0.45) 100%)"
+  },
+
+  // --- ROUND 2: COSMIC EXPLORATION (6 questions) ---
+  {
+    id: "r2-q1",
+    round: 2,
+    text: "Name the gas that was leaked in a factory near Chennai that took 20 lives recently?",
+    answer: "Ammonia Gas (coolant system leak at seafood factory)",
+    timeLimit: 20,
+    keywords: "chennai, gas, factory, ammonia",
+    image: "/images/image1.jpeg",
+    answerImage: "/images/image2.jpeg",
+    video: "/images/scientofabio/VAG1haZikIU.mp4",
+    cardColor: "#00ffd1",
+    cardGradient: "linear-gradient(135deg, rgba(0, 255, 209, 0.45) 0%, rgba(0, 128, 255, 0.45) 100%)"
+  },
+  {
+    id: "r2-q2",
+    round: 2,
+    text: "Name the chemical secreted in the brain that kindles the interest in human to learn more and also focus on new things.",
+    answer: "Dopamine (associated with pleasure, focus, and drive)",
+    timeLimit: 15,
+    keywords: "chemical, brain, interest, dopamine",
+    image: "/images/image3.jpeg",
+    answerImage: "/images/image4.jpeg",
+    video: "/images/scientofabio/VAHEedkwj_s.mp4",
+    cardColor: "#ff0080",
+    cardGradient: "linear-gradient(135deg, rgba(255, 0, 128, 0.45) 0%, rgba(255, 170, 0, 0.45) 100%)"
+  },
+  {
+    id: "r2-q3",
+    round: 2,
+    text: "What is the scientific reason behind designing the javelin with the sharp edge?",
+    answer: "To minimize air resistance (aerodynamic streamlined design)",
+    timeLimit: 15,
+    keywords: "scientific, javelin, sharp, air resistance",
+    image: "/images/image5.jpeg",
+    video: "/images/scientofabio/VAG8vFA2P5Y.mp4",
+    cardColor: "#bd00ff",
+    cardGradient: "linear-gradient(135deg, rgba(189, 0, 255, 0.45) 0%, rgba(255, 0, 128, 0.45) 100%)"
+  },
+  {
+    id: "r2-q4",
+    round: 2,
+    text: "Name the chemical compound that is added along with petrol gas (LPG) to detect leakage?",
+    answer: "Ethyl Mercaptan (Ethanethiol - has a strong odor)",
+    timeLimit: 15,
+    keywords: "chemical, petrol, lpg, mercaptan, detect",
+    image: "/images/image6.jpeg",
+    answerImage: "/images/image7.jpeg",
+    video: "/images/scientofabio/VAHEeGSI_Ro.mp4",
+    cardColor: "#ffaa00",
+    cardGradient: "linear-gradient(135deg, rgba(255, 170, 0, 0.45) 0%, rgba(255, 85, 0, 0.45) 100%)"
+  },
+  {
+    id: "r2-q5",
+    round: 2,
+    text: "QR codes are based on which branch of mathematics?",
+    answer: "Matrix Theory / Linear Algebra (2D grid systems)",
+    timeLimit: 15,
+    keywords: "qr, codes, branch, mathematics, matrix",
+    image: "/images/image8.png",
+    answerImage: "/images/image9.jpeg",
+    video: "/images/scientofabio/VAG6sKffFvc.mp4",
+    cardColor: "#00d2ff",
+    cardGradient: "linear-gradient(135deg, rgba(0, 210, 255, 0.45) 0%, rgba(189, 0, 255, 0.45) 100%)"
+  },
+  {
+    id: "r2-q6",
+    round: 2,
+    text: "Without using a calculator, what is A² (where A = 111,111,111)?",
+    answer: "12,345,678,987,654,321 (consecutive digit square pattern)",
+    timeLimit: 25,
+    keywords: "calculator, square, consecutive, math",
+    image: "/images/image10.jpeg",
+    answerImage: "/images/image12.png",
+    video: "/images/scientofabio/VAG_KGgqvV0.mp4",
+    cardColor: "#ff0055",
+    cardGradient: "linear-gradient(135deg, rgba(255, 0, 85, 0.45) 0%, rgba(255, 170, 0, 0.45) 100%)"
+  },
+
+  // --- ROUND 3: GLACIAL DECIPHERING (6 questions) ---
+  {
+    id: "r3-q1",
+    round: 3,
+    text: "Ant bite: Name the type of reaction?",
+    answer: "Neutralization Reaction (Formic acid neutralized by mild alkaline bases)",
+    timeLimit: 15,
+    keywords: "ant, bite, type, reaction, neutralization",
+    images: ["/images/image13.jpeg", "/images/image14.jpeg", "/images/image15.jpeg"],
+    video: "/images/scientofabio/VAG6sBH98ZY.mp4",
+    cardColor: "#00ffd1",
+    cardGradient: "linear-gradient(135deg, rgba(0, 255, 209, 0.45) 0%, rgba(0, 128, 255, 0.45) 100%)"
+  },
+  {
+    id: "r3-q2",
+    round: 3,
+    text: "Name the branch of Mathematics representing these coordinate plots?",
+    answer: "Coordinate Geometry (Analytic Geometry)",
+    timeLimit: 15,
+    keywords: "branch, mathematics, coordinate, geometry",
+    images: ["/images/image16.png", "/images/image17.jpeg", "/images/image18.jpeg"],
+    video: "/images/scientofabio/VAG9f9GjA-U.mp4",
+    cardColor: "#ff0080",
+    cardGradient: "linear-gradient(135deg, rgba(255, 0, 128, 0.45) 0%, rgba(255, 170, 0, 0.45) 100%)"
+  },
+  {
+    id: "r3-q3",
+    round: 3,
+    text: "Name the Antibiotic discovered by Alexander Fleming?",
+    answer: "Penicillin (extracted from Penicillium mould)",
+    timeLimit: 15,
+    keywords: "antibiotic, penicillin, fleming, medicine",
+    images: ["/images/image19.jpeg", "/images/image20.jpeg", "/images/image21.png"],
+    video: "/images/scientofabio/VAG5zwPs8_U.mp4",
+    cardColor: "#bd00ff",
+    cardGradient: "linear-gradient(135deg, rgba(189, 0, 255, 0.45) 0%, rgba(255, 0, 128, 0.45) 100%)"
+  },
+  {
+    id: "r3-q4",
+    round: 3,
+    text: "Who is this physicist known for electricity experiments?",
+    answer: "Benjamin Franklin",
+    timeLimit: 15,
+    keywords: "physicist, benjamin, franklin, electricity",
+    images: ["/images/image22.jpeg", "/images/image23.png", "/images/image24.png", "/images/image25.png"],
+    video: "/images/scientofabio/VAG1heupXPs.mp4", // reuse first loops
+    cardColor: "#ffaa00",
+    cardGradient: "linear-gradient(135deg, rgba(255, 170, 0, 0.45) 0%, rgba(255, 85, 0, 0.45) 100%)"
+  },
+  {
+    id: "r3-q5",
+    round: 3,
+    text: "Q = mCΔT represents which scientific quantity?",
+    answer: "Specific Heat Capacity (of water)",
+    timeLimit: 15,
+    keywords: "formula, temperature, capacity, specific heat",
+    images: ["/images/image26.jpeg", "/images/image27.jpeg", "/images/image28.PNG"],
+    video: "/images/scientofabio/VAG-gzQe-A0.mp4", // reuse
+    cardColor: "#00d2ff",
+    cardGradient: "linear-gradient(135deg, rgba(0, 210, 255, 0.45) 0%, rgba(189, 0, 255, 0.45) 100%)"
+  },
+  {
+    id: "r3-q6",
+    round: 3,
+    text: "Why does a diamond sparkle so brilliantly, and what optical phenomenon is responsible?",
+    answer: "Total Internal Reflection (due to its high refractive index of 2.42)",
+    timeLimit: 15,
+    keywords: "diamond, sparkle, reflection, physics, optics",
+    images: ["/images/ppt2022/image65.jpeg", "/images/ppt2022/image66.png"],
+    video: "/images/scientofabio/VAHAp6EDcf4.mp4", // reuse
+    cardColor: "#ff0055",
+    cardGradient: "linear-gradient(135deg, rgba(255, 0, 85, 0.45) 0%, rgba(255, 170, 0, 0.45) 100%)"
+  },
+
+  // --- ROUND 4: THERMODYNAMIC ENTROPY (6 questions) ---
+  {
+    id: "r4-q1",
+    round: 4,
+    text: "State the law of thermodynamics which defines the concept of entropy?",
+    answer: "The Second Law of Thermodynamics (entropy of isolated systems always increases)",
+    timeLimit: 15,
+    keywords: "thermodynamics, entropy, physics, laws",
+    image: "/images/image10.jpeg",
+    video: "/images/scientofabio/VAGZ2h7bpE8.mp4",
+    cardColor: "#bd00ff",
+    cardGradient: "linear-gradient(135deg, rgba(189, 0, 255, 0.45) 0%, rgba(255, 0, 128, 0.45) 100%)"
+  },
+  {
+    id: "r4-q2",
+    round: 4,
+    text: "Thermodynamic Query 2? [Type your custom question here]",
+    answer: "Explanation detail. [Type your custom explanation here]",
+    timeLimit: 15,
+    keywords: "placeholder, thermodynamic",
+    image: "",
+    video: "/images/scientofabio/VAG-gzQe-A0.mp4",
+    cardColor: "#ff0080",
+    cardGradient: "linear-gradient(135deg, rgba(255, 0, 128, 0.45) 0%, rgba(255, 170, 0, 0.45) 100%)"
+  },
+  {
+    id: "r4-q3",
+    round: 4,
+    text: "Thermodynamic Query 3? [Type your custom question here]",
+    answer: "Explanation detail. [Type your custom explanation here]",
+    timeLimit: 15,
+    keywords: "placeholder, thermodynamic",
+    image: "",
+    video: "/images/scientofabio/VAG8vFA2P5Y.mp4",
+    cardColor: "#00ffd1",
+    cardGradient: "linear-gradient(135deg, rgba(0, 255, 209, 0.45) 0%, rgba(0, 128, 255, 0.45) 100%)"
+  },
+  {
+    id: "r4-q4",
+    round: 4,
+    text: "Thermodynamic Query 4? [Type your custom question here]",
+    answer: "Explanation detail. [Type your custom explanation here]",
+    timeLimit: 15,
+    keywords: "placeholder, thermodynamic",
+    image: "",
+    video: "/images/scientofabio/VAHEeGSI_Ro.mp4",
+    cardColor: "#ffaa00",
+    cardGradient: "linear-gradient(135deg, rgba(255, 170, 0, 0.45) 0%, rgba(255, 85, 0, 0.45) 100%)"
+  },
+  {
+    id: "r4-q5",
+    round: 4,
+    text: "Thermodynamic Query 5? [Type your custom question here]",
+    answer: "Explanation detail. [Type your custom explanation here]",
+    timeLimit: 15,
+    keywords: "placeholder, thermodynamic",
+    image: "",
+    video: "/images/scientofabio/VAG6sKffFvc.mp4",
+    cardColor: "#00d2ff",
+    cardGradient: "linear-gradient(135deg, rgba(0, 210, 255, 0.45) 0%, rgba(189, 0, 255, 0.45) 100%)"
+  },
+  {
+    id: "r4-q6",
+    round: 4,
+    text: "Thermodynamic Query 6? [Type your custom question here]",
+    answer: "Explanation detail. [Type your custom explanation here]",
+    timeLimit: 15,
+    keywords: "placeholder, thermodynamic",
+    image: "",
+    video: "/images/scientofabio/VAG_KGgqvV0.mp4",
+    cardColor: "#ff0055",
+    cardGradient: "linear-gradient(135deg, rgba(255, 0, 85, 0.45) 0%, rgba(255, 170, 0, 0.45) 100%)"
+  }
+];
+
+export function getSavedQuestions() {
+  const data = localStorage.getItem('school_quiz_questions');
+  let savedList = [];
+  if (data) {
+    try {
+      savedList = JSON.parse(data);
+    } catch (e) {
+      // Ignore
+    }
+  }
+
+  // Robust Merge-On-Load: preserves user edits while loading default assets/videos
+  if (Array.isArray(savedList) && savedList.length > 0) {
+    const merged = DEFAULT_QUESTIONS.map(defaultQ => {
+      const userQ = savedList.find(sq => sq.id === defaultQ.id);
+      if (userQ) {
+        return {
+          ...defaultQ,
+          text: userQ.text || defaultQ.text,
+          answer: userQ.answer || defaultQ.answer,
+          timeLimit: defaultQ.round === 1 ? 60 : (userQ.timeLimit !== undefined ? userQ.timeLimit : defaultQ.timeLimit),
+          keywords: userQ.keywords || defaultQ.keywords,
+          image: userQ.image || defaultQ.image
+        };
+      }
+      return defaultQ;
+    });
+    localStorage.setItem('school_quiz_questions', JSON.stringify(merged));
+    return merged;
+  }
+
+  // Initialize with seed
+  localStorage.setItem('school_quiz_questions', JSON.stringify(DEFAULT_QUESTIONS));
+  return DEFAULT_QUESTIONS;
+}
+
+export function saveQuestions(list) {
+  localStorage.setItem('school_quiz_questions', JSON.stringify(list));
+}
+export { DEFAULT_QUESTIONS };
