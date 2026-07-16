@@ -103,27 +103,29 @@ export default function ExperimentRound({
         {/* The Hologram Swap Logic */}
         {!isRevealed ? (
           <h1 style={{
-            fontSize: '4.5rem', fontWeight: 900, lineHeight: '1.3',
+            fontSize: '3.4rem', fontWeight: 900, lineHeight: '1.4',
             textShadow: `0 8px 40px rgba(0,0,0,1), 0 0 25px ${cardColor}77`,
             fontFamily: "'Cinzel', serif",
             animation: 'hologram-fade-in 1s ease-out',
-            maxWidth: '90%', margin: 0, padding: '40px'
+            maxWidth: '90%', margin: 0, padding: '30px',
+            wordWrap: 'break-word'
           }}>
             {activeQuestion.text}
           </h1>
         ) : (
-          <div style={{ animation: 'hologram-fade-in 0.8s ease-out', padding: '40px' }}>
+          <div style={{ animation: 'hologram-fade-in 0.8s ease-out', padding: '30px', maxWidth: '95%' }}>
             <h2 style={{ 
-              fontSize: '2rem', color: '#bbb', marginBottom: '25px', 
+              fontSize: '1.6rem', color: '#bbb', marginBottom: '20px', 
               textTransform: 'uppercase', letterSpacing: '6px', fontFamily: 'var(--font-hud)' 
             }}>
               Verified Phenomenon
             </h2>
             <div style={{ 
-              fontSize: '6.5rem', color: cardColor, fontWeight: 900, 
+              fontSize: '4.5rem', color: cardColor, fontWeight: 900, 
               fontFamily: "'Cinzel', serif", 
               textShadow: `0 0 50px ${cardColor}aa, 0 10px 25px rgba(0,0,0,1)`,
-              lineHeight: '1.1'
+              lineHeight: '1.2',
+              wordWrap: 'break-word'
             }}>
               {activeQuestion.answer}
             </div>
