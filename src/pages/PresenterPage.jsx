@@ -1025,7 +1025,7 @@ export default function PresenterPage({ navigateTo }) {
                             animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
                             transition={{ duration: 0.65, ease: [0.25, 0.8, 0.25, 1] }}
                             style={{ 
-                              fontSize: (activeQuestion.image || activeQuestion.images) ? '2.0rem' : '2.8rem', 
+                              fontSize: activeQuestion.answer.length > 180 ? '1.3rem' : activeQuestion.answer.length > 100 ? '1.6rem' : ((activeQuestion.image || activeQuestion.images) ? '2.0rem' : '2.8rem'), 
                               fontWeight: 800, 
                               fontFamily: "'Outfit', sans-serif", 
                               color: 'var(--console-cyan)', 
@@ -1039,7 +1039,7 @@ export default function PresenterPage({ navigateTo }) {
                           <h3 
                             className="digital-assemble"
                             style={{ 
-                              fontSize: (activeQuestion.image || activeQuestion.images) ? '1.7rem' : '2.4rem', 
+                              fontSize: activeQuestion.answer.length > 180 ? '1.2rem' : activeQuestion.answer.length > 100 ? '1.5rem' : ((activeQuestion.image || activeQuestion.images) ? '1.7rem' : '2.4rem'), 
                               fontWeight: 700, 
                               fontFamily: 'var(--font-main)', 
                               color: 'var(--console-cyan)', 
