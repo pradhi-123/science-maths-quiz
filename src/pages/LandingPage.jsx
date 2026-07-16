@@ -125,7 +125,7 @@ const SCROLL_LOCATIONS = [
 
 const LOCATION_ANSWERS = {
   1: ['entrance', 'school entrance', 'portico', 'gate', 'main gate', 'main entrance'],
-  2: ['corridor', 'canopy corridor', 'canopy', 'sports corridor', 'canopy corridors', 'sports hall corridor', 'sports hall'],
+  2: ['corridor', 'canopy corridor', 'canopy', 'sports corridor', 'canopy corridors', 'sports hall corridor', 'sports hall', 'quadrangle'],
   3: ['hostel', 'school hostel', 'dormitory', 'dorm', 'bunk beds', 'bunks'],
   4: ['office', 'school office', 'lobby', 'reception', 'reception desk', 'receptions'],
   5: ['volleyball court', 'volleyball', 'court', 'volleyball court facing north']
@@ -535,11 +535,11 @@ export default function LandingPage({ navigateTo }) {
                 </span>
               </div>
 
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 900, marginBottom: '15px', color: '#4a3717', textTransform: 'uppercase', letterSpacing: '1px' }}>
+              <h3 style={{ fontSize: '1.4rem', fontWeight: 900, marginBottom: '15px', color: '#2a1f0d', textTransform: 'uppercase', letterSpacing: '1px' }}>
                 Round Decryption Clue:
               </h3>
 
-              <p style={{ fontSize: '0.95rem', fontWeight: 600, color: '#3d2e15', fontStyle: 'italic', marginBottom: '22px', textIndent: '20px', lineHeight: '22px' }}>
+              <p style={{ fontSize: '1.25rem', fontWeight: 800, color: '#110c05', fontStyle: 'italic', marginBottom: '22px', textIndent: '20px', lineHeight: '28px' }}>
                 "{activeLoc.locationClue}"
               </p>
             </div>
