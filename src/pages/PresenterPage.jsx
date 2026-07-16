@@ -216,8 +216,9 @@ export default function PresenterPage({ navigateTo }) {
     setQuestions(roundQ);
 
     if (roundQ[0]) {
-      setTimeLeft(roundQ[0].timeLimit);
-      setMaxTime(roundQ[0].timeLimit);
+      const defaultTime = roundQ[0].round === 5 ? 120 : 60;
+      setTimeLeft(roundQ[0].timeLimit || defaultTime);
+      setMaxTime(roundQ[0].timeLimit || defaultTime);
     }
 
     playAmbientHum();
@@ -267,8 +268,9 @@ export default function PresenterPage({ navigateTo }) {
         case 'SYNC_QUESTIONS': {
           const activeQ = roundQuestions[currentIdxRef.current];
           if (activeQ) {
-            setTimeLeft(activeQ.timeLimit);
-            setMaxTime(activeQ.timeLimit);
+            const defaultTime = activeQ.round === 5 ? 120 : 60;
+            setTimeLeft(activeQ.timeLimit || defaultTime);
+            setMaxTime(activeQ.timeLimit || defaultTime);
           }
           updateProfileStats();
           break;
@@ -300,8 +302,9 @@ export default function PresenterPage({ navigateTo }) {
           } else {
             const activeQReset = roundQuestions[currentIdxRef.current];
             if (activeQReset) {
-              setTimeLeft(activeQReset.timeLimit);
-              setMaxTime(activeQReset.timeLimit);
+              const defaultTime = activeQReset.round === 5 ? 120 : 60;
+              setTimeLeft(activeQReset.timeLimit || defaultTime);
+              setMaxTime(activeQReset.timeLimit || defaultTime);
             }
           }
           break;
@@ -365,8 +368,9 @@ export default function PresenterPage({ navigateTo }) {
           setIsTimerRunning(false);
           const restartedFirstQ = roundQuestions[0];
           if (restartedFirstQ) {
-            setTimeLeft(restartedFirstQ.timeLimit);
-            setMaxTime(restartedFirstQ.timeLimit);
+            const defaultTime = restartedFirstQ.round === 5 ? 120 : 60;
+            setTimeLeft(restartedFirstQ.timeLimit || defaultTime);
+            setMaxTime(restartedFirstQ.timeLimit || defaultTime);
           }
           setShowBoot(true);
           setBootProgress(0);
@@ -419,7 +423,8 @@ export default function PresenterPage({ navigateTo }) {
           setCurrentIdx((currIdx) => {
             const q = currentQuestions[currIdx];
             if (q) {
-              setTimeLeft(q.timeLimit);
+              const defaultTime = q.round === 5 ? 120 : 60;
+              setTimeLeft(q.timeLimit || defaultTime);
               setIsTimerRunning(false);
             }
             return currIdx;
@@ -474,8 +479,9 @@ export default function PresenterPage({ navigateTo }) {
       setIsRevealed(false);
       const q = activeList[newIdx];
       if (q) {
-        setTimeLeft(q.timeLimit);
-        setMaxTime(q.timeLimit);
+        const defaultTime = q.round === 5 ? 120 : 60;
+        setTimeLeft(q.timeLimit || defaultTime);
+        setMaxTime(q.timeLimit || defaultTime);
       }
       setIsTimerRunning(false);
     }, 450);
@@ -1412,7 +1418,8 @@ export default function PresenterPage({ navigateTo }) {
             {/* Timer Reset */}
             <button 
               onClick={() => {
-                setTimeLeft(activeQuestion.timeLimit);
+                const defaultTime = activeQuestion.round === 5 ? 120 : 60;
+                setTimeLeft(activeQuestion.timeLimit || defaultTime);
                 setIsTimerRunning(false);
               }}
               title="Reset Timer (R)"

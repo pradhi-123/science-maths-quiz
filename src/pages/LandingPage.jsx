@@ -132,6 +132,11 @@ const LOCATION_ANSWERS = {
   5: ['volleyball court', 'volleyball', 'court', 'volleyball court facing north']
 };
 
+import roverBg from '../../public/images/backgrounds/rover_bg.png';
+import spaceshipBg from '../../public/images/backgrounds/spaceship_bg.png';
+import templeRunBg from '../../public/images/backgrounds/temple_run_bg.png';
+import snowSpaceBg from '../../public/images/backgrounds/snow_space_bg.png';
+
 export default function LandingPage({ navigateTo }) {
   // Use sessionStorage to remember if the finalists intro has been seen in this tab session
   const hasEntered = sessionStorage.getItem('finalists_introduced') === 'true';
@@ -147,10 +152,10 @@ export default function LandingPage({ navigateTo }) {
   const [zoomTarget, setZoomTarget] = useState({ top: "50%", left: "50%" });
 
   const cinematicBgs = [
-    '/images/backgrounds/rover_bg.png',
-    '/images/backgrounds/spaceship_bg.png',
-    '/images/backgrounds/temple_run_bg.png',
-    '/images/backgrounds/snow_space_bg.png'
+    roverBg,
+    spaceshipBg,
+    templeRunBg,
+    snowSpaceBg
   ];
 
   const [bgIndex, setBgIndex] = useState(0);
@@ -930,7 +935,7 @@ export default function LandingPage({ navigateTo }) {
         style={{
           width: '100vw',
           height: '100vh',
-          backgroundImage: "url('/images/backgrounds/spaceship_bg.png')",
+          backgroundImage: `url(${spaceshipBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -1104,7 +1109,7 @@ export default function LandingPage({ navigateTo }) {
       style={{
         width: '100vw',
         height: '100vh',
-        backgroundImage: `url('${cinematicBgs[bgIndex]}')`,
+        backgroundImage: `url(${cinematicBgs[bgIndex]})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

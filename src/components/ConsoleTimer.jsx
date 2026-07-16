@@ -1,7 +1,9 @@
 import React from 'react';
 
 export default function ConsoleTimer({ timeLeft, maxTime }) {
-  const pct = maxTime > 0 ? Math.max(0, Math.min(1, timeLeft / maxTime)) : 0;
+  const displayTime = timeLeft ?? 0;
+  const safeMax = maxTime || 60;
+  const pct = safeMax > 0 ? Math.max(0, Math.min(1, displayTime / safeMax)) : 0;
   
   // Radius and circumference for SVG circle
   const radius = 70;
@@ -148,7 +150,7 @@ export default function ConsoleTimer({ timeLeft, maxTime }) {
             transition: 'color 0.4s ease-in-out, text-shadow 0.4s ease-in-out'
           }}
         >
-          {timeLeft}
+          {displayTime}
         </span>
         <span
           style={{
