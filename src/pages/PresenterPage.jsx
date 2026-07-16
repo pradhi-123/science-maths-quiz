@@ -16,7 +16,7 @@ import {
 } from '../lib/audio';
 import ConsoleTimer from '../components/ConsoleTimer';
 import ConsoleBackground from '../components/ConsoleBackground';
-import { Play, Pause, RotateCcw, Eye, EyeOff, ChevronLeft, ChevronRight, Sparkles, Home, Award } from 'lucide-react';
+import { Play, Pause, RotateCcw, Eye, EyeOff, ChevronLeft, ChevronRight, Sparkles, Home, Award, Maximize2 } from 'lucide-react';
 
 export default function PresenterPage({ navigateTo }) {
   const [allQuestions, setAllQuestions] = useState([]);
@@ -28,6 +28,16 @@ export default function PresenterPage({ navigateTo }) {
   const [activeRound, setActiveRound] = useState(1);
 
   // Navigation sequences
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch((err) => {
+        console.warn(`Error attempting to enable fullscreen: ${err.message}`);
+      });
+    } else {
+      document.exitFullscreen();
+    }
+  };
+
   const [showBoot, setShowBoot] = useState(true);
   const [bootProgress, setBootProgress] = useState(0);
   const [roundCompleted, setRoundCompleted] = useState(false);
@@ -705,6 +715,44 @@ export default function PresenterPage({ navigateTo }) {
             <Award size={15} />
           </button>
         </div>
+
+        {/* Floating Fullscreen Toggle */}
+        <button
+          onClick={toggleFullscreen}
+          title="Toggle Fullscreen"
+          style={{
+            position: 'absolute',
+            top: '25px',
+            right: '25px',
+            zIndex: 9999,
+            background: 'rgba(10, 13, 22, 0.6)',
+            border: '1.5px solid rgba(255, 255, 255, 0.15)',
+            color: 'rgba(255,255,255,0.7)',
+            borderRadius: '50%',
+            width: '38px',
+            height: '38px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.5)',
+            transition: 'all 0.2s ease',
+            pointerEvents: 'auto'
+          }}
+          onMouseEnter={(e) => {
+            playHoverTick();
+            e.currentTarget.style.borderColor = 'var(--console-cyan)';
+            e.currentTarget.style.color = '#fff';
+            e.currentTarget.style.boxShadow = '0 0 10px var(--console-glow-cyan)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+            e.currentTarget.style.color = 'rgba(255,255,255,0.7)';
+            e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.5)';
+          }}
+        >
+          <Maximize2 size={16} />
+        </button>
       </div>
     );
   }
@@ -1597,6 +1645,44 @@ export default function PresenterPage({ navigateTo }) {
           100% { transform: translateY(0px) rotate(0deg); }
         }
       `}</style>
+
+      {/* Floating Fullscreen Toggle */}
+      <button
+        onClick={toggleFullscreen}
+        title="Toggle Fullscreen"
+        style={{
+          position: 'absolute',
+          top: '25px',
+          right: '25px',
+          zIndex: 9999,
+          background: 'rgba(10, 13, 22, 0.6)',
+          border: '1.5px solid rgba(255, 255, 255, 0.15)',
+          color: 'rgba(255,255,255,0.7)',
+          borderRadius: '50%',
+          width: '38px',
+          height: '38px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          boxShadow: '0 4px 15px rgba(0,0,0,0.5)',
+          transition: 'all 0.2s ease',
+          pointerEvents: 'auto'
+        }}
+        onMouseEnter={(e) => {
+          playHoverTick();
+          e.currentTarget.style.borderColor = 'var(--console-cyan)';
+          e.currentTarget.style.color = '#fff';
+          e.currentTarget.style.boxShadow = '0 0 10px var(--console-glow-cyan)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+          e.currentTarget.style.color = 'rgba(255,255,255,0.7)';
+          e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.5)';
+        }}
+      >
+        <Maximize2 size={16} />
+      </button>
     </div>
   );
 }
