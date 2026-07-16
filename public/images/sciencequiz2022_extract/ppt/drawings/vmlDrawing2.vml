@@ -1,0 +1,21 @@
+<xml xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+ xmlns:oa="urn:schemas-microsoft-com:office:activation">
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="3"/>
+ </o:shapelayout><v:shapetype id="_x0000_t201" coordsize="21600,21600" o:spt="201"
+  path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path shadowok="f" o:extrusionok="f" strokeok="f" fillok="f"
+   o:connecttype="rect"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+ </v:shapetype><v:shape id="Object" o:spid="_x0000_s3087" type="#_x0000_t201"
+  style='position:absolute;left:157pt;top:111pt;width:632pt;height:400pt'>
+  <v:fill on="f"/>
+  <v:stroke on="f"/>
+  <![if gte mso 9]><v:imagedata o:relid="rId1" o:title="" grayscale="f"
+   bilevel="f"/>
+  <![endif]><o:lock v:ext="edit" aspectratio="f" position="f" selection="f"
+   grouping="f"/>
+ </v:shape></xml>

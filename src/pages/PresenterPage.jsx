@@ -175,7 +175,7 @@ export default function PresenterPage({ navigateTo }) {
     if (activeQuestion && activeQuestion.bg) {
       return activeQuestion.bg;
     }
-    return roundConfig.background;
+    return activeRound === 5 ? roundConfig.background : 'none';
   };
 
   // Continuous loop for floating coordinates and logs
@@ -644,7 +644,7 @@ export default function PresenterPage({ navigateTo }) {
             left: 0,
             width: '100%',
             height: '100%',
-            objectFit: 'cover',
+            objectFit: 'fill',
             zIndex: -8,
             pointerEvents: 'none'
           }}
@@ -737,7 +737,11 @@ export default function PresenterPage({ navigateTo }) {
           <span style={{ fontSize: '0.7rem', fontWeight: 800, color: 'rgba(255,255,255,0.7)', letterSpacing: '2px' }}>
             DECRYPTION PORT
           </span>
-          <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#00ffd1', boxShadow: '0 0 8px #00ffd1', display: 'inline-block' }} />
+          <motion.span 
+            animate={{ boxShadow: ['0 0 8px #00ffd1', '0 0 25px #00ffd1', '0 0 8px #00ffd1'], filter: ['brightness(1)', 'brightness(1.5)', 'brightness(1)'] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#00ffd1', display: 'inline-block' }} 
+          />
           <span style={{ fontSize: '0.8rem', fontWeight: 900, color: '#ffffff', letterSpacing: '3px', textTransform: 'uppercase' }}>
             {roundConfig.title}
           </span>
@@ -846,7 +850,7 @@ export default function PresenterPage({ navigateTo }) {
           >
             <AnimatePresence mode="wait">
               <motion.div
-                key={`${activeQuestion.id}-${isRevealed}`}
+                key={activeQuestion.id}
                 initial={{ scale: 0.94, opacity: 0, y: 30 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.94, opacity: 0, y: -30 }}
@@ -898,51 +902,68 @@ export default function PresenterPage({ navigateTo }) {
                         transition: 'all 0.4s ease'
                       }}
                     >
-                      {isRevealed && activeQuestion.answerImage ? (
-                        <img 
-                          src={activeQuestion.answerImage} 
-                          alt="Answer Illustration" 
-                          style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-                        />
-                      ) : activeQuestion.images ? (
-                        <div style={{ display: 'flex', gap: '15px', width: '100%', height: '100%', justifyContent: 'space-around', alignItems: 'center' }}>
-                          {activeQuestion.images.map((imgSrc, i) => (
-                            <div 
-                              key={i}
-                              style={{ 
-                                width: `${95 / activeQuestion.images.length}%`, 
-                                height: '100%', 
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                justifyContent: 'center', 
-                                background: 'rgba(255, 255, 255, 0.03)',
-                                borderRadius: '6px',
-                                border: '1.5px solid rgba(255, 255, 255, 0.15)',
-                                padding: '8px',
-                                boxShadow: '0 4px 15px rgba(0,0,0,0.5)'
-                              }}
-                            >
-                              <img 
-                                src={imgSrc} 
-                                alt={`Clue ${i+1}`} 
-                                style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '4px' }}
-                              />
-                            </div>
-                          ))}
-                        </div>
-                      ) : (
-                        <img 
-                          src={activeQuestion.image} 
-                          alt="Concept Illustration" 
-                          style={{ 
-                            width: '100%', 
-                            height: '100%', 
-                            objectFit: 'contain',
-                            opacity: 0.98,
-                            filter: 'brightness(1.05) contrast(1.05)'
-                          }} 
-                        />
-                      )}
+                      <AnimatePresence mode="wait">
+                        {isRevealed && activeQuestion.answerImage ? (
+                          <motion.img 
+                            key="answer-image-reveal"
+                            initial={{ opacity: 0, scale: 0.4, x: 150, filter: 'blur(15px)' }}
+                            animate={{ opacity: 1, scale: 1, x: 0, filter: 'blur(0px)' }}
+                            exit={{ opacity: 0, scale: 1.2, x: -100, filter: 'blur(10px)' }}
+                            transition={{ duration: 0.8, type: 'spring', bounce: 0.5 }}
+                            src={activeQuestion.answerImage} 
+                            alt="Answer Illustration" 
+                            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                          />
+                        ) : activeQuestion.images ? (
+                          <motion.div 
+                            key={`clue-grid-${isRevealed}`}
+                            initial={{ opacity: 0, scale: 0.4, x: 150 }}
+                            animate={{ opacity: 1, scale: 1, x: 0 }}
+                            exit={{ opacity: 0, scale: 1.2, x: -100 }}
+                            transition={{ duration: 0.8, type: 'spring', bounce: 0.5 }}
+                            style={{ display: 'flex', gap: '15px', width: '100%', height: '100%', justifyContent: 'space-around', alignItems: 'center' }}
+                          >
+                            {activeQuestion.images.map((imgSrc, i) => (
+                              <div 
+                                key={i}
+                                style={{ 
+                                  width: `${95 / activeQuestion.images.length}%`, 
+                                  height: '100%', 
+                                  display: 'flex', 
+                                  alignItems: 'center', 
+                                  justifyContent: 'center', 
+                                  background: 'rgba(255, 255, 255, 0.03)',
+                                  borderRadius: '6px',
+                                  border: '1.5px solid rgba(255, 255, 255, 0.15)',
+                                  padding: '8px',
+                                  boxShadow: '0 4px 15px rgba(0,0,0,0.5)'
+                                }}
+                              >
+                                <img 
+                                  src={imgSrc} 
+                                  alt={`Clue ${i+1}`} 
+                                  style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '4px' }}
+                                />
+                              </div>
+                            ))}
+                          </motion.div>
+                        ) : (
+                          <motion.img 
+                            key={`concept-image-${isRevealed}`}
+                            initial={{ opacity: 0, scale: 0.4, x: 150, filter: 'blur(15px)' }}
+                            animate={{ opacity: 1, scale: 1, x: 0, filter: 'blur(0px)' }}
+                            exit={{ opacity: 0, scale: 1.2, x: -100, filter: 'blur(10px)' }}
+                            transition={{ duration: 0.8, type: 'spring', bounce: 0.5 }}
+                            src={activeQuestion.image} 
+                            alt="Concept Illustration" 
+                            style={{ 
+                              width: '100%', 
+                              height: '100%', 
+                              objectFit: 'contain'
+                            }} 
+                          />
+                        )}
+                      </AnimatePresence>
                       
                       <div className="console-overlay-scanlines" style={{ position: 'absolute', opacity: 0.35, pointerEvents: 'none' }} />
                       
@@ -972,81 +993,95 @@ export default function PresenterPage({ navigateTo }) {
                       borderRadius: activeRound === 2 ? '25px' : '0',
                       border: activeRound === 2 ? '2px solid rgba(0, 255, 136, 0.4)' : 'none',
                       boxShadow: activeRound === 2 ? '0 0 80px rgba(0, 255, 136, 0.15), inset 0 0 40px rgba(0, 255, 136, 0.1)' : 'none',
-                      backdropFilter: activeRound === 2 ? 'blur(15px)' : 'none'
+                      backdropFilter: activeRound === 2 ? 'blur(15px)' : 'none',
+                      boxSizing: 'border-box'
                     }}
                   >
-                    {!isRevealed ? (
-                      <div>
-                        <span 
-                          style={{ 
-                            fontFamily: 'var(--font-hud)', 
-                            fontSize: '0.7rem', 
-                            color: activeRound === 2 ? '#00ff88' : 'var(--console-cyan)', 
-                            fontWeight: 900, 
-                            textTransform: 'uppercase', 
-                            letterSpacing: '4px',
-                            display: 'block',
-                            marginBottom: '15px',
-                            textShadow: '0 2px 8px rgba(0,0,0,0.8)'
-                          }}
-                        >
-                          QUERY_DECODE_0{currentIdx + 1}
-                        </span>
-                        
-                        {(activeRound === 1 || activeRound === 3) ? (
-                          <motion.h2 
-                            key={`q-r1-${activeQuestion.id}`}
-                            initial={{ opacity: 0, y: 15, filter: 'blur(8px)', scale: 0.97 }}
-                            animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
-                            transition={{ duration: 0.65, ease: [0.25, 0.8, 0.25, 1] }}
-                            style={{ 
-                              fontSize: activeRound === 2 ? '2.4rem' : ((activeQuestion.image || activeQuestion.images) ? '2.4rem' : '3.3rem'), 
-                              whiteSpace: activeRound === 2 ? 'pre' : 'normal',
-                              fontWeight: 800, 
-                              fontFamily: "'Outfit', sans-serif", 
-                              color: '#ffffff', 
-                              lineHeight: '1.45',
-                              letterSpacing: '0.5px',
-                              textShadow: '0 2px 15px rgba(0,0,0,0.95), 0 1px 5px rgba(0,0,0,0.95)'
-                            }}
+                    <AnimatePresence mode="wait">
+                        {!isRevealed ? (
+                          <motion.div
+                            key="question-text"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 20 }}
+                            transition={{ duration: 0.4 }}
                           >
-                            {activeQuestion.text}
-                          </motion.h2>
+                            <span 
+                              style={{ 
+                                fontFamily: 'var(--font-hud)', 
+                                fontSize: '0.7rem', 
+                                color: activeRound === 2 ? '#00ff88' : 'var(--console-cyan)', 
+                                fontWeight: 900, 
+                                textTransform: 'uppercase', 
+                                letterSpacing: '4px',
+                                display: 'block',
+                                marginBottom: '15px',
+                                textShadow: '0 2px 8px rgba(0,0,0,0.8)'
+                              }}
+                            >
+                              QUERY_DECODE_0{currentIdx + 1}
+                            </span>
+                            
+                            {(activeRound === 1 || activeRound === 3) ? (
+                              <motion.h2 
+                                key={`q-r1-${activeQuestion.id}`}
+                                initial={{ opacity: 0, y: 15, filter: 'blur(8px)', scale: 0.97 }}
+                                animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
+                                transition={{ duration: 0.65, ease: [0.25, 0.8, 0.25, 1] }}
+                                style={{ 
+                                  fontSize: activeRound === 2 ? '2.4rem' : ((activeQuestion.image || activeQuestion.images) ? '2.4rem' : '3.3rem'), 
+                                  whiteSpace: activeRound === 2 ? 'pre-wrap' : 'normal',
+                                  fontWeight: 800, 
+                                  fontFamily: "'Outfit', sans-serif", 
+                                  color: '#ffffff', 
+                                  lineHeight: '1.45',
+                                  letterSpacing: '0.5px',
+                                  textShadow: '0 2px 15px rgba(0,0,0,0.95), 0 1px 5px rgba(0,0,0,0.95)'
+                                }}
+                              >
+                                {activeQuestion.text}
+                              </motion.h2>
+                            ) : (
+                              <h2 
+                                className="digital-assemble"
+                                style={{ 
+                                  fontSize: activeRound === 2 ? '2.4rem' : ((activeQuestion.image || activeQuestion.images) ? '2.0rem' : '2.8rem'),
+                                  whiteSpace: activeRound === 2 ? 'pre-wrap' : 'normal',
+                                  fontWeight: 800, 
+                                  fontFamily: 'var(--font-display)', 
+                                  color: '#ffffff', 
+                                  lineHeight: '1.45',
+                                  letterSpacing: '0.5px',
+                                  textShadow: '0 2px 15px rgba(0,0,0,0.95), 0 1px 5px rgba(0,0,0,0.95)'
+                                }}
+                              >
+                                {activeQuestion.text}
+                              </h2>
+                            )}
+                          </motion.div>
                         ) : (
-                          <h2 
-                            className="digital-assemble"
-                            style={{ 
-                              fontSize: activeRound === 2 ? '2.4rem' : ((activeQuestion.image || activeQuestion.images) ? '2.0rem' : '2.8rem'),
-                              whiteSpace: activeRound === 2 ? 'pre' : 'normal',
-                              fontWeight: 800, 
-                              fontFamily: 'var(--font-display)', 
-                              color: '#ffffff', 
-                              lineHeight: '1.45',
-                              letterSpacing: '0.5px',
-                              textShadow: '0 2px 15px rgba(0,0,0,0.95), 0 1px 5px rgba(0,0,0,0.95)'
-                            }}
+                          <motion.div
+                            key="answer-text"
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.4 }}
                           >
-                            {activeQuestion.text}
-                          </h2>
-                        )}
-                      </div>
-                    ) : (
-                      <div>
-                        <span 
-                          style={{ 
-                            fontFamily: 'var(--font-hud)', 
-                            fontSize: '0.7rem', 
-                            color: activeRound === 2 ? '#00ff88' : 'var(--console-cyan)', 
-                            fontWeight: 900, 
-                            textTransform: 'uppercase', 
-                            letterSpacing: '4px',
-                            display: 'block',
-                            marginBottom: '15px',
-                            textShadow: '0 2px 8px rgba(0,0,0,0.8)'
-                          }}
-                        >
-                          ★ Decrypted Explanation Staged
-                        </span>
+                            <span 
+                              style={{ 
+                                fontFamily: 'var(--font-hud)', 
+                                fontSize: '0.7rem', 
+                                color: activeRound === 2 ? '#00ff88' : 'var(--console-cyan)', 
+                                fontWeight: 900, 
+                                textTransform: 'uppercase', 
+                                letterSpacing: '4px',
+                                display: 'block',
+                                marginBottom: '15px',
+                                textShadow: '0 2px 8px rgba(0,0,0,0.8)'
+                              }}
+                            >
+                              ★ Decrypted Explanation Staged
+                            </span>
 
                         {(activeRound === 1 || activeRound === 3) ? (
                           <motion.h3 
@@ -1082,10 +1117,11 @@ export default function PresenterPage({ navigateTo }) {
                             {activeQuestion.answer}
                           </h3>
                         )}
-                      </div>
+                      </motion.div>
                     )}
-                  </div>
+                  </AnimatePresence>
                 </div>
+              </div>
               </motion.div>
             </AnimatePresence>
           </div>
