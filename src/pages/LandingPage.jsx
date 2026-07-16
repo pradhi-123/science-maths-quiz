@@ -526,16 +526,16 @@ export default function LandingPage({ navigateTo }) {
             </div>
 
             <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', borderBottom: '2px solid rgba(142, 115, 67, 0.4)', paddingBottom: '8px' }}>
-                <span style={{ fontWeight: 'bold', fontSize: '0.85rem', color: '#7a5f2e', letterSpacing: '1px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '35px', borderBottom: '2px solid rgba(142, 115, 67, 0.4)', paddingBottom: '15px' }}>
+                <span style={{ fontWeight: 'bold', fontSize: '1.8rem', color: '#FFD700', letterSpacing: '2px', textShadow: '2px 2px 0 #3a2a18, -2px -2px 0 #3a2a18, 2px -2px 0 #3a2a18, -2px 2px 0 #3a2a18, 0px 5px 15px rgba(0,0,0,0.6)' }}>
                   CLUE NOTE #{activeLoc.round}
                 </span>
-                <span style={{ fontSize: '0.72rem', color: 'rgba(0,0,0,0.5)' }}>
+                <span style={{ fontSize: '1.5rem', color: '#FFD700', fontWeight: 'bold', textShadow: '2px 2px 0 #3a2a18, -2px -2px 0 #3a2a18, 2px -2px 0 #3a2a18, -2px 2px 0 #3a2a18, 0px 5px 15px rgba(0,0,0,0.6)' }}>
                   [CLASSIFIED]
                 </span>
               </div>
 
-              <h3 style={{ fontSize: '1.4rem', fontWeight: 900, marginBottom: '15px', color: '#2a1f0d', textTransform: 'uppercase', letterSpacing: '1px' }}>
+              <h3 style={{ fontSize: '2.4rem', fontWeight: 900, marginBottom: '25px', color: '#FFD700', textTransform: 'uppercase', letterSpacing: '2px', textShadow: '2px 2px 0 #3a2a18, -2px -2px 0 #3a2a18, 2px -2px 0 #3a2a18, -2px 2px 0 #3a2a18, 0px 5px 15px rgba(0,0,0,0.6)' }}>
                 Round Decryption Clue:
               </h3>
 
