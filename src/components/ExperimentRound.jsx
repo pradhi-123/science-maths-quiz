@@ -154,7 +154,7 @@ export default function ExperimentRound({
           zIndex: 20, filter: `drop-shadow(0 0 25px ${cardColor}66)`,
           display: 'flex', flexDirection: 'column', alignItems: 'center'
         }}>
-          <ConsoleTimer time={timeLeft} maxTime={activeQuestion.timeLimit || 45} color={cardColor} />
+          <ConsoleTimer timeLeft={timeLeft} maxTime={activeQuestion.timeLimit || 120} color={cardColor} />
           <div style={{ 
             marginTop: '15px', fontSize: '0.85rem', color: cardColor, 
             letterSpacing: '3px', fontWeight: 'bold', textShadow: `0 0 10px ${cardColor}` 
@@ -182,7 +182,7 @@ export default function ExperimentRound({
         <button onClick={() => triggerWipeTransition(Math.min(questions.length - 1, currentIdx + 1), questions)} style={navBtnStyle('#aaa')}><ChevronRight size={22} /></button>
         <div style={navDividerStyle} />
         <button onClick={() => setIsTimerRunning(!isTimerRunning)} style={navBtnStyle('#00ffd1')} title="Play/Pause Timer">{isTimerRunning ? <Pause size={22} /> : <Play size={22} />}</button>
-        <button onClick={() => { setTimeLeft(activeQuestion.timeLimit || 45); setIsTimerRunning(false); playHoverTick(); }} style={navBtnStyle('#ffaa00')} title="Reset Timer"><RotateCcw size={22} /></button>
+        <button onClick={() => { setTimeLeft(activeQuestion.timeLimit || 120); setIsTimerRunning(false); playHoverTick(); }} style={navBtnStyle('#ffaa00')} title="Reset Timer"><RotateCcw size={22} /></button>
         <div style={navDividerStyle} />
         <button onClick={() => { setIsRevealed(!isRevealed); isRevealed ? playHoverTick() : playCorrect(); }} style={navBtnStyle(cardColor)} title="Reveal Answer">
           {isRevealed ? <EyeOff size={22} /> : <Eye size={22} />}
