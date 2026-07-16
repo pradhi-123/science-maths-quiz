@@ -1040,12 +1040,12 @@ export default function PresenterPage({ navigateTo }) {
                           <h3 
                             className="digital-assemble"
                             style={{ 
-                              fontSize: activeQuestion.answer.length > 180 ? '1.2rem' : activeQuestion.answer.length > 100 ? '1.5rem' : ((activeQuestion.image || activeQuestion.images) ? '1.7rem' : '2.4rem'), 
+                              fontSize: activeRound === 2 ? '1.6rem' : (activeQuestion.answer.length > 180 ? '1.2rem' : activeQuestion.answer.length > 100 ? '1.5rem' : ((activeQuestion.image || activeQuestion.images) ? '1.7rem' : '2.4rem')), 
                               fontWeight: 700, 
                               fontFamily: 'var(--font-main)', 
                               color: 'var(--console-cyan)', 
                               lineHeight: '1.5',
-                              whiteSpace: 'pre-wrap',
+                              whiteSpace: activeRound === 2 ? 'pre' : 'pre-wrap',
                               textShadow: '0 2px 15px rgba(0,0,0,0.95), 0 0 10px rgba(0, 255, 209, 0.45)'
                             }}
                           >
