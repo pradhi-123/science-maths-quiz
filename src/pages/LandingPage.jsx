@@ -119,7 +119,7 @@ const SCROLL_LOCATIONS = [
     mascotMsg: "Rangers! The final scroll is floating in mid-air on the volleyball court. Secure it to lock in your score!",
     scrollPos: { top: "21%", left: "50.5%" },
     route: "presenter",
-    locationClue: "Over the high net, the sphere flies back and forth on the sandy court facing north."
+    locationClue: "Over the high net, the sphere flies back and forth on the court facing north."
   }
 ];
 
