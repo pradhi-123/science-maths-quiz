@@ -653,6 +653,8 @@ export default function PresenterPage({ navigateTo }) {
           loop 
           muted 
           playsInline
+          preload="auto"
+          disablePictureInPicture
           style={{
             position: 'absolute',
             top: 0,
@@ -661,7 +663,8 @@ export default function PresenterPage({ navigateTo }) {
             height: '100%',
             objectFit: 'fill',
             zIndex: -8,
-            pointerEvents: 'none'
+            pointerEvents: 'none',
+            transform: 'translateZ(0)'
           }}
         >
           <source src={activeQuestion.video} type="video/mp4" />

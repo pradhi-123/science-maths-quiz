@@ -69,7 +69,15 @@ export default function ExperimentRound({
         src={currentBgm} 
         autoPlay 
         loop 
-        style={{ display: 'none' }} 
+        onCanPlay={(e) => { e.target.volume = 0.4; }}
+        onTimeUpdate={(e) => {
+          if (currentIdx === 2 && e.target.currentTime >= 25) {
+            e.target.currentTime = 0;
+          }
+          if (currentIdx === 3 && e.target.currentTime < 3) {
+            e.target.currentTime = 3;
+          }
+        }}
       />
 
       {/* Dark Cinematic Overlay & Grander HUD framing */}
@@ -130,7 +138,22 @@ export default function ExperimentRound({
                   {activeQuestion.text.split(':')[0]}:
                 </div>
                 <div style={{ textAlign: 'center' }}>
-                  {activeQuestion.text.split(':').slice(1).join(':').trim()}
+                  {(() => {
+                    const qBody = activeQuestion.text.split(':').slice(1).join(':').trim();
+                    const splitIdx1 = qBody.lastIndexOf('Name the');
+                    const splitIdx2 = qBody.lastIndexOf('What is the');
+                    const idx = Math.max(splitIdx1, splitIdx2);
+                    
+                    if (idx > 0) {
+                      return (
+                        <>
+                          <div>{qBody.substring(0, idx).trim()}</div>
+                          <div style={{ marginTop: '20px', color: cardColor }}>{qBody.substring(idx).trim()}</div>
+                        </>
+                      );
+                    }
+                    return qBody;
+                  })()}
                 </div>
               </>
             ) : (
