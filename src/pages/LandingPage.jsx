@@ -1129,9 +1129,6 @@ export default function LandingPage({ navigateTo }) {
         loop 
         onCanPlay={(e) => { e.target.volume = 0.2; }} 
       />
-        position: 'relative'
-      }}
-    >
       {/* Dim overlay behind content */}
       <div 
         style={{ 
