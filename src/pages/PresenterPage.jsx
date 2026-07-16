@@ -173,7 +173,7 @@ export default function PresenterPage({ navigateTo }) {
   // Load background image dynamically from the active question's slide config
   const getActiveBackground = () => {
     if (activeQuestion && activeQuestion.bg) {
-      return `url('${activeQuestion.bg}') no-repeat center center / cover`;
+      return activeQuestion.bg;
     }
     return roundConfig.background;
   };
@@ -615,6 +615,7 @@ export default function PresenterPage({ navigateTo }) {
       {/* Layer 2: Slide fallback background image (renders if no video is present) */}
       {!(activeQuestion && activeQuestion.video) && (
         <div 
+          key={getActiveBackground()}
           style={{
             position: 'absolute',
             top: 0,
