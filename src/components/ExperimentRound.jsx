@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
-import { Play, Pause, RotateCcw, Eye, EyeOff, ChevronLeft, ChevronRight, Home, Maximize2 } from 'lucide-react';
+import { Play, Pause, RotateCcw, Eye, EyeOff, ChevronLeft, ChevronRight, Home, Maximize2, Sparkles, Award } from 'lucide-react';
 import ConsoleTimer from './ConsoleTimer';
-import { playHoverTick, playBackCancel, playCorrect } from '../lib/audio';
+import { playHoverTick, playBackCancel, playCorrect, playThrillingMusic, stopThrillingMusic } from '../lib/audio';
 
 export default function ExperimentRound({
   questions,
@@ -15,10 +15,20 @@ export default function ExperimentRound({
   setTimeLeft,
   triggerWipeTransition,
   navigateTo,
-  toggleFullscreen
+  toggleFullscreen,
+  handleCompleteRound,
+  triggerManualConfetti
 }) {
   const activeQuestion = questions[currentIdx];
   const videoRef = useRef(null);
+
+  // Trigger the custom intense background drone when the round starts!
+  useEffect(() => {
+    playThrillingMusic();
+    return () => {
+      stopThrillingMusic();
+    };
+  }, []);
 
   useEffect(() => {
     if (videoRef.current && activeQuestion?.video) {
@@ -48,76 +58,106 @@ export default function ExperimentRound({
           top: 0, left: 0, width: '100%', height: '100%',
           objectFit: 'cover',
           zIndex: -2,
-          filter: 'contrast(1.1) brightness(0.65)'
+          filter: 'contrast(1.2) brightness(0.6)'
         }}
       />
-      {/* Dark Cinematic Overlay */}
+      {/* Dark Cinematic Overlay & Grander HUD framing */}
       <div style={{
         position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-        background: 'linear-gradient(to bottom, rgba(4,5,9,0.3) 0%, rgba(4,5,9,0.9) 100%)',
+        background: 'radial-gradient(circle at center, rgba(4,5,9,0.1) 0%, rgba(4,5,9,0.95) 100%)',
+        boxShadow: 'inset 0 0 150px rgba(0,0,0,0.9)',
         zIndex: -1
       }} />
 
-      {/* Main Content Area */}
+      {/* Space Rover Mascot on the Side */}
       <div style={{
-        position: 'absolute', top: '15%', left: '10%', right: '10%',
-        display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', zIndex: 10
+        position: 'absolute', left: '40px', bottom: '120px', zIndex: 5,
+        opacity: 0.9, filter: 'drop-shadow(0 0 25px var(--console-cyan))',
+        animation: 'float-rover 6s ease-in-out infinite'
       }}>
+        <img src="/images/mascots/space.png" alt="Rover Mascot" style={{ width: '280px', objectFit: 'contain' }} />
+      </div>
+
+      {/* Main Content Area: Massive Glassmorphism Center */}
+      <div style={{
+        position: 'absolute', top: '15%', left: '15%', right: '15%', bottom: '20%',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+        textAlign: 'center', zIndex: 10,
+        background: 'rgba(0,0,0,0.4)',
+        backdropFilter: 'blur(15px)',
+        border: `1.5px solid ${cardColor}66`,
+        borderRadius: '35px',
+        boxShadow: `0 0 80px ${cardColor}22, inset 0 0 40px rgba(0,0,0,0.8)`
+      }}>
+        
         <div style={{
-          padding: '12px 25px', border: `2px solid ${cardColor}`,
-          borderRadius: '30px', color: cardColor, fontSize: '1.4rem',
-          fontWeight: 800, textTransform: 'uppercase', letterSpacing: '4px', marginBottom: '35px',
-          boxShadow: `0 0 25px ${cardColor}55`, backdropFilter: 'blur(8px)',
-          animation: 'panel-fade-in 0.8s ease-out'
+          position: 'absolute', top: '-28px',
+          padding: '14px 40px', background: 'rgba(5,6,11,0.95)', border: `2px solid ${cardColor}`,
+          borderRadius: '30px', color: cardColor, fontSize: '1.3rem',
+          fontWeight: 900, textTransform: 'uppercase', letterSpacing: '8px',
+          boxShadow: `0 0 35px ${cardColor}88`
         }}>
-          // EXPERIMENTAL LAB {currentIdx + 1} ACTIVE
+          // EXPERIMENTAL LAB {currentIdx + 1}
         </div>
 
-        <h1 style={{
-          fontSize: '3.8rem', fontWeight: 900, lineHeight: '1.4',
-          textShadow: '0 5px 25px rgba(0,0,0,0.9), 0 2px 5px rgba(0,0,0,0.8)',
-          fontFamily: 'var(--font-display)',
-          animation: 'panel-fade-in 1s ease-out',
-          maxWidth: '90%'
-        }}>
-          {activeQuestion.text}
-        </h1>
-
-        {isRevealed && (
-          <div style={{
-            marginTop: '60px', padding: '40px 60px',
-            background: 'rgba(0,0,0,0.7)', border: `2px solid ${cardColor}`,
-            borderRadius: '25px', backdropFilter: 'blur(20px)',
-            boxShadow: `0 0 50px ${cardColor}44`,
-            animation: 'panel-fade-in 0.6s ease-out'
+        {/* The Hologram Swap Logic */}
+        {!isRevealed ? (
+          <h1 style={{
+            fontSize: '4.5rem', fontWeight: 900, lineHeight: '1.3',
+            textShadow: `0 8px 40px rgba(0,0,0,1), 0 0 25px ${cardColor}77`,
+            fontFamily: "'Cinzel', serif",
+            animation: 'hologram-fade-in 1s ease-out',
+            maxWidth: '90%', margin: 0, padding: '40px'
           }}>
-            <h2 style={{ fontSize: '1.6rem', color: '#bbb', marginBottom: '15px', textTransform: 'uppercase', letterSpacing: '2px' }}>
-              Verified Phenomenon:
+            {activeQuestion.text}
+          </h1>
+        ) : (
+          <div style={{ animation: 'hologram-fade-in 0.8s ease-out', padding: '40px' }}>
+            <h2 style={{ 
+              fontSize: '2rem', color: '#bbb', marginBottom: '25px', 
+              textTransform: 'uppercase', letterSpacing: '6px', fontFamily: 'var(--font-hud)' 
+            }}>
+              Verified Phenomenon
             </h2>
-            <div style={{ fontSize: '3.2rem', color: cardColor, fontWeight: 900, fontFamily: 'var(--font-display)', textShadow: `0 0 20px ${cardColor}88` }}>
+            <div style={{ 
+              fontSize: '6.5rem', color: cardColor, fontWeight: 900, 
+              fontFamily: "'Cinzel', serif", 
+              textShadow: `0 0 50px ${cardColor}aa, 0 10px 25px rgba(0,0,0,1)`,
+              lineHeight: '1.1'
+            }}>
               {activeQuestion.answer}
             </div>
           </div>
         )}
       </div>
 
-      {/* Timer */}
+      {/* Timer moved to the Right Side */}
       {!isRevealed && (
-        <div style={{ position: 'absolute', bottom: '150px', left: '50%', transform: 'translateX(-50%)', zIndex: 20 }}>
+        <div style={{ 
+          position: 'absolute', right: '50px', top: '50%', transform: 'translateY(-50%)', 
+          zIndex: 20, filter: `drop-shadow(0 0 25px ${cardColor}66)`,
+          display: 'flex', flexDirection: 'column', alignItems: 'center'
+        }}>
           <ConsoleTimer time={timeLeft} maxTime={activeQuestion.timeLimit || 45} color={cardColor} />
+          <div style={{ 
+            marginTop: '15px', fontSize: '0.85rem', color: cardColor, 
+            letterSpacing: '3px', fontWeight: 'bold', textShadow: `0 0 10px ${cardColor}` 
+          }}>
+            STABILITY
+          </div>
         </div>
       )}
 
       {/* Presenter Controls (Bottom) */}
       <div className="presenter-floating-safety-bar" style={{
-        position: 'absolute', bottom: '35px', left: '50%', transform: 'translateX(-50%)',
+        position: 'absolute', bottom: '30px', left: '50%', transform: 'translateX(-50%)',
         zIndex: 100, display: 'flex', alignItems: 'center', gap: '18px',
-        background: 'rgba(10, 13, 22, 0.94)', border: `1.5px solid ${cardColor}aa`,
+        background: 'rgba(10, 13, 22, 0.96)', border: `1.5px solid ${cardColor}aa`,
         borderRadius: '35px', padding: '12px 30px',
-        boxShadow: `0 8px 32px rgba(0,0,0,0.8), 0 0 25px ${cardColor}33`,
-        backdropFilter: 'blur(12px)'
+        boxShadow: `0 8px 40px rgba(0,0,0,0.9), 0 0 30px ${cardColor}44`,
+        backdropFilter: 'blur(15px)'
       }}>
-        <button onClick={() => { playBackCancel(); navigateTo(''); }} style={navBtnStyle('#ff4444')}><Home size={22} /></button>
+        <button onClick={() => { playBackCancel(); navigateTo(''); }} style={navBtnStyle('#ff4444')} title="Home"><Home size={22} /></button>
         <div style={navDividerStyle} />
         <button onClick={() => triggerWipeTransition(Math.max(0, currentIdx - 1), questions)} style={navBtnStyle('#aaa')}><ChevronLeft size={22} /></button>
         <span style={{ fontSize: '1.2rem', color: '#fff', margin: '0 15px', fontWeight: 'bold' }}>
@@ -125,12 +165,15 @@ export default function ExperimentRound({
         </span>
         <button onClick={() => triggerWipeTransition(Math.min(questions.length - 1, currentIdx + 1), questions)} style={navBtnStyle('#aaa')}><ChevronRight size={22} /></button>
         <div style={navDividerStyle} />
-        <button onClick={() => setIsTimerRunning(!isTimerRunning)} style={navBtnStyle('#00ffd1')}>{isTimerRunning ? <Pause size={22} /> : <Play size={22} />}</button>
-        <button onClick={() => { setTimeLeft(activeQuestion.timeLimit || 45); setIsTimerRunning(false); playHoverTick(); }} style={navBtnStyle('#ffaa00')}><RotateCcw size={22} /></button>
+        <button onClick={() => setIsTimerRunning(!isTimerRunning)} style={navBtnStyle('#00ffd1')} title="Play/Pause Timer">{isTimerRunning ? <Pause size={22} /> : <Play size={22} />}</button>
+        <button onClick={() => { setTimeLeft(activeQuestion.timeLimit || 45); setIsTimerRunning(false); playHoverTick(); }} style={navBtnStyle('#ffaa00')} title="Reset Timer"><RotateCcw size={22} /></button>
         <div style={navDividerStyle} />
-        <button onClick={() => { setIsRevealed(!isRevealed); isRevealed ? playHoverTick() : playCorrect(); }} style={navBtnStyle(cardColor)}>
+        <button onClick={() => { setIsRevealed(!isRevealed); isRevealed ? playHoverTick() : playCorrect(); }} style={navBtnStyle(cardColor)} title="Reveal Answer">
           {isRevealed ? <EyeOff size={22} /> : <Eye size={22} />}
         </button>
+        <div style={navDividerStyle} />
+        <button onClick={triggerManualConfetti} style={navBtnStyle('var(--console-cyan)')} title="Trigger Confetti"><Sparkles size={22} /></button>
+        <button onClick={handleCompleteRound} style={navBtnStyle('var(--console-neon-purple)')} title="Complete Round"><Award size={22} /></button>
       </div>
 
       {/* Fullscreen Toggle */}
@@ -148,7 +191,8 @@ export default function ExperimentRound({
       </button>
 
       <style>{`
-        @keyframes panel-fade-in { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+        @keyframes hologram-fade-in { 0% { opacity: 0; filter: blur(15px); transform: scale(1.1); } 100% { opacity: 1; filter: blur(0); transform: scale(1); } }
+        @keyframes float-rover { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(3deg); } }
       `}</style>
     </div>
   );

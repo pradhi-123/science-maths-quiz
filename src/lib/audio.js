@@ -77,6 +77,67 @@ export function stopAmbientHum() {
 }
 
 /**
+ * Start intense thrilling background drone
+ */
+let thrillingOsc1 = null;
+let thrillingOsc2 = null;
+let thrillingGain = null;
+
+export function playThrillingMusic() {
+  try {
+    const ctx = getAudioContext();
+    if (thrillingOsc1) return;
+
+    const now = ctx.currentTime;
+    thrillingGain = ctx.createGain();
+    thrillingGain.gain.setValueAtTime(0.035, now);
+
+    // Deep throbbing bass (D1)
+    thrillingOsc1 = ctx.createOscillator();
+    thrillingOsc1.type = 'sawtooth';
+    thrillingOsc1.frequency.setValueAtTime(36.7, now);
+
+    // Unsettling minor second interval for tension (Eb1)
+    thrillingOsc2 = ctx.createOscillator();
+    thrillingOsc2.type = 'sawtooth';
+    thrillingOsc2.frequency.setValueAtTime(38.89, now);
+
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(200, now);
+
+    // Filter sweep LFO for throbbing effect
+    const lfo = ctx.createOscillator();
+    lfo.type = 'sine';
+    lfo.frequency.setValueAtTime(0.5, now);
+    const lfoGain = ctx.createGain();
+    lfoGain.gain.setValueAtTime(150, now);
+    
+    lfo.connect(lfoGain);
+    lfoGain.connect(filter.frequency);
+    lfo.start(now);
+
+    thrillingOsc1.connect(filter);
+    thrillingOsc2.connect(filter);
+    filter.connect(thrillingGain);
+    thrillingGain.connect(ctx.destination);
+
+    thrillingOsc1.start(now);
+    thrillingOsc2.start(now);
+  } catch (e) {
+    console.warn('Could not launch thrilling music:', e);
+  }
+}
+
+export function stopThrillingMusic() {
+  try {
+    if (thrillingOsc1) { thrillingOsc1.stop(); thrillingOsc1 = null; }
+    if (thrillingOsc2) { thrillingOsc2.stop(); thrillingOsc2 = null; }
+    if (thrillingGain) { thrillingGain.disconnect(); thrillingGain = null; }
+  } catch(e) {}
+}
+
+/**
  * Play futuristic menu click
  */
 export function playClick() {

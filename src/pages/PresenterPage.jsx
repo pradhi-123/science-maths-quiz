@@ -555,6 +555,8 @@ export default function PresenterPage({ navigateTo }) {
         triggerWipeTransition={triggerWipeTransition}
         navigateTo={navigateTo}
         toggleFullscreen={toggleFullscreen}
+        handleCompleteRound={handleCompleteRound}
+        triggerManualConfetti={triggerManualConfetti}
       />
     );
   }
