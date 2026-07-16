@@ -930,7 +930,7 @@ export default function LandingPage({ navigateTo }) {
         style={{
           width: '100vw',
           height: '100vh',
-          background: "url('/images/ppt2022/image82.gif') no-repeat center center / 100% 100%",
+          background: "url('/images/backgrounds/spaceship_bg.png') no-repeat center center / cover",
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
