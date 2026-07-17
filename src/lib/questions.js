@@ -343,7 +343,7 @@ const DEFAULT_QUESTIONS = [
 ];
 
 export function getSavedQuestions() {
-  const data = localStorage.getItem('school_quiz_questions_v25');
+  const data = localStorage.getItem('school_quiz_questions_v26');
   let savedList = [];
   if (data) {
     try {
@@ -369,16 +369,16 @@ export function getSavedQuestions() {
       }
       return defaultQ;
     });
-    localStorage.setItem('school_quiz_questions_v25', JSON.stringify(merged));
+    localStorage.setItem('school_quiz_questions_v26', JSON.stringify(merged));
     return merged;
   }
 
   // Initialize with seed
-  localStorage.setItem('school_quiz_questions_v25', JSON.stringify(DEFAULT_QUESTIONS));
+  localStorage.setItem('school_quiz_questions_v26', JSON.stringify(DEFAULT_QUESTIONS));
   return DEFAULT_QUESTIONS;
 }
 
 export function saveQuestions(list) {
-  localStorage.setItem('school_quiz_questions_v25', JSON.stringify(list));
+  localStorage.setItem('school_quiz_questions_v26', JSON.stringify(list));
 }
 export { DEFAULT_QUESTIONS };
