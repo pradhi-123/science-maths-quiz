@@ -270,7 +270,7 @@ const DEFAULT_QUESTIONS = [
     id: "r4-q5",
     video: "/images/untitled_design/ppt/media/VAF_cYsWN1Y.mp4",
     round: 2,
-    text: "If n² = 36. Find n? (Note: 9 is not the answer)",
+    text: "If m³ = 27 and n² = 36\nm + n = ?",
     answer: "m³ = 27, n³ = -36\nAnswer: -3",
     timeLimit: 60,
     keywords: "math, algebra, exponents, cube",
@@ -343,7 +343,7 @@ const DEFAULT_QUESTIONS = [
 ];
 
 export function getSavedQuestions() {
-  const data = localStorage.getItem('school_quiz_questions_v26');
+  const data = localStorage.getItem('school_quiz_questions_v27');
   let savedList = [];
   if (data) {
     try {
@@ -369,16 +369,16 @@ export function getSavedQuestions() {
       }
       return defaultQ;
     });
-    localStorage.setItem('school_quiz_questions_v26', JSON.stringify(merged));
+    localStorage.setItem('school_quiz_questions_v27', JSON.stringify(merged));
     return merged;
   }
 
   // Initialize with seed
-  localStorage.setItem('school_quiz_questions_v26', JSON.stringify(DEFAULT_QUESTIONS));
+  localStorage.setItem('school_quiz_questions_v27', JSON.stringify(DEFAULT_QUESTIONS));
   return DEFAULT_QUESTIONS;
 }
 
 export function saveQuestions(list) {
-  localStorage.setItem('school_quiz_questions_v26', JSON.stringify(list));
+  localStorage.setItem('school_quiz_questions_v27', JSON.stringify(list));
 }
 export { DEFAULT_QUESTIONS };
